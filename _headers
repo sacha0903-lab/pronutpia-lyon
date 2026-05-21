@@ -1,13 +1,6 @@
-# Admin Decap CMS — CSP permissive pour les scripts tiers
-/admin/*
-  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https:; frame-src 'self' https:; worker-src 'self' blob:;
-
 /*
   # Forcer HTTPS et sécuriser les connexions
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
-  # Empêcher l'affichage du site dans une iframe (clickjacking)
-  X-Frame-Options: DENY
 
   # Empêcher le sniffing MIME (téléchargement de fichiers malveillants)
   X-Content-Type-Options: nosniff
@@ -21,5 +14,13 @@
   # Protection XSS (anciens navigateurs)
   X-XSS-Protection: 1; mode=block
 
+  # Empêcher l'affichage du site dans une iframe (clickjacking)
+  X-Frame-Options: SAMEORIGIN
+
   # Content Security Policy — autorise uniquement les ressources légitimes
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://formspree.io; frame-ancestors 'none';
+
+# Admin Decap CMS — règle plus spécifique, appliquée après /* pour l'écraser
+/admin/*
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https:; frame-src 'self' https:; worker-src 'self' blob:;
+  X-Frame-Options: SAMEORIGIN
