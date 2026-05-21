@@ -1,3 +1,7 @@
+# Admin Decap CMS — CSP permissive pour les scripts tiers
+/admin/*
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' https:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https:; frame-src 'self' https:; worker-src 'self' blob:;
+
 /*
   # Forcer HTTPS et sécuriser les connexions
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
