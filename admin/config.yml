@@ -2,8 +2,7 @@ backend:
   name: github
   repo: sacha0903-lab/pronutpia-lyon
   branch: main
-  auth_type: pkce
-  app_id: Ov23li9cF9XItoKE7rAK
+  base_url: https://pronutpia-lyon.vercel.app
 
 # Images uploadées via le CMS
 media_folder: "assets/images/uploads"
