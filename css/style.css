@@ -4,7 +4,6 @@
    Redesign bridal : ivoire · champagne · bordeaux
    ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap');
 
 /* ─── ROOT VARIABLES ─── */
 :root {
@@ -430,6 +429,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   object-fit: cover;
   object-position: center center;
   z-index: 1;
+  filter: brightness(1.18) contrast(1.06) saturate(1.05);
 }
 .hero__bg img {
   width: 100%;
@@ -447,9 +447,9 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   inset: 0;
   background: linear-gradient(
     to top,
-    oklch(10% 0.018 40 / 0.72) 0%,
-    oklch(10% 0.018 40 / 0.36) 40%,
-    oklch(10% 0.018 40 / 0.15) 100%
+    oklch(10% 0.018 40 / 0.52) 0%,
+    oklch(10% 0.018 40 / 0.22) 40%,
+    oklch(10% 0.018 40 / 0.05) 100%
   );
   z-index: 2;
 }

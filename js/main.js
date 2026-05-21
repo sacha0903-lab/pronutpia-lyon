@@ -16,14 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── STICKY HEADER ─── */
   const header = document.getElementById('site-header');
   if (header) {
+    let rafPending = false;
     const handleScroll = () => {
-      if (window.scrollY > 60) {
-        header.classList.remove('is-transparent');
-        header.classList.add('is-scrolled');
-      } else {
-        header.classList.add('is-transparent');
-        header.classList.remove('is-scrolled');
-      }
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        if (window.scrollY > 60) {
+          header.classList.remove('is-transparent');
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.add('is-transparent');
+          header.classList.remove('is-scrolled');
+        }
+        rafPending = false;
+      });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -77,9 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('active');
         const filter = btn.dataset.filter;
 
-        galleryItems.forEach((item, i) => {
+        galleryItems.forEach(item => {
           const match = filter === 'all' || item.dataset.collection === filter;
-          item.style.transition = `opacity 0.4s ${i * 0.02}s ease, transform 0.4s ${i * 0.02}s ease`;
+          item.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
           if (match) {
             item.style.display = '';
             requestAnimationFrame(() => {
@@ -88,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           } else {
             item.style.opacity = '0';
-            item.style.transform = 'scale(0.95)';
+            item.style.transform = 'scale(0.97)';
             setTimeout(() => {
               if (item.dataset.collection !== filter && filter !== 'all') {
                 item.style.display = 'none';
               }
-            }, 420);
+            }, 260);
           }
         });
       });
@@ -236,16 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ─── PARALLAX HERO ─── */
-  const heroBg = document.querySelector('.hero__video') || document.querySelector('.hero__bg img');
-  if (heroBg) {
-    window.addEventListener('scroll', () => {
-      const offset = window.scrollY;
-      if (offset < window.innerHeight) {
-        heroBg.style.transform = `translateY(${offset * 0.25}px)`;
-      }
-    }, { passive: true });
-  }
+  /* ─── PARALLAX HERO (désactivé — remplacé par CSS scale au scroll) ─── */
 
   /* ─── NAVIGATION DROPDOWN KEYBOARD ─── */
   document.querySelectorAll('.nav-item--dropdown').forEach(item => {

@@ -1,6 +1,7 @@
 # Local Netlify folder
 .netlify
 
-# Images — volumineuses, servies via CDN Netlify
-assets/images/
+# Images sources (JPG/PNG) — remplacées par WebP, non versionnées
+assets/images/**/*.jpg
+assets/images/**/*.png
 .vercel
