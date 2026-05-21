@@ -2,7 +2,7 @@ backend:
   name: github
   repo: sacha0903-lab/pronutpia-lyon
   branch: main
-  base_url: https://pronutpia-lyon.vercel.app
+  base_url: https://pronuptia-lyon.vercel.app
 
 # Images uploadées via le CMS
 media_folder: "assets/images/uploads"
