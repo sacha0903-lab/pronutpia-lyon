@@ -1,0 +1,219 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Images uploadées via le CMS
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# Langue de l'interface
+locale: fr
+
+collections:
+
+  # ── Paramètres boutique ──────────────────────────────────────────────────────
+  - name: "parametres"
+    label: "Paramètres boutique"
+    files:
+      - name: "boutique"
+        label: "Infos & horaires"
+        file: "_data/settings.json"
+        format: json
+        fields:
+          - { label: "Nom de la boutique", name: boutique_name, widget: string }
+          - { label: "Accroche (footer)", name: tagline, widget: string }
+          - { label: "Adresse (rue)", name: address, widget: string }
+          - { label: "Ville + code postal", name: city, widget: string }
+          - { label: "Téléphone", name: phone, widget: string }
+          - { label: "Email", name: email, widget: string, required: false }
+          - label: "Horaires"
+            name: hours
+            widget: list
+            fields:
+              - { label: "Jours", name: days, widget: string }
+              - { label: "Horaires", name: hours, widget: string }
+          - { label: "Instagram (lien)", name: instagram, widget: string, required: false }
+          - { label: "Facebook (lien)", name: facebook, widget: string, required: false }
+          - { label: "Pinterest (lien)", name: pinterest, widget: string, required: false }
+
+  # ── Collections de robes ─────────────────────────────────────────────────────
+  - name: "collections"
+    label: "Collections"
+    files:
+
+      - name: "amelie"
+        label: "Collection Amélie"
+        file: "_data/collections/amelie.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: "pronuptia"
+        label: "Pronuptia"
+        file: "_data/collections/pronuptia.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: "libelle"
+        label: "Libelle"
+        file: "_data/collections/libelle.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: "randy-fenoli"
+        label: "Randy Fenoli"
+        file: "_data/collections/randy-fenoli.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: "modeca-courtes"
+        label: "Robes Courtes Modeca"
+        file: "_data/collections/modeca-courtes.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: "modeca-papillon"
+        label: "Modeca + Le Papillon"
+        file: "_data/collections/modeca-papillon.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+
+      - name: "terre-alice"
+        label: "La Terre d'Alice"
+        file: "_data/collections/terre-alice.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Dégradé hero (si pas d'image)", name: hero_gradient, widget: string, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+              - { label: "Couleur placeholder (si pas de photo)", name: placeholder_color, widget: string, required: false }
+
+      - name: "eddy-k"
+        label: "Eddy K"
+        file: "_data/collections/eddy-k.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Dégradé hero (si pas d'image)", name: hero_gradient, widget: string, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+              - { label: "Couleur placeholder (si pas de photo)", name: placeholder_color, widget: string, required: false }
+
+      - name: "justin-alexander"
+        label: "Justin Alexander"
+        file: "_data/collections/justin-alexander.json"
+        format: json
+        fields:
+          - { label: "Titre", name: title, widget: string }
+          - { label: "Description (intro)", name: description, widget: text }
+          - { label: "Meta description (SEO)", name: meta_description, widget: string }
+          - { label: "Image hero", name: hero_image, widget: image, required: false }
+          - { label: "Dégradé hero (si pas d'image)", name: hero_gradient, widget: string, required: false }
+          - { label: "Logo de la marque", name: logo, widget: image, required: false }
+          - label: "Robes"
+            name: dresses
+            widget: list
+            fields:
+              - { label: "Nom", name: name, widget: string }
+              - { label: "Photo principale", name: main_photo, widget: image, required: false }
+              - { label: "Photos supplémentaires", name: additional_photos, widget: list, field: { label: Photo, name: photo, widget: image }, required: false }
+              - { label: "Description", name: description, widget: text, required: false }
+              - { label: "Couleur placeholder (si pas de photo)", name: placeholder_color, widget: string, required: false }

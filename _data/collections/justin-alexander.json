@@ -1,0 +1,83 @@
+{
+  "title": "Justin Alexander",
+  "slug": "justin-alexander",
+  "nav_label": "Justin Alexander",
+  "in_footer": true,
+  "meta_description": "10 robes de mariée Justin Alexander disponibles à Pronuptia Lyon. L'excellence américaine au service de votre jour J.",
+  "description": "Justin Alexander est synonyme d'élégance classique revisitée. Des créations intemporelles aux finitions couture, pour la mariée qui rêve d'une robe à la fois grandiose et raffinée.",
+  "hero_image": "",
+  "hero_gradient": "linear-gradient(145deg,#2a2010,#706040,#a09070)",
+  "logo": "",
+  "dresses": [
+    {
+      "name": "Alexandra",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+    },
+    {
+      "name": "Bianca",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+    },
+    {
+      "name": "Charlotte",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+    },
+    {
+      "name": "Daphné",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+    },
+    {
+      "name": "Éléna",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+    },
+    {
+      "name": "Fiona",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+    },
+    {
+      "name": "Grace",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+    },
+    {
+      "name": "Helena",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+    },
+    {
+      "name": "Isabella",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+    },
+    {
+      "name": "Julia",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+    }
+  ]
+}

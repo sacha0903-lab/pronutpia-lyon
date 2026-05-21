@@ -1,0 +1,125 @@
+{
+  "title": "Modeca + Le Papillon",
+  "slug": "modeca-papillon",
+  "nav_label": "Modeca + Le Papillon",
+  "in_footer": true,
+  "meta_description": "16 robes de mariée Modeca et Le Papillon chez Pronuptia Lyon. Une sélection de robes romantiques et féminines pour votre mariage.",
+  "description": "L'alliance de Modeca et Le Papillon réunit deux visions complémentaires de la robe de mariée. Entre modernité structurée et romantisme délicat, cette collection offre le plus large choix de la boutique.",
+  "hero_image": "/assets/images/modeca/mavie.jpg",
+  "hero_gradient": "",
+  "logo": "/assets/images/logos/modeca.png",
+  "dresses": [
+    {
+      "name": "Lisa",
+      "main_photo": "/assets/images/modeca/lisa.jpg",
+      "additional_photos": ["/assets/images/modeca/lisa-2.jpg", "/assets/images/modeca/lisa-3.jpg", "/assets/images/modeca/lisa-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Lilith",
+      "main_photo": "/assets/images/modeca/lilith.jpg",
+      "additional_photos": ["/assets/images/modeca/lilith-2.jpg", "/assets/images/modeca/lilith-3.jpg", "/assets/images/modeca/lilith-4.jpg", "/assets/images/modeca/lilith-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Luna",
+      "main_photo": "/assets/images/modeca/luna.jpg",
+      "additional_photos": ["/assets/images/modeca/luna-2.jpg", "/assets/images/modeca/luna-3.jpg", "/assets/images/modeca/luna-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Mackenzie",
+      "main_photo": "/assets/images/modeca/mackenzie.jpg",
+      "additional_photos": ["/assets/images/modeca/mackenzie-2.jpg", "/assets/images/modeca/mackenzie-3.jpg", "/assets/images/modeca/mackenzie-4.jpg", "/assets/images/modeca/mackenzie-5.jpg"],
+      "description": "Cette robe de mariée en tulle et dentelle perlée incarne l'élégance et la féminité avec une touche de sensualité raffinée. Son bustier délicatement travaillé en dentelle florale brodée met en valeur un profond décolleté en V, la silhouette grâce à des broderies florales et des perles scintillantes qui captent subtilement la lumière. Le décolleté plongeant apporte du caractère tout en restant sophistiqué. La jupe fluide en tulle léger crée un mouvement aérien et romantique, tandis que la fente dévoile délicatement la jambe pour une allure moderne et glamour. Chaque détail de cette création évoque le raffinement, la grâce et la délicatesse — idéale pour une mariée audacieuse souhaitant conjuguer modernité, romantisme et élégance.",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Manon",
+      "main_photo": "/assets/images/modeca/manon.jpg",
+      "additional_photos": ["/assets/images/modeca/manon-2.jpg", "/assets/images/modeca/manon-3.jpg", "/assets/images/modeca/manon-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Marienne",
+      "main_photo": "/assets/images/modeca/marienne.jpg",
+      "additional_photos": ["/assets/images/modeca/marienne-2.jpg", "/assets/images/modeca/marienne-3.jpg", "/assets/images/modeca/marienne-4.jpg", "/assets/images/modeca/marienne-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Mariette",
+      "main_photo": "/assets/images/modeca/mariette.jpg",
+      "additional_photos": ["/assets/images/modeca/mariette-2.jpg", "/assets/images/modeca/mariette-3.jpg", "/assets/images/modeca/mariette-4.jpg", "/assets/images/modeca/mariette-5.jpg", "/assets/images/modeca/mariette-6.jpg"],
+      "description": "La robe de mariée MARIETTE est une robe fourreau en crêpe raffinée au style résolument moderne. Son décolleté en V plongeant est encadré de dentelle florale perlée qui habille également le corset, créant un effet de transparence sensuelle sur le buste et les hanches. Le bas de la robe s'évase en une jupe fluide en crêpe ivoire lisse, légère et élégante. Le dos est ouvert avec de fines bretelles, prolongeant les motifs de dentelle. La traîne semi-longue en tulle, ornée de délicates broderies florales, apporte une touche romantique. Un équilibre parfait entre sophistication contemporaine et grâce classique.",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Maurisse",
+      "main_photo": "/assets/images/modeca/maurisse.jpg",
+      "additional_photos": ["/assets/images/modeca/maurisse-2.jpg", "/assets/images/modeca/maurisse-3.jpg", "/assets/images/modeca/maurisse-4.jpg", "/assets/images/modeca/maurisse-5.jpg"],
+      "description": "La robe de mariée MAURISSE allie élégance minimaliste et détails précieux. Le corps principal est réalisé en crêpe ivoire lisse et épuré, offrant une silhouette fluide et sculptée. La particularité réside dans son dos nu profond, agrémenté d'appliques florales en dentelle 3D disposées délicatement le long de la colonne vertébrale. La traîne cathédrale en tulle se distingue par de superbes motifs floraux en dentelle, contrastant subtilement avec la simplicité du corps. Portée avec un voile assorti, la robe dégage une élégance intemporelle, mêlant modernité et romantisme dans un cadre architectural méditerranéen.",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Mavie",
+      "main_photo": "/assets/images/modeca/mavie.jpg",
+      "additional_photos": ["/assets/images/modeca/mavie-2.jpg", "/assets/images/modeca/mavie-3.jpg", "/assets/images/modeca/mavie-4.jpg", "/assets/images/modeca/mavie-5.jpg", "/assets/images/modeca/mavie-6.jpg", "/assets/images/modeca/mavie-7.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Melindra",
+      "main_photo": "/assets/images/modeca/melindra.jpg",
+      "additional_photos": ["/assets/images/modeca/melindra-2.jpg", "/assets/images/modeca/melindra-3.jpg", "/assets/images/modeca/melindra-4.jpg", "/assets/images/modeca/melindra-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Milanka",
+      "main_photo": "/assets/images/modeca/milanka.jpg",
+      "additional_photos": ["/assets/images/modeca/milanka-2.jpg", "/assets/images/modeca/milanka-3.jpg", "/assets/images/modeca/milanka-4.jpg", "/assets/images/modeca/milanka-5.jpg", "/assets/images/modeca/milanka-6.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Milaya",
+      "main_photo": "/assets/images/modeca/milaya.jpg",
+      "additional_photos": ["/assets/images/modeca/milaya-2.jpg", "/assets/images/modeca/milaya-3.jpg", "/assets/images/modeca/milaya-4.jpg", "/assets/images/modeca/milaya-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Morwen",
+      "main_photo": "/assets/images/modeca/morwen.jpg",
+      "additional_photos": ["/assets/images/modeca/morwen-2.jpg", "/assets/images/modeca/morwen-3.jpg", "/assets/images/modeca/morwen-4.jpg", "/assets/images/modeca/morwen-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Moyra",
+      "main_photo": "/assets/images/modeca/moyra.jpg",
+      "additional_photos": ["/assets/images/modeca/moyra-2.jpg", "/assets/images/modeca/moyra-3.jpg", "/assets/images/modeca/moyra-4.jpg", "/assets/images/modeca/moyra-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Myrthe",
+      "main_photo": "/assets/images/modeca/myrthe.jpg",
+      "additional_photos": ["/assets/images/modeca/myrthe-2.jpg", "/assets/images/modeca/myrthe-3.jpg", "/assets/images/modeca/myrthe-4.jpg", "/assets/images/modeca/myrthe-5.jpg", "/assets/images/modeca/myrthe-6.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Mystique",
+      "main_photo": "/assets/images/modeca/mystique.jpg",
+      "additional_photos": ["/assets/images/modeca/mystique-2.jpg", "/assets/images/modeca/mystique-3.jpg", "/assets/images/modeca/mystique-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    }
+  ]
+}

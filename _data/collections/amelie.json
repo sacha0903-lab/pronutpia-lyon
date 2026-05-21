@@ -1,0 +1,146 @@
+{
+  "title": "Collection Amélie",
+  "slug": "amelie",
+  "nav_label": "Collection Amélie",
+  "in_footer": true,
+  "meta_description": "19 robes de mariée de la Collection Amélie disponibles à Pronuptia Lyon. Robes élégantes et romantiques pour votre mariage à Lyon.",
+  "description": "Collection Amélie incarne la mariée moderne et raffinée. Des coupes sculpturales, des tissus nobles et une attention portée aux détails qui font de chaque modèle une œuvre à part entière.",
+  "hero_image": "/assets/images/amelie/46036.jpg",
+  "hero_gradient": "",
+  "logo": "/assets/images/logos/amelie.png",
+  "dresses": [
+    {
+      "name": "16013",
+      "main_photo": "/assets/images/amelie/16013.jpg",
+      "additional_photos": ["/assets/images/amelie/16013-2.jpg", "/assets/images/amelie/16013-3.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "16016",
+      "main_photo": "/assets/images/amelie/16016.jpg",
+      "additional_photos": ["/assets/images/amelie/16016-2.jpg", "/assets/images/amelie/16016-3.jpg", "/assets/images/amelie/16016-4.jpg", "/assets/images/amelie/16016-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "26005",
+      "main_photo": "/assets/images/amelie/26005.jpg",
+      "additional_photos": ["/assets/images/amelie/26005-2.jpg", "/assets/images/amelie/26005-3.jpg", "/assets/images/amelie/26005-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "26009",
+      "main_photo": "/assets/images/amelie/26009.jpg",
+      "additional_photos": ["/assets/images/amelie/26009-2.jpg", "/assets/images/amelie/26009-3.jpg", "/assets/images/amelie/26009-4.jpg", "/assets/images/amelie/26009-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "26015U",
+      "main_photo": "/assets/images/amelie/26015u.jpg",
+      "additional_photos": ["/assets/images/amelie/26015u-2.jpg", "/assets/images/amelie/26015u-3.jpg", "/assets/images/amelie/26015u-4.jpg", "/assets/images/amelie/26015u-5.jpg", "/assets/images/amelie/26015u-6.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "26028",
+      "main_photo": "/assets/images/amelie/26028.jpg",
+      "additional_photos": ["/assets/images/amelie/26028-2.jpg", "/assets/images/amelie/26028-3.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "30166",
+      "main_photo": "/assets/images/amelie/30166.jpg",
+      "additional_photos": ["/assets/images/amelie/30166-2.jpg", "/assets/images/amelie/30166-3.jpg", "/assets/images/amelie/30166-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "36002",
+      "main_photo": "/assets/images/amelie/36002.jpg",
+      "additional_photos": ["/assets/images/amelie/36002-2.jpg", "/assets/images/amelie/36002-3.jpg", "/assets/images/amelie/36002-4.jpg", "/assets/images/amelie/36002-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "36004",
+      "main_photo": "/assets/images/amelie/36004.jpg",
+      "additional_photos": ["/assets/images/amelie/36004-2.jpg", "/assets/images/amelie/36004-3.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "36010U",
+      "main_photo": "/assets/images/amelie/36010u.jpg",
+      "additional_photos": ["/assets/images/amelie/36010u-2.jpg", "/assets/images/amelie/36010u-3.jpg", "/assets/images/amelie/36010u-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "36018",
+      "main_photo": "/assets/images/amelie/36018.jpg",
+      "additional_photos": ["/assets/images/amelie/36018-2.jpg", "/assets/images/amelie/36018-3.jpg", "/assets/images/amelie/36018-4.jpg", "/assets/images/amelie/36018-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "36020",
+      "main_photo": "/assets/images/amelie/36020.jpg",
+      "additional_photos": ["/assets/images/amelie/36020-2.jpg", "/assets/images/amelie/36020-3.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "36024",
+      "main_photo": "/assets/images/amelie/36024.jpg",
+      "additional_photos": ["/assets/images/amelie/36024-2.jpg", "/assets/images/amelie/36024-3.jpg", "/assets/images/amelie/36024-4.jpg", "/assets/images/amelie/36024-5.jpg", "/assets/images/amelie/36024-6.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "36033",
+      "main_photo": "/assets/images/amelie/36033.jpg",
+      "additional_photos": ["/assets/images/amelie/36033-2.jpg", "/assets/images/amelie/36033-3.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "46002",
+      "main_photo": "/assets/images/amelie/46002.jpg",
+      "additional_photos": ["/assets/images/amelie/46002-2.jpg", "/assets/images/amelie/46002-3.jpg", "/assets/images/amelie/46002-4.jpg", "/assets/images/amelie/46002-5.jpg", "/assets/images/amelie/46002-6.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "46003",
+      "main_photo": "/assets/images/amelie/46003.jpg",
+      "additional_photos": ["/assets/images/amelie/46003-2.jpg", "/assets/images/amelie/46003-3.jpg", "/assets/images/amelie/46003-4.jpg", "/assets/images/amelie/46003-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "46022",
+      "main_photo": "/assets/images/amelie/46022.jpg",
+      "additional_photos": ["/assets/images/amelie/46022-2.jpg", "/assets/images/amelie/46022-3.jpg", "/assets/images/amelie/46022-4.jpg", "/assets/images/amelie/46022-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "46031",
+      "main_photo": "/assets/images/amelie/46031.jpg",
+      "additional_photos": ["/assets/images/amelie/46031-2.jpg", "/assets/images/amelie/46031-3.jpg", "/assets/images/amelie/46031-4.jpg", "/assets/images/amelie/46031-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "46036",
+      "main_photo": "/assets/images/amelie/46036.jpg",
+      "additional_photos": ["/assets/images/amelie/46036-2.jpg", "/assets/images/amelie/46036-3.jpg", "/assets/images/amelie/46036-4.jpg", "/assets/images/amelie/46036-5.jpg", "/assets/images/amelie/46036-6.jpg", "/assets/images/amelie/46036-7.jpg", "/assets/images/amelie/46036-8.jpg", "/assets/images/amelie/46036-9.jpg", "/assets/images/amelie/46036-10.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    }
+  ]
+}

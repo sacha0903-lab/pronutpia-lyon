@@ -1,0 +1,5 @@
+# Local Netlify folder
+.netlify
+
+# Images — volumineuses, servies via CDN Netlify
+assets/images/

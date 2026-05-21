@@ -1,0 +1,55 @@
+{
+  "title": "Libelle",
+  "slug": "libelle",
+  "nav_label": "Libelle",
+  "in_footer": true,
+  "meta_description": "6 robes de mariée Libelle disponibles à Pronuptia Lyon. Des créations contemporaines et raffinées pour la mariée moderne.",
+  "description": "Libelle signe des robes délicatement structurées, où la légèreté du tulle rencontre la précision de la coupe. Une collection pour la mariée poétique et romantique.",
+  "hero_image": "/assets/images/libelle/oasis.jpg",
+  "hero_gradient": "",
+  "logo": "",
+  "dresses": [
+    {
+      "name": "Oasis",
+      "main_photo": "/assets/images/libelle/oasis.jpg",
+      "additional_photos": ["/assets/images/libelle/oasis-2.jpg", "/assets/images/libelle/oasis-3.jpg", "/assets/images/libelle/oasis-4.jpg", "/assets/images/libelle/oasis-5.jpg", "/assets/images/libelle/oasis-6.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Ocean",
+      "main_photo": "/assets/images/libelle/ocean.jpg",
+      "additional_photos": ["/assets/images/libelle/ocean-2.jpg", "/assets/images/libelle/ocean-3.jpg", "/assets/images/libelle/ocean-4.jpg", "/assets/images/libelle/ocean-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Olympia",
+      "main_photo": "/assets/images/libelle/olympia.jpg",
+      "additional_photos": ["/assets/images/libelle/olympia-2.jpg", "/assets/images/libelle/olympia-3.jpg", "/assets/images/libelle/olympia-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Omi",
+      "main_photo": "/assets/images/libelle/omi.jpg",
+      "additional_photos": ["/assets/images/libelle/omi-2.jpg", "/assets/images/libelle/omi-3.jpg", "/assets/images/libelle/omi-4.jpg", "/assets/images/libelle/omi-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Peace",
+      "main_photo": "/assets/images/libelle/peace.jpg",
+      "additional_photos": ["/assets/images/libelle/peace-2.jpg", "/assets/images/libelle/peace-3.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Posie",
+      "main_photo": "/assets/images/libelle/posie.jpg",
+      "additional_photos": ["/assets/images/libelle/posie-2.jpg", "/assets/images/libelle/posie-3.jpg", "/assets/images/libelle/posie-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    }
+  ]
+}

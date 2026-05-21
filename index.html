@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pronuptia Lyon — Boutique robes de mariée au cœur du 2ème arrondissement. Découvrez nos 67 modèles signés par les plus grands créateurs : Amélie, Justin Alexander, Randy Fenoli, Eddy K, Libelle, Modeca et bien d'autres.">
+  <title>Pronuptia Lyon — Robes de Mariée</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://pronuptia-lyon.fr/">
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp…) -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://pronuptia-lyon.fr/">
+  <meta property="og:title"       content="Pronuptia Lyon — Robes de Mariée">
+  <meta property="og:description" content="Boutique robes de mariée au cœur du 2ème arrondissement de Lyon. 67 modèles signés Amélie, Justin Alexander, Randy Fenoli, Eddy K, Libelle, Modeca et plus.">
+  <meta property="og:image"       content="https://pronuptia-lyon.fr/assets/images/og-cover.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Pronuptia Lyon">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Pronuptia Lyon — Robes de Mariée">
+  <meta name="twitter:description" content="Boutique robes de mariée à Lyon. 67 modèles signés par les plus grands créateurs.">
+  <meta name="twitter:image"       content="https://pronuptia-lyon.fr/assets/images/og-cover.jpg">
+
+  <!-- JSON-LD : Fiche établissement (Google Maps, SEO local) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Pronuptia Lyon",
+    "description": "Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon, avec plus de 67 modèles des plus grandes collections.",
+    "url": "https://pronuptia-lyon.fr",
+    "telephone": "+33478371258",
+    "email": "contact@pronuptia-lyon.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "9 rue des Remparts d'Ainay",
+      "addressLocality": "Lyon",
+      "postalCode": "69002",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.7517,
+      "longitude": 4.8259
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "18:30" }
+    ],
+    "priceRange": "€€€",
+    "image": "https://pronuptia-lyon.fr/assets/images/og-cover.jpg",
+    "sameAs": []
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ═══ LOADER ═══ -->
+  <div id="page-loader">
+    <div class="loader-logo">Pronuptia <em>Lyon</em></div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header is-transparent" id="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="site-logo">
+        <img src="assets/images/logos/pronuptia.png?v=3" alt="Pronuptia" class="site-logo__img">
+        <span class="logo-sub">Lyon</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link active">Accueil</a>
+        <div class="nav-item--dropdown">
+          <a href="galerie.html" class="nav-link">Collections</a>
+          <div class="nav-dropdown">
+            <a href="collections/amelie.html">Collection Amélie <span class="dd-count">19 robes</span></a>
+            <a href="collections/pronuptia.html">Pronuptia <span class="dd-count">6 robes</span></a>
+            <a href="collections/libelle.html">Libelle <span class="dd-count">6 robes</span></a>
+            <a href="collections/randy-fenoli.html">Randy Fenoli <span class="dd-count">3 robes</span></a>
+            <a href="collections/modeca-courtes.html">Robes Courtes Modeca <span class="dd-count">3 robes</span></a>
+            <a href="collections/modeca-papillon.html">Modeca + Le Papillon <span class="dd-count">16 robes</span></a>
+            <a href="collections/eddy-k.html">Eddy K <span class="dd-count">3 robes</span></a>
+            <a href="collections/justin-alexander.html">Justin Alexander <span class="dd-count">10 robes</span></a>
+          </div>
+        </div>
+        <a href="galerie.html" class="nav-link">Galerie</a>
+        <a href="#coups-de-coeur" class="nav-link">Coups de cœur</a>
+        <a href="a-propos.html" class="nav-link">À Propos</a>
+        <a href="rendez-vous.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-rdv">
+        <a href="rendez-vous.html" class="btn-rdv">Prendre RDV</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MOBILE MENU ═══ -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Collections</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="#coups-de-coeur">Coups de cœur</a>
+      <a href="a-propos.html">À Propos</a>
+      <a href="rendez-vous.html">Contact</a>
+    </nav>
+    <a href="rendez-vous.html" class="mobile-rdv">Prendre rendez-vous</a>
+    <p class="mobile-contact">04 78 37 12 58<br>9 rue des Remparts d'Ainay, Lyon 2ème</p>
+  </div>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" aria-label="Accueil Pronuptia Lyon">
+      <div class="hero__bg">
+        <!-- Fallback gradient si vidéo non chargée -->
+        <div class="hero__bg-fallback"></div>
+        <!-- Vidéo background -->
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="none"
+          aria-hidden="true"
+        >
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__deco"></div>
+
+      <div class="hero__content">
+        <h1 class="hero__title">
+          À Lyon, vivez<br>
+          <em>l'essayage</em><br>
+          dont vous rêvez
+        </h1>
+        <div class="hero__actions">
+          <a href="galerie.html" class="btn btn--outline"><span>Explorer la galerie</span></a>
+          <a href="rendez-vous.html" class="btn btn--gold"><span>Prendre rendez-vous</span></a>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint">Défiler</div>
+    </section>
+
+    <!-- ═══ INTRO ═══ -->
+    <section class="section-intro">
+      <div class="container--narrow">
+        <div class="divider-ornament reveal">
+          <span></span>
+        </div>
+        <span class="eyebrow reveal">Bienvenue</span>
+        <h2 class="reveal">Un écrin dédié à la mariée d'exception</h2>
+        <p class="reveal reveal-d1">
+          Nichée au cœur du 2ème arrondissement de Lyon, notre boutique Pronuptia vous ouvre les portes d'un univers de beauté et d'élégance. Depuis plus de vingt ans, nous accompagnons les futures mariées vers la robe de leurs rêves, avec passion et bienveillance.
+        </p>
+        <a href="a-propos.html" class="btn btn--ghost reveal reveal-d2"><span>Découvrir notre histoire</span></a>
+      </div>
+    </section>
+
+    <!-- ═══ STATS ═══ -->
+    <section class="section-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-num"><span data-count="61">0</span></div>
+            <div class="stat-label">Robes en boutique</div>
+          </div>
+          <div class="stat-item reveal reveal-d1">
+            <div class="stat-num"><span data-count="8">0</span></div>
+            <div class="stat-label">Créateurs exclusifs</div>
+          </div>
+          <div class="stat-item reveal reveal-d2">
+            <div class="stat-num"><span data-count="20">0</span><em>+</em></div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+          <div class="stat-item reveal reveal-d3">
+            <div class="stat-num"><span data-count="300">0</span><em>m²</em></div>
+            <div class="stat-label">D'espace dédié</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COLLECTIONS ═══ -->
+    <section class="section-collections" id="collections">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow reveal">Nos créateurs</span>
+            <h2 class="reveal">Explorez nos collections</h2>
+          </div>
+          <a href="galerie.html" class="btn btn--ghost reveal"><span>Voir toutes les robes</span></a>
+        </div>
+
+        <div class="collections-grid">
+
+          <!-- Amélie — Grande carte -->
+          <a href="collections/amelie.html" class="collection-card reveal">
+            <div class="collection-card__bg"><img src="assets/images/amelie/46036.jpg" alt="Collection Amélie"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">19 robes</div>
+              <div class="collection-card__name">Collection<br>Amélie</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+          <!-- Justin Alexander -->
+          <a href="collections/justin-alexander.html" class="collection-card reveal reveal-d1">
+            <div class="collection-card__bg"><img src="assets/images/amelie/36024.jpg" alt="Justin Alexander" style="object-position: center 35%;"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">10 robes</div>
+              <div class="collection-card__name">Justin<br>Alexander</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+          <!-- Modeca + Papillon -->
+          <a href="collections/modeca-papillon.html" class="collection-card reveal reveal-d2">
+            <div class="collection-card__bg"><img src="assets/images/modeca/maurisse.jpg" alt="Modeca + Le Papillon"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">16 robes</div>
+              <div class="collection-card__name">Modeca +<br>Le Papillon</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+          <!-- Pronuptia -->
+          <a href="collections/pronuptia.html" class="collection-card reveal reveal-d1">
+            <div class="collection-card__bg"><img src="assets/images/pronuptia/fiorenza.jpg" alt="Pronuptia"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">6 robes</div>
+              <div class="collection-card__name">Pronuptia</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+          <!-- Libelle -->
+          <a href="collections/libelle.html" class="collection-card reveal reveal-d2">
+            <div class="collection-card__bg"><img src="assets/images/libelle/oasis.jpg" alt="Libelle"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">6 robes</div>
+              <div class="collection-card__name">Libelle</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+          <!-- Randy Fenoli -->
+          <a href="collections/randy-fenoli.html" class="collection-card reveal">
+            <div class="collection-card__bg"><img src="assets/images/randy-fenoli/lissette.jpg" alt="Randy Fenoli"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">3 robes</div>
+              <div class="collection-card__name">Randy Fenoli</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+          <!-- Modeca Courtes -->
+          <a href="collections/modeca-courtes.html" class="collection-card reveal reveal-d1">
+            <div class="collection-card__bg"><img src="assets/images/modeca-courtes/olisa.jpg" alt="Robes Courtes Modeca"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">3 robes</div>
+              <div class="collection-card__name">Robes Courtes<br>Modeca</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+
+          <!-- Eddy K -->
+          <a href="collections/eddy-k.html" class="collection-card reveal reveal-d3">
+            <div class="collection-card__bg"><img src="assets/images/randy-fenoli/lorena.jpg" alt="Eddy K"></div>
+            <div class="collection-card__overlay"></div>
+            <div class="collection-card__body">
+              <div class="collection-card__count">3 robes</div>
+              <div class="collection-card__name">Eddy K</div>
+              <div class="collection-card__cta">Découvrir</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURED DRESSES ═══ -->
+    <section class="section-featured" id="coups-de-coeur">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="eyebrow">Sélection de la boutique</span>
+          <h2>Nos coups de cœur</h2>
+        </div>
+
+        <div class="featured-grid">
+
+          <!-- Robe 1 -->
+          <div class="dress-card reveal reveal-d1" data-lightbox data-brand="Collection Amélie" data-name="46036" data-full="assets/images/amelie/46036.jpg">
+            <div class="dress-card__img-wrap">
+              <img src="assets/images/amelie/46036.jpg" alt="46036 — Collection Amélie" loading="lazy">
+              <div class="dress-card__overlay">
+                <div class="dress-card__overlay-txt">Agrandir</div>
+              </div>
+            </div>
+            <div class="dress-card__info">
+              <div class="dress-card__brand">Collection Amélie</div>
+              <div class="dress-card__name">46036</div>
+            </div>
+          </div>
+
+          <!-- Robe 2 -->
+          <div class="dress-card reveal reveal-d2" data-lightbox data-brand="Pronuptia" data-name="Florence" data-full="assets/images/pronuptia/florence.jpg">
+            <div class="dress-card__img-wrap">
+              <img src="assets/images/pronuptia/florence.jpg" alt="Florence — Pronuptia" loading="lazy">
+              <div class="dress-card__overlay">
+                <div class="dress-card__overlay-txt">Agrandir</div>
+              </div>
+            </div>
+            <div class="dress-card__info">
+              <div class="dress-card__brand">Pronuptia</div>
+              <div class="dress-card__name">Florence</div>
+            </div>
+          </div>
+
+          <!-- Robe 3 -->
+          <div class="dress-card reveal reveal-d3" data-lightbox data-brand="Randy Fenoli" data-name="Lissette" data-full="assets/images/randy-fenoli/lissette.jpg">
+            <div class="dress-card__img-wrap">
+              <img src="assets/images/randy-fenoli/lissette.jpg" alt="Lissette — Randy Fenoli" loading="lazy">
+              <div class="dress-card__overlay">
+                <div class="dress-card__overlay-txt">Agrandir</div>
+              </div>
+            </div>
+            <div class="dress-card__info">
+              <div class="dress-card__brand">Randy Fenoli</div>
+              <div class="dress-card__name">Lissette</div>
+            </div>
+          </div>
+
+          <!-- Robe 4 -->
+          <div class="dress-card reveal reveal-d4" data-lightbox data-brand="Libelle" data-name="Olympia" data-full="assets/images/libelle/olympia.jpg">
+            <div class="dress-card__img-wrap">
+              <img src="assets/images/libelle/olympia.jpg" alt="Olympia — Libelle" loading="lazy">
+              <div class="dress-card__overlay">
+                <div class="dress-card__overlay-txt">Agrandir</div>
+              </div>
+            </div>
+            <div class="dress-card__info">
+              <div class="dress-card__brand">Libelle</div>
+              <div class="dress-card__name">Olympia</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center" style="margin-top:50px;">
+          <a href="galerie.html" class="btn btn--dark reveal"><span>Voir toutes les robes</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT SPLIT ═══ -->
+    <section class="section-about">
+      <div class="about-visual">
+        <img src="assets/images/pronuptia/florence.jpg" alt="Boutique Pronuptia Lyon" style="object-position:center 20%;">
+      </div>
+      <div class="about-text">
+        <span class="eyebrow reveal">Notre histoire</span>
+        <h2 class="reveal">Passion, élégance &amp; savoir-faire</h2>
+        <p class="reveal reveal-d1">
+          Depuis plus de vingt ans, Pronuptia Lyon accompagne les futures mariées dans l'une des décisions les plus précieuses de leur vie. Nichée rue des Remparts d'Ainay, notre boutique est un espace intime et chaleureux, pensé pour que chaque consultation devienne un souvenir inoubliable.
+        </p>
+        <p class="reveal reveal-d2">
+          Notre équipe de consultantes passionnées met à votre service son expertise et son sens du détail, avec une seule ambition : vous aider à trouver la robe qui vous ressemble.
+        </p>
+        <a href="a-propos.html" class="btn btn--outline reveal reveal-d3"><span>En savoir plus</span></a>
+      </div>
+    </section>
+
+    <!-- ═══ BRANDS STRIP ═══ -->
+    <section class="section-brands">
+      <div class="container">
+        <div class="text-center reveal" style="margin-bottom:40px;">
+          <span class="eyebrow" style="color:var(--c-taupe);">Nos créateurs partenaires</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:48px 64px;">
+          <a href="collections/amelie.html" class="brand-logo-item reveal"><img src="assets/images/logos/amelie.png" alt="Collection Amélie"></a>
+          <a href="collections/pronuptia.html" class="brand-logo-item reveal reveal-d1"><img src="assets/images/logos/pronuptia.png?v=3" alt="Pronuptia"></a>
+          <a href="collections/randy-fenoli.html" class="brand-logo-item reveal reveal-d2"><img src="assets/images/logos/randy-fenoli.png" alt="Randy Fenoli"></a>
+          <a href="collections/modeca-papillon.html" class="brand-logo-item reveal reveal-d3"><img src="assets/images/logos/modeca.png" alt="Modeca + Le Papillon"></a>
+          <a href="collections/justin-alexander.html" class="brand-logo-item brand-logo-item--text reveal reveal-d1">Justin Alexander</a>
+          <a href="collections/libelle.html" class="brand-logo-item brand-logo-item--text reveal reveal-d2">Libelle</a>
+          <a href="collections/eddy-k.html" class="brand-logo-item brand-logo-item--text reveal reveal-d1">Eddy K</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section-cta">
+      <div class="container">
+        <span class="eyebrow">Votre robe vous attend</span>
+        <h2>Prenez rendez-vous<br><em>à la boutique</em></h2>
+        <p>
+          Une consultation personnalisée dans un espace privatif. Entourée de vos proches, guidée par une consultante dédiée. Vivez l'expérience Pronuptia Lyon.
+        </p>
+        <a href="rendez-vous.html" class="btn btn--outline"><span>Réserver ma séance</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+
+          <!-- Brand -->
+          <div class="footer-brand">
+            <div class="footer-brand-logo">
+              <span class="logo-main" style="font-size:1.5rem;">Pronuptia</span>
+              <div class="logo-divider" style="margin:5px 0;"></div>
+              <span class="logo-sub">Lyon</span>
+            </div>
+            <p class="footer-tagline">
+              Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon. Venez vivre l'expérience Pronuptia.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="Instagram">ig</a>
+              <a href="#" aria-label="Facebook">fb</a>
+              <a href="#" aria-label="Pinterest">pt</a>
+            </div>
+          </div>
+
+          <!-- Collections -->
+          <div>
+            <div class="footer-col-title">Collections</div>
+            <div class="footer-col-links">
+              <a href="collections/amelie.html">Collection Amélie</a>
+              <a href="collections/pronuptia.html">Pronuptia</a>
+              <a href="collections/justin-alexander.html">Justin Alexander</a>
+              <a href="collections/randy-fenoli.html">Randy Fenoli</a>
+              <a href="collections/libelle.html">Libelle</a>
+              <a href="collections/modeca-papillon.html">Modeca + Le Papillon</a>
+              <a href="collections/eddy-k.html">Eddy K</a>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div>
+            <div class="footer-col-title">La boutique</div>
+            <div class="footer-col-links">
+              <a href="index.html">Accueil</a>
+              <a href="galerie.html">Galerie</a>
+              <a href="a-propos.html">À Propos</a>
+              <a href="rendez-vous.html">Prendre rendez-vous</a>
+              <a href="rendez-vous.html">Contact</a>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <div class="footer-col-title">Nous trouver</div>
+            <div class="footer-contact-items">
+              <div class="footer-contact-item">
+                <div class="fci-icon">📍</div>
+                <div class="fci-text">
+                  <strong>Adresse</strong>
+                  9 rue des Remparts d'Ainay<br>69002 Lyon
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">📞</div>
+                <div class="fci-text">
+                  <strong>Téléphone</strong>
+                  04 78 37 12 58
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">✉</div>
+                <div class="fci-text">
+                  <strong>Email</strong>
+                  contact@pronuptia-lyon.fr
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">🕐</div>
+                <div class="fci-text">
+                  <strong>Horaires</strong>
+                  <div class="hours-list">
+                    <div class="hours-row"><span class="day">Mar – Ven</span><span>10h – 19h</span></div>
+                    <div class="hours-row"><span class="day">Samedi</span><span>10h – 18h30</span></div>
+                    <div class="hours-row"><span class="day">Dim – Lun</span><span>Fermé</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">© 2025 Pronuptia Lyon — Tous droits réservés</p>
+          <div class="footer-legal">
+            <a href="#">Mentions légales</a>
+            <a href="#">Politique de confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse">
+    <button class="lightbox-close" id="lb-close" aria-label="Fermer">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Précédent">‹</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Suivant">›</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+    <div class="lightbox-caption">
+      <span class="brand" id="lb-brand"></span>
+      <span class="name" id="lb-name"></span>
+      <p class="lightbox-description" id="lb-description"></p>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=2"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

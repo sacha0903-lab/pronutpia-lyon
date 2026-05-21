@@ -1,0 +1,34 @@
+{
+  "title": "Randy Fenoli",
+  "slug": "randy-fenoli",
+  "nav_label": "Randy Fenoli",
+  "in_footer": true,
+  "meta_description": "3 robes Randy Fenoli disponibles à Pronuptia Lyon. Les créations du célèbre styliste américain, entre glamour et sophistication.",
+  "description": "Randy Fenoli, star mondiale de l'univers bridal, crée des robes spectaculaires pensées pour sublimer chaque silhouette. Glamour, audace et féminité à chaque modèle.",
+  "hero_image": "/assets/images/randy-fenoli/lexington.jpg",
+  "hero_gradient": "",
+  "logo": "/assets/images/logos/randy-fenoli.png",
+  "dresses": [
+    {
+      "name": "Lexington",
+      "main_photo": "/assets/images/randy-fenoli/lexington.jpg",
+      "additional_photos": ["/assets/images/randy-fenoli/lexington-2.jpg", "/assets/images/randy-fenoli/lexington-3.jpg", "/assets/images/randy-fenoli/lexington-4.jpg", "/assets/images/randy-fenoli/lexington-5.jpg", "/assets/images/randy-fenoli/lexington-6.jpg", "/assets/images/randy-fenoli/lexington-7.jpg", "/assets/images/randy-fenoli/lexington-8.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Lissette",
+      "main_photo": "/assets/images/randy-fenoli/lissette.jpg",
+      "additional_photos": ["/assets/images/randy-fenoli/lissette-2.jpg", "/assets/images/randy-fenoli/lissette-3.jpg", "/assets/images/randy-fenoli/lissette-4.jpg", "/assets/images/randy-fenoli/lissette-5.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Lorena",
+      "main_photo": "/assets/images/randy-fenoli/lorena.jpg",
+      "additional_photos": ["/assets/images/randy-fenoli/lorena-2.jpg", "/assets/images/randy-fenoli/lorena-3.jpg", "/assets/images/randy-fenoli/lorena-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    }
+  ]
+}

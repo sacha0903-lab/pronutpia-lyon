@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pronuptia Lyon — Galerie complète de nos 61 robes de mariée. Filtrez par collection : Amélie, Justin Alexander, Randy Fenoli, Eddy K, Libelle, Modeca et plus.">
+  <title>Galerie — Pronuptia Lyon</title>
+  <link rel="canonical" href="https://pronuptia-lyon.fr/galerie.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://pronuptia-lyon.fr/galerie.html">
+  <meta property="og:title"       content="Galerie Robes de Mariée — Pronuptia Lyon">
+  <meta property="og:description" content="Découvrez notre galerie complète de robes de mariée. Plus de 60 modèles par Amélie, Justin Alexander, Randy Fenoli, Eddy K, Libelle et Modeca.">
+  <meta property="og:image"       content="https://pronuptia-lyon.fr/assets/images/og-cover.jpg">
+  <meta property="og:locale"      content="fr_FR">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Page hero ─────────────────────────────── */
+    .page-hero {
+      position: relative;
+      min-height: 48vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 70px;
+      overflow: hidden;
+      background: var(--c-dark);
+    }
+    .page-hero__bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #0f0e17 0%, #1c0d14 35%, #281018 60%, #0f0e17 100%);
+    }
+    .page-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 65% 45%, rgba(196,168,130,0.09) 0%, transparent 55%),
+                  radial-gradient(ellipse at 30% 75%, rgba(107,26,40,0.18) 0%, transparent 50%);
+    }
+    .page-hero__content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .page-hero__content .container {
+      padding-top: 140px;
+    }
+    .page-hero .eyebrow { color: var(--c-gold); opacity: 0.85; }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      color: var(--c-ivory);
+      line-height: 1.05;
+      margin: 12px 0 0;
+    }
+    .page-hero__deco {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,168,130,0.3), transparent);
+    }
+
+    /* ── Gallery section ───────────────────────── */
+    .gallery-section {
+      background: var(--c-ivory);
+      padding: 80px 0 100px;
+    }
+
+    /* Filter bar */
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(196,168,130,0.2);
+    }
+    .filter-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a8078;
+      background: transparent;
+      border: 1px solid rgba(196,168,130,0.25);
+      padding: 9px 20px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .filter-btn:hover {
+      color: var(--c-dark);
+      border-color: var(--c-gold);
+      background: rgba(196,168,130,0.06);
+    }
+    .filter-btn.is-active {
+      color: var(--c-ivory);
+      background: var(--c-burgundy);
+      border-color: var(--c-burgundy);
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      cursor: pointer;
+      background: #e8e0d4;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .gallery-item.is-hidden {
+      display: none;
+    }
+    .gallery-item__hover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,14,23,0.75) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+    .gallery-item:hover .gallery-item__hover {
+      opacity: 1;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+    .gallery-item__caption {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .gallery-item__caption .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+    }
+    .gallery-item__caption .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--c-ivory);
+    }
+    .dress-icon-svg {
+      width: 55px;
+      height: auto;
+      color: currentColor;
+    }
+
+    /* Count */
+    .gallery-count {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #8a8078;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .gallery-count strong {
+      color: var(--c-dark);
+    }
+
+    /* Empty state */
+    .gallery-empty {
+      display: none;
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: #b0a898;
+      font-style: italic;
+    }
+
+    @media (max-width: 1100px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .gallery-filters { gap: 7px; }
+      .filter-btn { font-size: 0.62rem; padding: 8px 14px; }
+    }
+    @media (max-width: 420px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ LOADER ═══ -->
+  <div id="page-loader">
+    <div class="loader-logo">Pronuptia <em>Lyon</em></div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header is-transparent" id="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="site-logo">
+        <img src="assets/images/logos/pronuptia.png?v=3" alt="Pronuptia" class="site-logo__img">
+        <span class="logo-sub">Lyon</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <div class="nav-item--dropdown">
+          <a href="galerie.html" class="nav-link active">Collections</a>
+          <div class="nav-dropdown">
+            <a href="collections/amelie.html">Collection Amélie <span class="dd-count">19 robes</span></a>
+            <a href="collections/pronuptia.html">Pronuptia <span class="dd-count">6 robes</span></a>
+            <a href="collections/libelle.html">Libelle <span class="dd-count">6 robes</span></a>
+            <a href="collections/randy-fenoli.html">Randy Fenoli <span class="dd-count">3 robes</span></a>
+            <a href="collections/modeca-courtes.html">Robes Courtes Modeca <span class="dd-count">3 robes</span></a>
+            <a href="collections/modeca-papillon.html">Modeca + Le Papillon <span class="dd-count">16 robes</span></a>
+            <a href="collections/eddy-k.html">Eddy K <span class="dd-count">3 robes</span></a>
+            <a href="collections/justin-alexander.html">Justin Alexander <span class="dd-count">10 robes</span></a>
+          </div>
+        </div>
+        <a href="galerie.html" class="nav-link active">Galerie</a>
+        <a href="a-propos.html" class="nav-link">À Propos</a>
+        <a href="rendez-vous.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-rdv">
+        <a href="rendez-vous.html" class="btn-rdv">Prendre RDV</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MOBILE MENU ═══ -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Collections</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="a-propos.html">À Propos</a>
+      <a href="rendez-vous.html">Contact</a>
+    </nav>
+    <a href="rendez-vous.html" class="mobile-rdv">Prendre rendez-vous</a>
+    <p class="mobile-contact">04 78 37 12 58<br>9 rue des Remparts d'Ainay, Lyon 2ème</p>
+  </div>
+
+  <main>
+
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero" aria-label="Galerie Pronuptia Lyon">
+      <div class="page-hero__bg"></div>
+      <div class="page-hero__content">
+        <div class="container">
+          <span class="eyebrow reveal">61 robes</span>
+          <h1 class="reveal reveal-d1">Notre <em>Galerie</em></h1>
+        </div>
+      </div>
+      <div class="page-hero__deco"></div>
+    </section>
+
+    <!-- ═══ GALLERY SECTION ═══ -->
+    <section class="gallery-section">
+      <div class="container">
+
+        <!-- Filters -->
+        <div class="gallery-filters" id="gallery-filters" role="group" aria-label="Filtrer par collection">
+          <button class="filter-btn is-active" data-filter="all">Toutes les robes <em style="font-style:normal;opacity:0.6;">(61)</em></button>
+          <button class="filter-btn" data-filter="amelie">Collection Amélie <em style="font-style:normal;opacity:0.6;">(19)</em></button>
+          <button class="filter-btn" data-filter="pronuptia">Pronuptia <em style="font-style:normal;opacity:0.6;">(6)</em></button>
+          <button class="filter-btn" data-filter="libelle">Libelle <em style="font-style:normal;opacity:0.6;">(6)</em></button>
+          <button class="filter-btn" data-filter="randy-fenoli">Randy Fenoli <em style="font-style:normal;opacity:0.6;">(3)</em></button>
+          <button class="filter-btn" data-filter="modeca-courtes">Robes Courtes Modeca <em style="font-style:normal;opacity:0.6;">(3)</em></button>
+          <button class="filter-btn" data-filter="modeca-papillon">Modeca + Le Papillon <em style="font-style:normal;opacity:0.6;">(16)</em></button>
+                  <button class="filter-btn" data-filter="eddy-k">Eddy K <em style="font-style:normal;opacity:0.6;">(3)</em></button>
+          <button class="filter-btn" data-filter="justin-alexander">Justin Alexander <em style="font-style:normal;opacity:0.6;">(10)</em></button>
+        </div>
+
+        <!-- Count -->
+        <p class="gallery-count" id="gallery-count"><strong>61</strong> robes affichées</p>
+
+        <!-- Grid -->
+        <div class="gallery-grid" id="gallery-grid">
+
+          <!-- ══ AMÉLIE — 19 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="16013" data-photos="assets/images/amelie/16013-2.jpg,assets/images/amelie/16013-3.jpg" data-full="assets/images/amelie/16013.jpg">
+            <img src="assets/images/amelie/16013.jpg" alt="16013 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">16013</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="16016" data-photos="assets/images/amelie/16016-2.jpg,assets/images/amelie/16016-3.jpg,assets/images/amelie/16016-4.jpg,assets/images/amelie/16016-5.jpg" data-full="assets/images/amelie/16016.jpg">
+            <img src="assets/images/amelie/16016.jpg" alt="16016 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">16016</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="26005" data-photos="assets/images/amelie/26005-2.jpg,assets/images/amelie/26005-3.jpg,assets/images/amelie/26005-4.jpg" data-full="assets/images/amelie/26005.jpg">
+            <img src="assets/images/amelie/26005.jpg" alt="26005 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">26005</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="26009" data-photos="assets/images/amelie/26009-2.jpg,assets/images/amelie/26009-3.jpg,assets/images/amelie/26009-4.jpg,assets/images/amelie/26009-5.jpg" data-full="assets/images/amelie/26009.jpg">
+            <img src="assets/images/amelie/26009.jpg" alt="26009 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">26009</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="26015u" data-full="assets/images/amelie/26015u.jpg">
+            <img src="assets/images/amelie/26015u.jpg" alt="26015u — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">26015u</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="26028" data-photos="assets/images/amelie/26028-2.jpg,assets/images/amelie/26028-3.jpg" data-full="assets/images/amelie/26028.jpg">
+            <img src="assets/images/amelie/26028.jpg" alt="26028 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">26028</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="30166" data-photos="assets/images/amelie/30166-2.jpg,assets/images/amelie/30166-3.jpg,assets/images/amelie/30166-4.jpg" data-full="assets/images/amelie/30166.jpg">
+            <img src="assets/images/amelie/30166.jpg" alt="30166 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">30166</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="36002" data-photos="assets/images/amelie/36002-2.jpg,assets/images/amelie/36002-3.jpg,assets/images/amelie/36002-4.jpg,assets/images/amelie/36002-5.jpg" data-full="assets/images/amelie/36002.jpg">
+            <img src="assets/images/amelie/36002.jpg" alt="36002 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">36002</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="36004" data-photos="assets/images/amelie/36004-2.jpg,assets/images/amelie/36004-3.jpg" data-full="assets/images/amelie/36004.jpg">
+            <img src="assets/images/amelie/36004.jpg" alt="36004 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">36004</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="36010u" data-full="assets/images/amelie/36010u.jpg">
+            <img src="assets/images/amelie/36010u.jpg" alt="36010u — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">36010u</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="36018" data-photos="assets/images/amelie/36018-2.jpg,assets/images/amelie/36018-3.jpg,assets/images/amelie/36018-4.jpg,assets/images/amelie/36018-5.jpg" data-full="assets/images/amelie/36018.jpg">
+            <img src="assets/images/amelie/36018.jpg" alt="36018 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">36018</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="36020" data-photos="assets/images/amelie/36020-2.jpg,assets/images/amelie/36020-3.jpg" data-full="assets/images/amelie/36020.jpg">
+            <img src="assets/images/amelie/36020.jpg" alt="36020 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">36020</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="36024" data-photos="assets/images/amelie/36024-2.jpg,assets/images/amelie/36024-3.jpg,assets/images/amelie/36024-4.jpg,assets/images/amelie/36024-5.jpg,assets/images/amelie/36024-6.jpg" data-full="assets/images/amelie/36024.jpg">
+            <img src="assets/images/amelie/36024.jpg" alt="36024 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">36024</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="36033" data-photos="assets/images/amelie/36033-2.jpg,assets/images/amelie/36033-3.jpg" data-full="assets/images/amelie/36033.jpg">
+            <img src="assets/images/amelie/36033.jpg" alt="36033 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">36033</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="46002" data-photos="assets/images/amelie/46002-2.jpg,assets/images/amelie/46002-3.jpg,assets/images/amelie/46002-4.jpg,assets/images/amelie/46002-5.jpg,assets/images/amelie/46002-6.jpg" data-full="assets/images/amelie/46002.jpg">
+            <img src="assets/images/amelie/46002.jpg" alt="46002 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">46002</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="46003" data-photos="assets/images/amelie/46003-2.jpg,assets/images/amelie/46003-3.jpg,assets/images/amelie/46003-4.jpg,assets/images/amelie/46003-5.jpg" data-full="assets/images/amelie/46003.jpg">
+            <img src="assets/images/amelie/46003.jpg" alt="46003 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">46003</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="46022" data-photos="assets/images/amelie/46022-2.jpg,assets/images/amelie/46022-3.jpg,assets/images/amelie/46022-4.jpg,assets/images/amelie/46022-5.jpg" data-full="assets/images/amelie/46022.jpg">
+            <img src="assets/images/amelie/46022.jpg" alt="46022 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">46022</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="46031" data-photos="assets/images/amelie/46031-2.jpg,assets/images/amelie/46031-3.jpg,assets/images/amelie/46031-4.jpg,assets/images/amelie/46031-5.jpg" data-full="assets/images/amelie/46031.jpg">
+            <img src="assets/images/amelie/46031.jpg" alt="46031 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">46031</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="amelie" data-brand="Collection Amélie" data-name="46036" data-photos="assets/images/amelie/46036-2.jpg,assets/images/amelie/46036-3.jpg,assets/images/amelie/46036-4.jpg,assets/images/amelie/46036-5.jpg,assets/images/amelie/46036-6.jpg,assets/images/amelie/46036-7.jpg,assets/images/amelie/46036-8.jpg,assets/images/amelie/46036-9.jpg,assets/images/amelie/46036-10.jpg" data-full="assets/images/amelie/46036.jpg">
+            <img src="assets/images/amelie/46036.jpg" alt="46036 — Collection Amélie" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Collection Amélie</span><span class="name">46036</span></div></div>
+          </div>
+
+
+          <!-- ══ PRONUPTIA — 6 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="pronuptia" data-brand="Pronuptia" data-name="Fallon" data-photos="assets/images/pronuptia/fallon-2.jpg" data-full="assets/images/pronuptia/fallon.jpg">
+            <img src="assets/images/pronuptia/fallon.jpg" alt="Fallon — Pronuptia" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Pronuptia</span><span class="name">Fallon</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="pronuptia" data-brand="Pronuptia" data-name="Farida" data-photos="assets/images/pronuptia/farida-2.jpg" data-full="assets/images/pronuptia/farida.jpg">
+            <img src="assets/images/pronuptia/farida.jpg" alt="Farida — Pronuptia" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Pronuptia</span><span class="name">Farida</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="pronuptia" data-brand="Pronuptia" data-name="Filipine" data-photos="assets/images/pronuptia/filipine-2.jpg" data-full="assets/images/pronuptia/filipine.jpg">
+            <img src="assets/images/pronuptia/filipine.jpg" alt="Filipine — Pronuptia" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Pronuptia</span><span class="name">Filipine</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="pronuptia" data-brand="Pronuptia" data-name="Fiona" data-photos="assets/images/pronuptia/fiona-2.jpg" data-full="assets/images/pronuptia/fiona.jpg">
+            <img src="assets/images/pronuptia/fiona.jpg" alt="Fiona — Pronuptia" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Pronuptia</span><span class="name">Fiona</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="pronuptia" data-brand="Pronuptia" data-name="Fiorenza" data-photos="assets/images/pronuptia/fiorenza-2.jpg" data-full="assets/images/pronuptia/fiorenza.jpg">
+            <img src="assets/images/pronuptia/fiorenza.jpg" alt="Fiorenza — Pronuptia" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Pronuptia</span><span class="name">Fiorenza</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="pronuptia" data-brand="Pronuptia" data-name="Florence" data-photos="assets/images/pronuptia/florence-2.jpg" data-full="assets/images/pronuptia/florence.jpg">
+            <img src="assets/images/pronuptia/florence.jpg" alt="Florence — Pronuptia" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Pronuptia</span><span class="name">Florence</span></div></div>
+          </div>
+
+
+          <!-- ══ LIBELLÉ — 6 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="libelle" data-brand="Libelle" data-name="Oasis" data-photos="assets/images/libelle/oasis-2.jpg,assets/images/libelle/oasis-3.jpg,assets/images/libelle/oasis-4.jpg,assets/images/libelle/oasis-5.jpg,assets/images/libelle/oasis-6.jpg" data-full="assets/images/libelle/oasis.jpg">
+            <img src="assets/images/libelle/oasis.jpg" alt="Oasis — Libelle" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Libelle</span><span class="name">Oasis</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="libelle" data-brand="Libelle" data-name="Ocean" data-photos="assets/images/libelle/ocean-2.jpg,assets/images/libelle/ocean-3.jpg,assets/images/libelle/ocean-4.jpg,assets/images/libelle/ocean-5.jpg" data-full="assets/images/libelle/ocean.jpg">
+            <img src="assets/images/libelle/ocean.jpg" alt="Ocean — Libelle" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Libelle</span><span class="name">Ocean</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="libelle" data-brand="Libelle" data-name="Olympia" data-photos="assets/images/libelle/olympia-2.jpg,assets/images/libelle/olympia-3.jpg,assets/images/libelle/olympia-4.jpg" data-full="assets/images/libelle/olympia.jpg">
+            <img src="assets/images/libelle/olympia.jpg" alt="Olympia — Libelle" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Libelle</span><span class="name">Olympia</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="libelle" data-brand="Libelle" data-name="Omi" data-photos="assets/images/libelle/omi-2.jpg,assets/images/libelle/omi-3.jpg,assets/images/libelle/omi-4.jpg,assets/images/libelle/omi-5.jpg" data-full="assets/images/libelle/omi.jpg">
+            <img src="assets/images/libelle/omi.jpg" alt="Omi — Libelle" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Libelle</span><span class="name">Omi</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="libelle" data-brand="Libelle" data-name="Peace" data-photos="assets/images/libelle/peace-2.jpg,assets/images/libelle/peace-3.jpg" data-full="assets/images/libelle/peace.jpg">
+            <img src="assets/images/libelle/peace.jpg" alt="Peace — Libelle" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Libelle</span><span class="name">Peace</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="libelle" data-brand="Libelle" data-name="Posie" data-photos="assets/images/libelle/posie-2.jpg,assets/images/libelle/posie-3.jpg,assets/images/libelle/posie-4.jpg" data-full="assets/images/libelle/posie.jpg">
+            <img src="assets/images/libelle/posie.jpg" alt="Posie — Libelle" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Libelle</span><span class="name">Posie</span></div></div>
+          </div>
+
+
+          <!-- ══ RANDY FENOLI — 3 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="randy-fenoli" data-brand="Randy Fenoli" data-name="Lexington" data-photos="assets/images/randy-fenoli/lexington-2.jpg,assets/images/randy-fenoli/lexington-3.jpg,assets/images/randy-fenoli/lexington-4.jpg,assets/images/randy-fenoli/lexington-5.jpg,assets/images/randy-fenoli/lexington-6.jpg,assets/images/randy-fenoli/lexington-7.jpg,assets/images/randy-fenoli/lexington-8.jpg" data-full="assets/images/randy-fenoli/lexington.jpg">
+            <img src="assets/images/randy-fenoli/lexington.jpg" alt="Lexington — Randy Fenoli" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Randy Fenoli</span><span class="name">Lexington</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="randy-fenoli" data-brand="Randy Fenoli" data-name="Lissette" data-photos="assets/images/randy-fenoli/lissette-2.jpg,assets/images/randy-fenoli/lissette-3.jpg,assets/images/randy-fenoli/lissette-4.jpg,assets/images/randy-fenoli/lissette-5.jpg" data-full="assets/images/randy-fenoli/lissette.jpg">
+            <img src="assets/images/randy-fenoli/lissette.jpg" alt="Lissette — Randy Fenoli" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Randy Fenoli</span><span class="name">Lissette</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="randy-fenoli" data-brand="Randy Fenoli" data-name="Lorena" data-photos="assets/images/randy-fenoli/lorena-2.jpg,assets/images/randy-fenoli/lorena-3.jpg,assets/images/randy-fenoli/lorena-4.jpg" data-full="assets/images/randy-fenoli/lorena.jpg">
+            <img src="assets/images/randy-fenoli/lorena.jpg" alt="Lorena — Randy Fenoli" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Randy Fenoli</span><span class="name">Lorena</span></div></div>
+          </div>
+
+
+          <!-- ══ MODECA COURTES — 3 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="modeca-courtes" data-brand="Robes Courtes Modeca" data-name="Odrie" data-photos="assets/images/modeca-courtes/odrie-2.jpg,assets/images/modeca-courtes/odrie-3.jpg,assets/images/modeca-courtes/odrie-4.jpg" data-full="assets/images/modeca-courtes/odrie.jpg">
+            <img src="assets/images/modeca-courtes/odrie.jpg" alt="Odrie — Robes Courtes Modeca" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Robes Courtes Modeca</span><span class="name">Odrie</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-courtes" data-brand="Robes Courtes Modeca" data-name="Olea" data-photos="assets/images/modeca-courtes/olea-2.jpg,assets/images/modeca-courtes/olea-3.jpg" data-full="assets/images/modeca-courtes/olea.jpg">
+            <img src="assets/images/modeca-courtes/olea.jpg" alt="Olea — Robes Courtes Modeca" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Robes Courtes Modeca</span><span class="name">Olea</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-courtes" data-brand="Robes Courtes Modeca" data-name="Olisa" data-photos="assets/images/modeca-courtes/olisa-2.jpg,assets/images/modeca-courtes/olisa-3.jpg,assets/images/modeca-courtes/olisa-4.jpg" data-full="assets/images/modeca-courtes/olisa.jpg">
+            <img src="assets/images/modeca-courtes/olisa.jpg" alt="Olisa — Robes Courtes Modeca" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Robes Courtes Modeca</span><span class="name">Olisa</span></div></div>
+          </div>
+
+
+          <!-- ══ MODECA PAPILLON — 16 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Lisa" data-photos="assets/images/modeca/lisa-2.jpg,assets/images/modeca/lisa-3.jpg,assets/images/modeca/lisa-4.jpg" data-full="assets/images/modeca/lisa.jpg">
+            <img src="assets/images/modeca/lisa.jpg" alt="Lisa — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Lisa</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Lilith" data-photos="assets/images/modeca/lilith-2.jpg,assets/images/modeca/lilith-3.jpg,assets/images/modeca/lilith-4.jpg,assets/images/modeca/lilith-5.jpg" data-full="assets/images/modeca/lilith.jpg">
+            <img src="assets/images/modeca/lilith.jpg" alt="Lilith — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Lilith</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Luna" data-photos="assets/images/modeca/luna-2.jpg,assets/images/modeca/luna-3.jpg,assets/images/modeca/luna-4.jpg" data-full="assets/images/modeca/luna.jpg">
+            <img src="assets/images/modeca/luna.jpg" alt="Luna — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Luna</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Mackenzie" data-description="Cette robe de mariée en tulle et dentelle perlée incarne l&#39;élégance et la féminité avec une touche de sensualité raffinée. Son bustier délicatement travaillé en dentelle florale brodée met en valeur un profond décolleté en V, la silhouette grâce à des broderies florales et des perles scintillantes qui captent subtilement la lumière. Le décolleté plongeant apporte du caractère tout en restant sophistiqué. La jupe fluide en tulle léger crée un mouvement aérien et romantique, tandis que la fente dévoile délicatement la jambe pour une allure moderne et glamour. Chaque détail de cette création évoque le raffinement, la grâce et la délicatesse — idéale pour une mariée audacieuse souhaitant conjuguer modernité, romantisme et élégance." data-photos="assets/images/modeca/mackenzie-2.jpg,assets/images/modeca/mackenzie-3.jpg,assets/images/modeca/mackenzie-4.jpg,assets/images/modeca/mackenzie-5.jpg" data-full="assets/images/modeca/mackenzie.jpg">
+            <img src="assets/images/modeca/mackenzie.jpg" alt="Mackenzie — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Mackenzie</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Manon" data-photos="assets/images/modeca/manon-2.jpg,assets/images/modeca/manon-3.jpg,assets/images/modeca/manon-4.jpg" data-full="assets/images/modeca/manon.jpg">
+            <img src="assets/images/modeca/manon.jpg" alt="Manon — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Manon</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Marienne" data-photos="assets/images/modeca/marienne-2.jpg,assets/images/modeca/marienne-3.jpg,assets/images/modeca/marienne-4.jpg,assets/images/modeca/marienne-5.jpg" data-full="assets/images/modeca/marienne.jpg">
+            <img src="assets/images/modeca/marienne.jpg" alt="Marienne — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Marienne</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Mariette" data-description="La robe de mariée MARIETTE est une robe fourreau en crêpe raffinée au style résolument moderne. Son décolleté en V plongeant est encadré de dentelle florale perlée qui habille également le corset, créant un effet de transparence sensuelle sur le buste et les hanches. Le bas de la robe s&#39;évase en une jupe fluide en crêpe ivoire lisse, légère et élégante. Le dos est ouvert avec de fines bretelles, prolongeant les motifs de dentelle. La traîne semi-longue en tulle, ornée de délicates broderies florales, apporte une touche romantique. Un équilibre parfait entre sophistication contemporaine et grâce classique." data-photos="assets/images/modeca/mariette-2.jpg,assets/images/modeca/mariette-3.jpg,assets/images/modeca/mariette-4.jpg,assets/images/modeca/mariette-5.jpg,assets/images/modeca/mariette-6.jpg" data-full="assets/images/modeca/mariette.jpg">
+            <img src="assets/images/modeca/mariette.jpg" alt="Mariette — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Mariette</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Maurisse" data-description="La robe de mariée MAURISSE allie élégance minimaliste et détails précieux. Le corps principal est réalisé en crêpe ivoire lisse et épuré, offrant une silhouette fluide et sculptée. La particularité réside dans son dos nu profond, agrémenté d&#39;appliques florales en dentelle 3D disposées délicatement le long de la colonne vertébrale. La traîne cathédrale en tulle se distingue par de superbes motifs floraux en dentelle, contrastant subtilement avec la simplicité du corps. Portée avec un voile assorti, la robe dégage une élégance intemporelle, mêlant modernité et romantisme dans un cadre architectural méditerranéen." data-photos="assets/images/modeca/maurisse-2.jpg,assets/images/modeca/maurisse-3.jpg,assets/images/modeca/maurisse-4.jpg,assets/images/modeca/maurisse-5.jpg" data-full="assets/images/modeca/maurisse.jpg">
+            <img src="assets/images/modeca/maurisse.jpg" alt="Maurisse — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Maurisse</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Mavie" data-photos="assets/images/modeca/mavie-2.jpg,assets/images/modeca/mavie-3.jpg,assets/images/modeca/mavie-4.jpg,assets/images/modeca/mavie-5.jpg,assets/images/modeca/mavie-6.jpg,assets/images/modeca/mavie-7.jpg" data-full="assets/images/modeca/mavie.jpg">
+            <img src="assets/images/modeca/mavie.jpg" alt="Mavie — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Mavie</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Melindra" data-photos="assets/images/modeca/melindra-2.jpg,assets/images/modeca/melindra-3.jpg,assets/images/modeca/melindra-4.jpg,assets/images/modeca/melindra-5.jpg" data-full="assets/images/modeca/melindra.jpg">
+            <img src="assets/images/modeca/melindra.jpg" alt="Melindra — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Melindra</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Milanka" data-photos="assets/images/modeca/milanka-2.jpg,assets/images/modeca/milanka-3.jpg,assets/images/modeca/milanka-4.jpg,assets/images/modeca/milanka-5.jpg,assets/images/modeca/milanka-6.jpg" data-full="assets/images/modeca/milanka.jpg">
+            <img src="assets/images/modeca/milanka.jpg" alt="Milanka — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Milanka</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Milaya" data-photos="assets/images/modeca/milaya-2.jpg,assets/images/modeca/milaya-3.jpg,assets/images/modeca/milaya-4.jpg,assets/images/modeca/milaya-5.jpg" data-full="assets/images/modeca/milaya.jpg">
+            <img src="assets/images/modeca/milaya.jpg" alt="Milaya — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Milaya</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Morwen" data-photos="assets/images/modeca/morwen-2.jpg,assets/images/modeca/morwen-3.jpg,assets/images/modeca/morwen-4.jpg,assets/images/modeca/morwen-5.jpg" data-full="assets/images/modeca/morwen.jpg">
+            <img src="assets/images/modeca/morwen.jpg" alt="Morwen — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Morwen</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Moyra" data-photos="assets/images/modeca/moyra-2.jpg,assets/images/modeca/moyra-3.jpg,assets/images/modeca/moyra-4.jpg,assets/images/modeca/moyra-5.jpg" data-full="assets/images/modeca/moyra.jpg">
+            <img src="assets/images/modeca/moyra.jpg" alt="Moyra — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Moyra</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Myrthe" data-photos="assets/images/modeca/myrthe-2.jpg,assets/images/modeca/myrthe-3.jpg,assets/images/modeca/myrthe-4.jpg,assets/images/modeca/myrthe-5.jpg,assets/images/modeca/myrthe-6.jpg" data-full="assets/images/modeca/myrthe.jpg">
+            <img src="assets/images/modeca/myrthe.jpg" alt="Myrthe — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Myrthe</span></div></div>
+          </div>
+          <div class="gallery-item" data-lightbox data-collection="modeca-papillon" data-brand="Modeca + Le Papillon" data-name="Mystique" data-photos="assets/images/modeca/mystique-2.jpg,assets/images/modeca/mystique-3.jpg,assets/images/modeca/mystique-4.jpg" data-full="assets/images/modeca/mystique.jpg">
+            <img src="assets/images/modeca/mystique.jpg" alt="Mystique — Modeca + Le Papillon" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Modeca + Le Papillon</span><span class="name">Mystique</span></div></div>
+          </div>
+
+          <!-- ══ EDDY K — 3 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="eddy-k" data-brand="Eddy K" data-name="Modèle Nuit" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#383838,#585858);display:flex;align-items:center;justify-content:center;color:rgba(200,185,165,0.4);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Eddy K</span><span class="name">Modèle Nuit</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="eddy-k" data-brand="Eddy K" data-name="Modèle Ombre" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(155deg,#484848,#282828);display:flex;align-items:center;justify-content:center;color:rgba(200,185,165,0.4);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Eddy K</span><span class="name">Modèle Ombre</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="eddy-k" data-brand="Eddy K" data-name="Modèle Minuit" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#505050,#303030);display:flex;align-items:center;justify-content:center;color:rgba(200,185,165,0.4);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Eddy K</span><span class="name">Modèle Minuit</span></div></div>
+          </div>
+
+          <!-- ══ JUSTIN ALEXANDER — 10 robes ══ -->
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9900" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#c0b8a8,#a09888);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9900</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9902" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(150deg,#cac0b0,#aaa090);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9902</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9904" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#b8b0a0,#989080);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9904</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9906" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#d0c8b8,#b0a898);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9906</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9908" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#c4bca8,#a4a088);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9908</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9910" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(155deg,#c8c0b0,#a8a090);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9910</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9912" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#beb6a8,#9e9888);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9912</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9914" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#d4ccbc,#b4ac9c);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9914</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9916" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#c2baa8,#a29888);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9916</span></div></div>
+          </div>
+
+          <div class="gallery-item" data-lightbox data-collection="justin-alexander" data-brand="Justin Alexander" data-name="Signature 9918" data-full="">
+            <div style="width:100%;height:100%;background:linear-gradient(145deg,#ccc4b4,#aca49a);display:flex;align-items:center;justify-content:center;color:rgba(195,185,165,0.5);">
+              <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/><path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/><path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/></svg>
+            </div>
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">Justin Alexander</span><span class="name">Signature 9918</span></div></div>
+          </div>
+
+          <!-- Empty state -->
+          <p class="gallery-empty" id="gallery-empty">Aucune robe dans cette collection pour le moment.</p>
+
+        </div><!-- /gallery-grid -->
+
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section-cta">
+      <div class="container">
+        <span class="eyebrow">Votre robe vous attend</span>
+        <h2>Prenez rendez-vous<br><em>à la boutique</em></h2>
+        <p>
+          Venez essayer vos modèles préférés dans un espace privatif, entourée de vos proches et guidée par une consultante dédiée.
+        </p>
+        <a href="rendez-vous.html" class="btn btn--outline"><span>Réserver ma séance</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-brand-logo">
+              <span class="logo-main" style="font-size:1.5rem;">Pronuptia</span>
+              <div class="logo-divider" style="margin:5px 0;"></div>
+              <span class="logo-sub">Lyon</span>
+            </div>
+            <p class="footer-tagline">Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon. Venez vivre l'expérience Pronuptia.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Instagram">ig</a>
+              <a href="#" aria-label="Facebook">fb</a>
+              <a href="#" aria-label="Pinterest">pt</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Collections</div>
+            <div class="footer-col-links">
+              <a href="collections/amelie.html">Collection Amélie</a>
+              <a href="collections/pronuptia.html">Pronuptia</a>
+              <a href="collections/justin-alexander.html">Justin Alexander</a>
+              <a href="collections/randy-fenoli.html">Randy Fenoli</a>
+              <a href="collections/libelle.html">Libelle</a>
+              <a href="collections/modeca-papillon.html">Modeca + Le Papillon</a>
+                      <a href="collections/eddy-k.html">Eddy K</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">La boutique</div>
+            <div class="footer-col-links">
+              <a href="index.html">Accueil</a>
+              <a href="galerie.html">Galerie</a>
+              <a href="a-propos.html">À Propos</a>
+              <a href="rendez-vous.html">Prendre rendez-vous</a>
+              <a href="rendez-vous.html">Contact</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Nous trouver</div>
+            <div class="footer-contact-items">
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text"><strong>Adresse</strong>9 rue des Remparts d'Ainay<br>69002 Lyon</div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text"><strong>Téléphone</strong>04 78 37 12 58</div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text"><strong>Email</strong>contact@pronuptia-lyon.fr</div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text">
+                  <strong>Horaires</strong>
+                  <div class="hours-list" style="margin-top:6px;">
+                    <div class="hours-row"><span class="day">Mar – Ven</span><span>10h – 19h</span></div>
+                    <div class="hours-row"><span class="day">Samedi</span><span>10h – 18h30</span></div>
+                    <div class="hours-row"><span class="day">Dim – Lun</span><span>Fermé</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">© 2025 Pronuptia Lyon — Tous droits réservés</p>
+          <div class="footer-legal">
+            <a href="#">Mentions légales</a>
+            <a href="#">Politique de confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse">
+    <button class="lightbox-close" id="lb-close" aria-label="Fermer">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Précédent">‹</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Suivant">›</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+    <div class="lightbox-caption">
+      <span class="brand" id="lb-brand"></span>
+      <span class="name" id="lb-name"></span>
+      <p class="lightbox-description" id="lb-description"></p>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=2"></script>
+
+  <script>
+    // Gallery filter logic
+    (function () {
+      const filters = document.querySelectorAll('.filter-btn');
+      const items   = document.querySelectorAll('.gallery-item');
+      const countEl = document.getElementById('gallery-count');
+      const emptyEl = document.getElementById('gallery-empty');
+
+      filters.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const filter = btn.dataset.filter;
+
+          // Update active state
+          filters.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+
+          // Show/hide items
+          let visible = 0;
+          items.forEach(function (item) {
+            if (filter === 'all' || item.dataset.collection === filter) {
+              item.classList.remove('is-hidden');
+              visible++;
+            } else {
+              item.classList.add('is-hidden');
+            }
+          });
+
+          // Update count
+          countEl.innerHTML = '<strong>' + visible + '</strong> robe' + (visible > 1 ? 's' : '') + ' affichée' + (visible > 1 ? 's' : '');
+          emptyEl.style.display = visible === 0 ? 'block' : 'none';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

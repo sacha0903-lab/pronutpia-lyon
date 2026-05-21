@@ -1,0 +1,34 @@
+{
+  "title": "Robes Courtes Modeca",
+  "slug": "modeca-courtes",
+  "nav_label": "Robes Courtes Modeca",
+  "in_footer": false,
+  "meta_description": "3 robes courtes Modeca chez Pronuptia Lyon. Des robes de mariée courtes élégantes pour un mariage civil ou champêtre.",
+  "description": "Pour la mariée qui choisit l'élégance libre et contemporaine, Modeca propose une sélection de robes courtes au style épuré. Parfaites pour un mariage civil ou une soirée de rêve.",
+  "hero_image": "/assets/images/modeca-courtes/olisa.jpg",
+  "hero_gradient": "",
+  "logo": "/assets/images/logos/modeca.png",
+  "dresses": [
+    {
+      "name": "Odrie",
+      "main_photo": "/assets/images/modeca-courtes/odrie.jpg",
+      "additional_photos": ["/assets/images/modeca-courtes/odrie-2.jpg", "/assets/images/modeca-courtes/odrie-3.jpg", "/assets/images/modeca-courtes/odrie-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Olea",
+      "main_photo": "/assets/images/modeca-courtes/olea.jpg",
+      "additional_photos": ["/assets/images/modeca-courtes/olea-2.jpg", "/assets/images/modeca-courtes/olea-3.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Olisa",
+      "main_photo": "/assets/images/modeca-courtes/olisa.jpg",
+      "additional_photos": ["/assets/images/modeca-courtes/olisa-2.jpg", "/assets/images/modeca-courtes/olisa-3.jpg", "/assets/images/modeca-courtes/olisa-4.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    }
+  ]
+}

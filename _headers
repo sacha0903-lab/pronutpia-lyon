@@ -1,0 +1,21 @@
+/*
+  # Forcer HTTPS et sécuriser les connexions
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Empêcher l'affichage du site dans une iframe (clickjacking)
+  X-Frame-Options: DENY
+
+  # Empêcher le sniffing MIME (téléchargement de fichiers malveillants)
+  X-Content-Type-Options: nosniff
+
+  # Contrôler les infos de référent envoyées aux sites tiers
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Désactiver les fonctionnalités navigateur non utilisées
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Protection XSS (anciens navigateurs)
+  X-XSS-Protection: 1; mode=block
+
+  # Content Security Policy — autorise uniquement les ressources légitimes
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://formspree.io; frame-ancestors 'none';

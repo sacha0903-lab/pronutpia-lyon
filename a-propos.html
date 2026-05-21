@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pronuptia Lyon — Découvrez notre histoire, notre équipe et nos valeurs. Vingt ans au service des mariées, au cœur du 2ème arrondissement de Lyon.">
+  <title>À Propos — Pronuptia Lyon</title>
+  <link rel="canonical" href="https://pronuptia-lyon.fr/a-propos.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://pronuptia-lyon.fr/a-propos.html">
+  <meta property="og:title"       content="À Propos — Pronuptia Lyon">
+  <meta property="og:description" content="Découvrez l'histoire de Pronuptia Lyon, notre équipe et nos valeurs. Vingt ans au service des mariées, au cœur du 2ème arrondissement de Lyon.">
+  <meta property="og:image"       content="https://pronuptia-lyon.fr/assets/images/og-cover.jpg">
+  <meta property="og:locale"      content="fr_FR">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Page hero ─────────────────────────────── */
+    .page-hero {
+      position: relative;
+      min-height: 52vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 80px;
+      overflow: hidden;
+      background: var(--c-dark);
+    }
+    .page-hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/pronuptia/isabelle.jpg');
+      background-size: cover;
+      background-position: center 5%;
+      filter: brightness(1.15);
+    }
+    .page-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(15,14,23,0.25) 0%, rgba(15,14,23,0.35) 40%, rgba(15,14,23,0.72) 100%);
+    }
+    .page-hero__content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .page-hero__content .container {
+      padding-top: 140px;
+    }
+    .page-hero .eyebrow {
+      color: #fff;
+      opacity: 0.9;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.05;
+      margin: 12px 0 0;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+    }
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--c-gold);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.95), 0 0 50px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.9);
+    }
+    .page-hero__deco {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,168,130,0.3), transparent);
+    }
+    @media (max-width: 640px) {
+      .page-hero h1 {
+        font-size: 2.6rem;
+      }
+      .page-hero h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    /* ── About section ─────────────────────────── */
+    .about-section {
+      padding: 100px 0;
+      background: var(--c-ivory);
+    }
+    .about-layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--c-dark);
+      line-height: 1.15;
+      margin: 14px 0 32px;
+    }
+    .about-body p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #4a4540;
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+    .about-body blockquote {
+      position: relative;
+      margin: 40px 0;
+      padding: 28px 36px;
+      border-left: 3px solid var(--c-gold);
+      background: rgba(196,168,130,0.07);
+    }
+    .about-body blockquote::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--c-gold);
+      opacity: 0.4;
+      line-height: 1;
+    }
+    .about-body blockquote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--c-dark);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Sidebar ───────────────────────────────── */
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid rgba(196,168,130,0.2);
+      padding: 32px;
+    }
+    .sidebar-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--c-dark);
+      letter-spacing: 0.03em;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(196,168,130,0.25);
+    }
+
+    /* Team */
+    .team-members {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .team-member__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background-image: url('assets/images/pronuptia/isabelle.jpg');
+      background-size: 280%;
+      background-position: 50% 18%;
+    }
+    .team-member__avatar img { display: none; }
+    .team-member__info strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--c-dark);
+      letter-spacing: 0.03em;
+    }
+    .team-member__info span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: #8a8078;
+      letter-spacing: 0.04em;
+    }
+
+    /* Hours */
+    .hours-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: #5a5450;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed rgba(196,168,130,0.2);
+    }
+    .hours-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .hours-row .day {
+      font-weight: 600;
+      color: var(--c-dark);
+      letter-spacing: 0.03em;
+    }
+    .hours-row .closed {
+      color: #c4a882;
+      font-style: italic;
+    }
+
+    /* Address card */
+    .address-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .address-line {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .address-line__icon {
+      width: 20px;
+      text-align: center;
+      color: var(--c-gold);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .address-line__text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: #5a5450;
+      line-height: 1.6;
+    }
+    .address-line__text strong {
+      display: block;
+      font-weight: 600;
+      color: var(--c-dark);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+    .address-line__text a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .address-line__text a:hover {
+      color: var(--c-burgundy);
+    }
+
+    /* ── Values section ────────────────────────── */
+    .values-section {
+      background: var(--c-dark);
+      padding: 100px 0;
+    }
+    .values-section .section-header-centered {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .values-section .section-header-centered h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--c-ivory);
+      margin: 12px 0 0;
+      line-height: 1.1;
+    }
+    .values-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 0;
+      align-items: stretch;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+    .values-photo {
+      position: relative;
+      overflow: hidden;
+    }
+    .values-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .values-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(10,8,15,0.25) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .value-card {
+      padding: 56px 44px;
+      border: 1px solid rgba(196,168,130,0.12);
+      background: rgba(255,255,255,0.02);
+      transition: background 0.35s;
+    }
+    .value-card:hover {
+      background: rgba(196,168,130,0.05);
+    }
+    .value-card__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      font-weight: 300;
+      color: var(--c-gold);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .value-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--c-ivory);
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+    .value-card__text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(250,247,242,0.55);
+      line-height: 1.85;
+    }
+    .value-card__divider {
+      width: 36px;
+      height: 1px;
+      background: var(--c-gold);
+      opacity: 0.5;
+      margin-bottom: 22px;
+    }
+
+    /* ── Responsive ────────────────────────────── */
+    @media (max-width: 960px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .values-layout {
+        grid-template-columns: 1fr;
+      }
+      .values-photo {
+        height: 360px;
+        order: -1;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .about-section {
+        padding: 60px 0;
+      }
+      .value-card {
+        padding: 40px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ LOADER ═══ -->
+  <div id="page-loader">
+    <div class="loader-logo">Pronuptia <em>Lyon</em></div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header is-transparent" id="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="site-logo">
+        <img src="assets/images/logos/pronuptia.png?v=3" alt="Pronuptia" class="site-logo__img">
+        <span class="logo-sub">Lyon</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <div class="nav-item--dropdown">
+          <a href="galerie.html" class="nav-link">Collections</a>
+          <div class="nav-dropdown">
+            <a href="collections/amelie.html">Collection Amélie <span class="dd-count">19 robes</span></a>
+            <a href="collections/pronuptia.html">Pronuptia <span class="dd-count">6 robes</span></a>
+            <a href="collections/libelle.html">Libelle <span class="dd-count">6 robes</span></a>
+            <a href="collections/randy-fenoli.html">Randy Fenoli <span class="dd-count">3 robes</span></a>
+            <a href="collections/modeca-courtes.html">Robes Courtes Modeca <span class="dd-count">3 robes</span></a>
+            <a href="collections/modeca-papillon.html">Modeca + Le Papillon <span class="dd-count">16 robes</span></a>
+            <a href="collections/terre-alice.html">La Terre d'Alice <span class="dd-count">6 robes</span></a>
+            <a href="collections/eddy-k.html">Eddy K <span class="dd-count">3 robes</span></a>
+            <a href="collections/justin-alexander.html">Justin Alexander <span class="dd-count">10 robes</span></a>
+          </div>
+        </div>
+        <a href="galerie.html" class="nav-link">Galerie</a>
+        <a href="a-propos.html" class="nav-link active">À Propos</a>
+        <a href="rendez-vous.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-rdv">
+        <a href="rendez-vous.html" class="btn-rdv">Prendre RDV</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MOBILE MENU ═══ -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="galerie.html">Collections</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="a-propos.html">À Propos</a>
+      <a href="rendez-vous.html">Contact</a>
+    </nav>
+    <a href="rendez-vous.html" class="mobile-rdv">Prendre rendez-vous</a>
+    <p class="mobile-contact">04 78 37 12 58<br>9 rue des Remparts d'Ainay, Lyon 2ème</p>
+  </div>
+
+  <main>
+
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero" aria-label="À propos de Pronuptia Lyon">
+      <div class="page-hero__bg"></div>
+      <div class="page-hero__content">
+        <div class="container">
+          <span class="eyebrow reveal">La boutique</span>
+          <h1 class="reveal reveal-d1">Notre <em>Histoire</em></h1>
+        </div>
+      </div>
+      <div class="page-hero__deco"></div>
+    </section>
+
+    <!-- ═══ ABOUT SECTION ═══ -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-layout">
+
+          <!-- Left: body text -->
+          <div class="about-body reveal">
+            <span class="eyebrow">Notre fondatrice</span>
+            <h2>Isabelle, directrice de la boutique</h2>
+
+            <p>
+              À l'origine de la boutique Pronuptia Lyon, il y a une femme passionnée : Isabelle. Avec plus de 30 ans d'expérience dans l'univers de la robe de mariée, elle a consacré sa carrière à accompagner les futures mariées dans l'un des plus beaux moments de leur vie.
+            </p>
+
+            <p>
+              Pendant de nombreuses années, Isabelle a dirigé la boutique Bellissima à Lyon, où elle a su bâtir une véritable réputation d'excellence et de confiance. Au fil de son parcours, elle a collaboré avec les plus grandes maisons françaises et européennes de robes de mariée, développant une expertise reconnue dans le domaine du mariage haut de gamme.
+            </p>
+
+            <p>
+              Grâce à son regard, son écoute et son sens du détail, elle a conseillé plus de 10 000 mariées, faisant de chaque essayage une expérience unique et inoubliable.
+            </p>
+
+            <p>
+              Aujourd'hui, Isabelle réalise un nouveau rêve : créer un lieu prestigieux entièrement dédié à l'élégance et à l'émotion du mariage. C'est ainsi qu'est née la boutique Pronuptia Lyon, située au cœur du très beau 2ᵉ arrondissement de Lyon, Place Ampère.
+            </p>
+
+            <p>
+              Pensée comme un véritable écrin raffiné, la boutique accueille des marques incontournables et parmi les plus recherchées du moment, à commencer par Pronuptia, la plus grande marque française de robes de mariée. D'autres maisons prestigieuses viendront également enrichir cette sélection exclusive, afin d'offrir à chaque future mariée une collection variée, élégante et résolument tendance.
+            </p>
+
+            <blockquote>
+              <p>Plus qu'une boutique, Pronuptia Lyon est une adresse d'exception, portée par l'expérience, la passion et le savoir-faire d'Isabelle.</p>
+            </blockquote>
+
+            <div style="margin-top: 40px;">
+              <a href="rendez-vous.html" class="btn btn--gold"><span>Prendre rendez-vous</span></a>
+            </div>
+          </div>
+
+          <!-- Right: sidebar cards -->
+          <div class="about-sidebar reveal reveal-d2">
+
+            <!-- Team card -->
+            <div class="sidebar-card">
+              <div class="sidebar-card__title">La direction</div>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member__avatar"><img src="assets/images/pronuptia/isabelle.jpg" alt="Isabelle"></div>
+                  <div class="team-member__info">
+                    <strong>Isabelle</strong>
+                    <span>Directrice — 30+ ans d'expérience</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hours card -->
+            <div class="sidebar-card">
+              <div class="sidebar-card__title">Nos horaires</div>
+              <div class="hours-list">
+                <div class="hours-row">
+                  <span class="day">Mar – Ven</span>
+                  <span>10h – 19h</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Samedi</span>
+                  <span>10h – 18h30</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Dim – Lun</span>
+                  <span class="closed">Fermé</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address card -->
+            <div class="sidebar-card">
+              <div class="sidebar-card__title">Nous trouver</div>
+              <div class="address-block">
+                <div class="address-line">
+                  <div class="address-line__icon">&#9679;</div>
+                  <div class="address-line__text">
+                    <strong>Adresse</strong>
+                    9 rue des Remparts d'Ainay<br>69002 Lyon
+                  </div>
+                </div>
+                <div class="address-line">
+                  <div class="address-line__icon">&#9679;</div>
+                  <div class="address-line__text">
+                    <strong>Téléphone</strong>
+                    <a href="tel:+33478371258">04 78 37 12 58</a>
+                  </div>
+                </div>
+                <div class="address-line">
+                  <div class="address-line__icon">&#9679;</div>
+                  <div class="address-line__text">
+                    <strong>Email</strong>
+                    <a href="mailto:contact@pronuptia-lyon.fr">contact@pronuptia-lyon.fr</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ VALUES SECTION ═══ -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-header-centered reveal">
+          <span class="eyebrow" style="color: var(--c-gold);">Ce qui nous définit</span>
+          <h2>Nos valeurs</h2>
+        </div>
+
+        <div class="values-layout">
+
+          <div class="values-grid">
+
+            <div class="value-card reveal">
+              <div class="value-card__num">01</div>
+              <div class="value-card__divider"></div>
+              <div class="value-card__title">Écoute &amp; Bienveillance</div>
+              <div class="value-card__text">
+                Chaque consultation commence par un moment d'écoute active, sans jugement ni précipitation. Nous prenons le temps de comprendre qui vous êtes, quels sont vos rêves et ce qui vous rend unique, afin de vous guider vers la robe qui vous ressemble profondément.
+              </div>
+            </div>
+
+            <div class="value-card reveal reveal-d1">
+              <div class="value-card__num">02</div>
+              <div class="value-card__divider"></div>
+              <div class="value-card__title">Expertise &amp; Savoir-faire</div>
+              <div class="value-card__text">
+                Vingt années d'expérience nous ont appris à lire les silhouettes, à saisir les émotions et à comprendre les tendances les plus subtiles de la mode nuptiale internationale. Notre équipe forme en permanence ses compétences pour vous offrir des conseils justes, précis et personnalisés.
+              </div>
+            </div>
+
+            <div class="value-card reveal reveal-d2">
+              <div class="value-card__num">03</div>
+              <div class="value-card__divider"></div>
+              <div class="value-card__title">Exclusivité &amp; Raffinement</div>
+              <div class="value-card__text">
+                Notre sélection de créateurs est le fruit d'un travail constant de veille et de curation, pour vous proposer uniquement ce qui se fait de mieux dans la haute couture nuptiale mondiale. Chez Pronuptia Lyon, chaque robe est une œuvre, et chaque visite, une expérience mémorable.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dress photo -->
+          <div class="values-photo reveal reveal-d1">
+            <img src="assets/images/randy-fenoli/lissette.jpg" alt="Robe de mariée">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section-cta">
+      <div class="container">
+        <span class="eyebrow">Votre robe vous attend</span>
+        <h2>Prenez rendez-vous<br><em>à la boutique</em></h2>
+        <p>
+          Une consultation personnalisée dans un espace privatif. Entourée de vos proches, guidée par une consultante dédiée. Vivez l'expérience Pronuptia Lyon.
+        </p>
+        <a href="rendez-vous.html" class="btn btn--outline"><span>Réserver ma séance</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+
+          <div class="footer-brand">
+            <div class="footer-brand-logo">
+              <span class="logo-main" style="font-size:1.5rem;">Pronuptia</span>
+              <div class="logo-divider" style="margin:5px 0;"></div>
+              <span class="logo-sub">Lyon</span>
+            </div>
+            <p class="footer-tagline">
+              Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon. Venez vivre l'expérience Pronuptia.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="Instagram">ig</a>
+              <a href="#" aria-label="Facebook">fb</a>
+              <a href="#" aria-label="Pinterest">pt</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Collections</div>
+            <div class="footer-col-links">
+              <a href="collections/amelie.html">Collection Amélie</a>
+              <a href="collections/pronuptia.html">Pronuptia</a>
+              <a href="collections/justin-alexander.html">Justin Alexander</a>
+              <a href="collections/randy-fenoli.html">Randy Fenoli</a>
+              <a href="collections/libelle.html">Libelle</a>
+              <a href="collections/modeca-papillon.html">Modeca + Le Papillon</a>
+              <a href="collections/terre-alice.html">La Terre d'Alice</a>
+              <a href="collections/eddy-k.html">Eddy K</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-col-title">La boutique</div>
+            <div class="footer-col-links">
+              <a href="index.html">Accueil</a>
+              <a href="galerie.html">Galerie</a>
+              <a href="a-propos.html">À Propos</a>
+              <a href="rendez-vous.html">Prendre rendez-vous</a>
+              <a href="rendez-vous.html">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Nous trouver</div>
+            <div class="footer-contact-items">
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text">
+                  <strong>Adresse</strong>
+                  9 rue des Remparts d'Ainay<br>69002 Lyon
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text">
+                  <strong>Téléphone</strong>
+                  04 78 37 12 58
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text">
+                  <strong>Email</strong>
+                  contact@pronuptia-lyon.fr
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <div class="fci-icon">&#9679;</div>
+                <div class="fci-text">
+                  <strong>Horaires</strong>
+                  <div class="hours-list" style="margin-top:6px;">
+                    <div class="hours-row"><span class="day">Mar – Ven</span><span>10h – 19h</span></div>
+                    <div class="hours-row"><span class="day">Samedi</span><span>10h – 18h30</span></div>
+                    <div class="hours-row"><span class="day">Dim – Lun</span><span>Fermé</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">© 2025 Pronuptia Lyon — Tous droits réservés</p>
+          <div class="footer-legal">
+            <a href="#">Mentions légales</a>
+            <a href="#">Politique de confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse">
+    <button class="lightbox-close" id="lb-close" aria-label="Fermer">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Précédent">‹</button>
+    <button class="lightbox-next" id="lb-next" aria-label="Suivant">›</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+    <div class="lightbox-caption">
+      <span class="brand" id="lb-brand"></span>
+      <span class="name" id="lb-name"></span>
+      <p class="lightbox-description" id="lb-description"></p>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "title": "La Terre d'Alice",
+  "slug": "terre-alice",
+  "nav_label": "La Terre d'Alice",
+  "in_footer": true,
+  "meta_description": "6 robes de La Terre d'Alice chez Pronuptia Lyon. Des robes de mariée poétiques inspirées de la nature et du monde féerique.",
+  "description": "La Terre d'Alice incarne l'esprit bohème chic dans sa plus belle expression. Des robes à l'allure naturelle et poétique, avec des dentelles florales, des mousselines fluides et une palette de tons champêtres.",
+  "hero_image": "",
+  "hero_gradient": "linear-gradient(145deg,#1a2818,#406040,#688060)",
+  "logo": "",
+  "dresses": [
+    {
+      "name": "Alice",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c8d0c0,#a0b098)"
+    },
+    {
+      "name": "Bruyère",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#a0b098,#c8d0c0)"
+    },
+    {
+      "name": "Campanule",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c8d0c0,#a0b098)"
+    },
+    {
+      "name": "Digitale",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#a0b098,#c8d0c0)"
+    },
+    {
+      "name": "Erica",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#c8d0c0,#a0b098)"
+    },
+    {
+      "name": "Fougère",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "",
+      "placeholder_color": "linear-gradient(160deg,#a0b098,#c8d0c0)"
+    }
+  ]
+}

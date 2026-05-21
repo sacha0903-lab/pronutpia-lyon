@@ -1,0 +1,55 @@
+{
+  "title": "Pronuptia",
+  "slug": "pronuptia",
+  "nav_label": "Pronuptia",
+  "in_footer": true,
+  "meta_description": "6 robes de la collection Pronuptia disponibles à Lyon. La collection signature de la maison, élégante et intemporelle.",
+  "description": "La maison Pronuptia, fondatrice de l'art nuptial français depuis 1958, vous propose une collection alliant tradition et modernité. Des créations intemporelles pour une mariée au style affirmé.",
+  "hero_image": "/assets/images/pronuptia/florence.jpg",
+  "hero_gradient": "",
+  "logo": "/assets/images/logos/pronuptia.png",
+  "dresses": [
+    {
+      "name": "Fallon",
+      "main_photo": "/assets/images/pronuptia/fallon.jpg",
+      "additional_photos": ["/assets/images/pronuptia/fallon-2.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Farida",
+      "main_photo": "/assets/images/pronuptia/farida.jpg",
+      "additional_photos": ["/assets/images/pronuptia/farida-2.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Filipine",
+      "main_photo": "/assets/images/pronuptia/filipine.jpg",
+      "additional_photos": ["/assets/images/pronuptia/filipine-2.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Fiona",
+      "main_photo": "/assets/images/pronuptia/fiona.jpg",
+      "additional_photos": ["/assets/images/pronuptia/fiona-2.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Fiorenza",
+      "main_photo": "/assets/images/pronuptia/fiorenza.jpg",
+      "additional_photos": ["/assets/images/pronuptia/fiorenza-2.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Florence",
+      "main_photo": "/assets/images/pronuptia/florence.jpg",
+      "additional_photos": ["/assets/images/pronuptia/florence-2.jpg"],
+      "description": "",
+      "placeholder_color": ""
+    }
+  ]
+}

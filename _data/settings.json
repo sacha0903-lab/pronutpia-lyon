@@ -1,0 +1,16 @@
+{
+  "boutique_name": "Pronuptia Lyon",
+  "tagline": "Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon.",
+  "address": "9 rue des Remparts d'Ainay",
+  "city": "69002 Lyon",
+  "phone": "04 78 37 12 58",
+  "email": "",
+  "hours": [
+    { "days": "Mar – Ven", "hours": "10h – 19h" },
+    { "days": "Samedi",    "hours": "10h – 18h30" },
+    { "days": "Dim – Lun", "hours": "Fermé" }
+  ],
+  "instagram": "#",
+  "facebook": "#",
+  "pinterest": "#"
+}
