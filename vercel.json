@@ -9,6 +9,14 @@
   ],
   "redirects": [
     {
+      "source": "/callback",
+      "destination": "/api/callback"
+    },
+    {
+      "source": "/auth",
+      "destination": "/api/auth"
+    },
+    {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.pronuptia-lyon.fr" }],
       "destination": "https://pronuptia-lyon.fr/$1",
