@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="stylesheet" href="../css/style.css?v=3">
 </head>
 <body>
 
@@ -36,7 +36,7 @@
         <a href="../index.html" class="nav-link">Accueil</a>
         <div class="nav-item--dropdown">
           <a href="../galerie.html" class="nav-link active">Collections</a>
-          <div class="nav-dropdown">
+          <div class="nav-dropdown" id="nav-dropdown">
             <a href="amelie.html">Collection Amélie <span class="dd-count">19 robes</span></a>
             <a href="pronuptia.html">Pronuptia <span class="dd-count">6 robes</span></a>
             <a href="libelle.html">Libelle <span class="dd-count">6 robes</span></a>
@@ -67,17 +67,8 @@
     </div>
   </header>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero__bg">
-      <img src="../assets/images/pronuptia/florence.jpg" alt="Pronuptia" style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;">
-    </div>
-    <div class="page-hero__overlay"></div>
-    <div class="page-hero__content">
-      <span class="eyebrow">6 robes</span>
-      <h1><em>Pronuptia</em></h1>
-    </div>
-  </section>
+  <!-- PAGE HERO — rendu par collection-page.js -->
+  <section class="page-hero" id="page-hero"></section>
 
   <!-- BREADCRUMB -->
   <div class="container">
@@ -86,96 +77,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../galerie.html">Collections</a>
       <span class="breadcrumb-sep">›</span>
-      <span>Pronuptia</span>
+      <span id="breadcrumb-title"></span>
     </nav>
   </div>
 
-  <!-- COLLECTION INTRO -->
+  <!-- COLLECTION INTRO — rendu par collection-page.js -->
   <div class="container">
-    <div class="collection-intro">
-      <div>
-        <img src="../assets/images/logos/pronuptia.png" alt="Pronuptia" class="collection-intro__logo">
-        <div class="collection-intro__brand">Pronuptia</div>
-        <div class="collection-intro__count eyebrow">6 robes disponibles</div>
-      </div>
-      <div>
-        <p class="collection-intro__desc">La maison Pronuptia, fondatrice de l'art nuptial français depuis 1958, vous propose une collection alliant tradition et modernité. Des créations intemporelles pour une mariée au style affirmé.</p>
-        <a href="../rendez-vous.html" class="btn btn--dark"><span>Essayer en boutique</span></a>
-      </div>
-    </div>
+    <div class="collection-intro" id="collection-intro"></div>
   </div>
 
-  <!-- DRESS GRID -->
+  <!-- DRESS GRID — rendu par collection-page.js -->
   <div class="container">
-    <div class="collection-dresses-grid">
-
-      <div class="dress-card reveal reveal-d1" data-lightbox data-brand="Pronuptia" data-name="Fallon" data-photos="../assets/images/pronuptia/fallon-2.jpg" data-full="../assets/images/pronuptia/fallon.jpg">
-        <div class="dress-card__img-wrap">
-          <img src="../assets/images/pronuptia/fallon.jpg" alt="Fallon — Pronuptia" loading="lazy">
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">Pronuptia</div>
-          <div class="dress-card__name">Fallon</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d2" data-lightbox data-brand="Pronuptia" data-name="Farida" data-photos="../assets/images/pronuptia/farida-2.jpg" data-full="../assets/images/pronuptia/farida.jpg">
-        <div class="dress-card__img-wrap">
-          <img src="../assets/images/pronuptia/farida.jpg" alt="Farida — Pronuptia" loading="lazy">
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">Pronuptia</div>
-          <div class="dress-card__name">Farida</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d3" data-lightbox data-brand="Pronuptia" data-name="Filipine" data-photos="../assets/images/pronuptia/filipine-2.jpg" data-full="../assets/images/pronuptia/filipine.jpg">
-        <div class="dress-card__img-wrap">
-          <img src="../assets/images/pronuptia/filipine.jpg" alt="Filipine — Pronuptia" loading="lazy">
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">Pronuptia</div>
-          <div class="dress-card__name">Filipine</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d4" data-lightbox data-brand="Pronuptia" data-name="Fiona" data-photos="../assets/images/pronuptia/fiona-2.jpg" data-full="../assets/images/pronuptia/fiona.jpg">
-        <div class="dress-card__img-wrap">
-          <img src="../assets/images/pronuptia/fiona.jpg" alt="Fiona — Pronuptia" loading="lazy">
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">Pronuptia</div>
-          <div class="dress-card__name">Fiona</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d1" data-lightbox data-brand="Pronuptia" data-name="Fiorenza" data-photos="../assets/images/pronuptia/fiorenza-2.jpg" data-full="../assets/images/pronuptia/fiorenza.jpg">
-        <div class="dress-card__img-wrap">
-          <img src="../assets/images/pronuptia/fiorenza.jpg" alt="Fiorenza — Pronuptia" loading="lazy">
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">Pronuptia</div>
-          <div class="dress-card__name">Fiorenza</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d2" data-lightbox data-brand="Pronuptia" data-name="Florence" data-photos="../assets/images/pronuptia/florence-2.jpg" data-full="../assets/images/pronuptia/florence.jpg">
-        <div class="dress-card__img-wrap">
-          <img src="../assets/images/pronuptia/florence.jpg" alt="Florence — Pronuptia" loading="lazy">
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">Pronuptia</div>
-          <div class="dress-card__name">Florence</div>
-        </div>
-      </div>
-
-    </div>
+    <div class="collection-dresses-grid" id="dress-grid"></div>
   </div>
 
   <!-- CTA SECTION -->
@@ -183,7 +96,7 @@
     <div class="container">
       <span class="eyebrow">Votre robe vous attend</span>
       <h2>Essayez cette collection<br><em>en boutique</em></h2>
-      <p>Prenez rendez-vous pour une consultation personnalisée et découvrez nos modèles Pronuptia dans notre boutique de Lyon.</p>
+      <p id="cta-text"></p>
       <a href="../rendez-vous.html" class="btn btn--outline"><span>Prendre rendez-vous</span></a>
     </div>
   </section>
@@ -199,16 +112,16 @@
               <div class="logo-divider" style="margin:5px 0;"></div>
               <span class="logo-sub">Lyon</span>
             </div>
-            <p class="footer-tagline">Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon.</p>
+            <p class="footer-tagline" id="footer-tagline"></p>
             <div class="footer-social">
-              <a href="#" aria-label="Instagram">ig</a>
-              <a href="#" aria-label="Facebook">fb</a>
-              <a href="#" aria-label="Pinterest">pt</a>
+              <a href="#" id="footer-ig" aria-label="Instagram">ig</a>
+              <a href="#" id="footer-fb" aria-label="Facebook">fb</a>
+              <a href="#" id="footer-pt" aria-label="Pinterest">pt</a>
             </div>
           </div>
           <div>
             <div class="footer-col-title">Collections</div>
-            <div class="footer-col-links">
+            <div class="footer-col-links" id="footer-collection-links">
               <a href="amelie.html">Collection Amélie</a>
               <a href="pronuptia.html">Pronuptia</a>
               <a href="justin-alexander.html">Justin Alexander</a>
@@ -233,20 +146,16 @@
             <div class="footer-contact-items">
               <div class="footer-contact-item">
                 <div class="fci-icon">📍</div>
-                <div class="fci-text"><strong>Adresse</strong>9 rue des Remparts d'Ainay<br>69002 Lyon</div>
+                <div class="fci-text"><strong>Adresse</strong><span id="footer-address"></span></div>
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">📞</div>
-                <div class="fci-text"><strong>Téléphone</strong>04 04 09 09 90</div>
+                <div class="fci-text"><strong>Téléphone</strong><span id="footer-phone"></span></div>
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">🕐</div>
                 <div class="fci-text"><strong>Horaires</strong>
-                  <div class="hours-list">
-                    <div class="hours-row"><span class="day">Mar – Ven</span><span>10h – 20h</span></div>
-                    <div class="hours-row"><span class="day">Samedi</span><span>10h – 18h31</span></div>
-                    <div class="hours-row"><span class="day">Dim – Lun</span><span>Fermé</span></div>
-                  </div>
+                  <div class="hours-list" id="footer-hours"></div>
                 </div>
               </div>
             </div>
@@ -277,6 +186,7 @@
     </div>
   </div>
 
-  <script src="../js/main.js?v=2"></script>
+  <script src="../js/main.js?v=3"></script>
+  <script src="../js/collection-page.js?v=1"></script>
 </body>
 </html>

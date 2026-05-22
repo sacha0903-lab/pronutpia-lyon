@@ -6,10 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── PAGE LOADER ─── */
   const loader = document.getElementById('page-loader');
-  if (loader) {
-    window.addEventListener('load', () => {
+  const doHideLoader = () => {
+    if (loader) {
       loader.classList.add('loaded');
       setTimeout(() => loader.remove(), 400);
+    }
+  };
+  // collection-page.js pose window._waitForAsync = true avant de fetch le JSON
+  // et appelle window._pageReady() quand le contenu est prêt.
+  window._pageReady = doHideLoader;
+  if (loader) {
+    window.addEventListener('load', () => {
+      if (!window._waitForAsync) doHideLoader();
     });
   }
 
@@ -61,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ─── SCROLL REVEAL ─── */
-  const revealObserver = new IntersectionObserver((entries) => {
+  const revealObserver = window.revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -143,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const showNext = () => openLightbox(currentIndex + 1);
 
   // Build flat photo list: each card contributes its primary + extra angles
-  const initLightbox = () => {
+  const initLightbox = window.initLightbox = () => {
     allPhotos = [];
     document.querySelectorAll('[data-lightbox]').forEach(card => {
       const brand       = card.dataset.brand       || '';

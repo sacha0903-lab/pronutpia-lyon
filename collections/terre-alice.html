@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Terre d'Alice — Pronuptia Lyon</title>
-  <meta name="description" content="6 robes de La Terre d&#39;Alice chez Pronuptia Lyon. Des robes de mariée poétiques inspirées de la nature et du monde féerique.">
+  <meta name="description" content="6 robes de La Terre d'Alice chez Pronuptia Lyon. Des robes de mariée poétiques inspirées de la nature et du monde féerique.">
   <link rel="canonical" href="https://pronuptia-lyon.fr/collections/terre-alice.html">
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://pronuptia-lyon.fr/collections/terre-alice.html">
-  <meta property="og:title"       content="La Terre d&#39;Alice — Pronuptia Lyon">
-  <meta property="og:description" content="6 robes de La Terre d&#39;Alice chez Pronuptia Lyon. Des robes de mariée poétiques inspirées de la nature et du monde féerique.">
+  <meta property="og:title"       content="La Terre d'Alice — Pronuptia Lyon">
+  <meta property="og:description" content="6 robes de La Terre d'Alice chez Pronuptia Lyon. Des robes de mariée poétiques inspirées de la nature et du monde féerique.">
   <meta property="og:image"       content="https://pronuptia-lyon.fr/assets/images/og-cover.jpg">
   <meta property="og:locale"      content="fr_FR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="stylesheet" href="../css/style.css?v=3">
 </head>
 <body>
 
@@ -36,7 +36,7 @@
         <a href="../index.html" class="nav-link">Accueil</a>
         <div class="nav-item--dropdown">
           <a href="../galerie.html" class="nav-link active">Collections</a>
-          <div class="nav-dropdown">
+          <div class="nav-dropdown" id="nav-dropdown">
             <a href="amelie.html">Collection Amélie <span class="dd-count">19 robes</span></a>
             <a href="pronuptia.html">Pronuptia <span class="dd-count">6 robes</span></a>
             <a href="libelle.html">Libelle <span class="dd-count">6 robes</span></a>
@@ -67,17 +67,8 @@
     </div>
   </header>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero__bg">
-      <div style="width:100%;height:100%;background:linear-gradient(145deg,#1a2818,#406040,#688060);position:absolute;inset:0;"></div>
-    </div>
-    <div class="page-hero__overlay"></div>
-    <div class="page-hero__content">
-      <span class="eyebrow">6 robes</span>
-      <h1><em>La Terre d'Alice</em></h1>
-    </div>
-  </section>
+  <!-- PAGE HERO — rendu par collection-page.js -->
+  <section class="page-hero" id="page-hero"></section>
 
   <!-- BREADCRUMB -->
   <div class="container">
@@ -86,131 +77,18 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../galerie.html">Collections</a>
       <span class="breadcrumb-sep">›</span>
-      <span>La Terre d'Alice</span>
+      <span id="breadcrumb-title"></span>
     </nav>
   </div>
 
-  <!-- COLLECTION INTRO -->
+  <!-- COLLECTION INTRO — rendu par collection-page.js -->
   <div class="container">
-    <div class="collection-intro">
-      <div>
-        <div class="collection-intro__brand">La Terre d'Alice</div>
-        <div class="collection-intro__count eyebrow">6 robes disponibles</div>
-      </div>
-      <div>
-        <p class="collection-intro__desc">La Terre d'Alice incarne l'esprit bohème chic dans sa plus belle expression. Des robes à l'allure naturelle et poétique, avec des dentelles florales, des mousselines fluides et une palette de tons champêtres.</p>
-        <a href="../rendez-vous.html" class="btn btn--dark"><span>Essayer en boutique</span></a>
-      </div>
-    </div>
+    <div class="collection-intro" id="collection-intro"></div>
   </div>
 
-  <!-- DRESS GRID -->
+  <!-- DRESS GRID — rendu par collection-page.js -->
   <div class="container">
-    <div class="collection-dresses-grid">
-
-      <div class="dress-card reveal reveal-d1" data-lightbox data-brand="La Terre d&#39;Alice" data-name="Alice" data-full="">
-        <div class="dress-card__img-wrap">
-          <div class="dress-card__placeholder" style="background:linear-gradient(160deg,#c8d0c0,#a0b098);">
-            <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/>
-              <path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/>
-              <path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">La Terre d'Alice</div>
-          <div class="dress-card__name">Alice</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d2" data-lightbox data-brand="La Terre d&#39;Alice" data-name="Bruyère" data-full="">
-        <div class="dress-card__img-wrap">
-          <div class="dress-card__placeholder" style="background:linear-gradient(160deg,#a0b098,#c8d0c0);">
-            <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/>
-              <path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/>
-              <path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">La Terre d'Alice</div>
-          <div class="dress-card__name">Bruyère</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d3" data-lightbox data-brand="La Terre d&#39;Alice" data-name="Campanule" data-full="">
-        <div class="dress-card__img-wrap">
-          <div class="dress-card__placeholder" style="background:linear-gradient(160deg,#c8d0c0,#a0b098);">
-            <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/>
-              <path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/>
-              <path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">La Terre d'Alice</div>
-          <div class="dress-card__name">Campanule</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d4" data-lightbox data-brand="La Terre d&#39;Alice" data-name="Digitale" data-full="">
-        <div class="dress-card__img-wrap">
-          <div class="dress-card__placeholder" style="background:linear-gradient(160deg,#a0b098,#c8d0c0);">
-            <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/>
-              <path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/>
-              <path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">La Terre d'Alice</div>
-          <div class="dress-card__name">Digitale</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d1" data-lightbox data-brand="La Terre d&#39;Alice" data-name="Erica" data-full="">
-        <div class="dress-card__img-wrap">
-          <div class="dress-card__placeholder" style="background:linear-gradient(160deg,#c8d0c0,#a0b098);">
-            <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/>
-              <path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/>
-              <path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">La Terre d'Alice</div>
-          <div class="dress-card__name">Erica</div>
-        </div>
-      </div>
-
-      <div class="dress-card reveal reveal-d2" data-lightbox data-brand="La Terre d&#39;Alice" data-name="Fougère" data-full="">
-        <div class="dress-card__img-wrap">
-          <div class="dress-card__placeholder" style="background:linear-gradient(160deg,#a0b098,#c8d0c0);">
-            <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/>
-              <path d="M29 27 C32 35 48 35 51 27 L68 70 L75 130 L5 130 L12 70 Z" fill="currentColor" opacity="0.2"/>
-              <path d="M29 27 C32 36 48 36 51 27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
-        </div>
-        <div class="dress-card__info">
-          <div class="dress-card__brand">La Terre d'Alice</div>
-          <div class="dress-card__name">Fougère</div>
-        </div>
-      </div>
-
-    </div>
+    <div class="collection-dresses-grid" id="dress-grid"></div>
   </div>
 
   <!-- CTA SECTION -->
@@ -218,7 +96,7 @@
     <div class="container">
       <span class="eyebrow">Votre robe vous attend</span>
       <h2>Essayez cette collection<br><em>en boutique</em></h2>
-      <p>Prenez rendez-vous pour une consultation personnalisée et découvrez nos modèles La Terre d'Alice dans notre boutique de Lyon.</p>
+      <p id="cta-text"></p>
       <a href="../rendez-vous.html" class="btn btn--outline"><span>Prendre rendez-vous</span></a>
     </div>
   </section>
@@ -234,16 +112,16 @@
               <div class="logo-divider" style="margin:5px 0;"></div>
               <span class="logo-sub">Lyon</span>
             </div>
-            <p class="footer-tagline">Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon.</p>
+            <p class="footer-tagline" id="footer-tagline"></p>
             <div class="footer-social">
-              <a href="#" aria-label="Instagram">ig</a>
-              <a href="#" aria-label="Facebook">fb</a>
-              <a href="#" aria-label="Pinterest">pt</a>
+              <a href="#" id="footer-ig" aria-label="Instagram">ig</a>
+              <a href="#" id="footer-fb" aria-label="Facebook">fb</a>
+              <a href="#" id="footer-pt" aria-label="Pinterest">pt</a>
             </div>
           </div>
           <div>
             <div class="footer-col-title">Collections</div>
-            <div class="footer-col-links">
+            <div class="footer-col-links" id="footer-collection-links">
               <a href="amelie.html">Collection Amélie</a>
               <a href="pronuptia.html">Pronuptia</a>
               <a href="justin-alexander.html">Justin Alexander</a>
@@ -268,20 +146,16 @@
             <div class="footer-contact-items">
               <div class="footer-contact-item">
                 <div class="fci-icon">📍</div>
-                <div class="fci-text"><strong>Adresse</strong>9 rue des Remparts d'Ainay<br>69002 Lyon</div>
+                <div class="fci-text"><strong>Adresse</strong><span id="footer-address"></span></div>
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">📞</div>
-                <div class="fci-text"><strong>Téléphone</strong>04 04 09 09 90</div>
+                <div class="fci-text"><strong>Téléphone</strong><span id="footer-phone"></span></div>
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">🕐</div>
                 <div class="fci-text"><strong>Horaires</strong>
-                  <div class="hours-list">
-                    <div class="hours-row"><span class="day">Mar – Ven</span><span>10h – 20h</span></div>
-                    <div class="hours-row"><span class="day">Samedi</span><span>10h – 18h31</span></div>
-                    <div class="hours-row"><span class="day">Dim – Lun</span><span>Fermé</span></div>
-                  </div>
+                  <div class="hours-list" id="footer-hours"></div>
                 </div>
               </div>
             </div>
@@ -312,6 +186,7 @@
     </div>
   </div>
 
-  <script src="../js/main.js?v=2"></script>
+  <script src="../js/main.js?v=3"></script>
+  <script src="../js/collection-page.js?v=1"></script>
 </body>
 </html>
