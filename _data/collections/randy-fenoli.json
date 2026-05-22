@@ -3,7 +3,7 @@
   "slug": "randy-fenoli",
   "nav_label": "Randy Fenoli",
   "in_footer": true,
-  "meta_description": "3 robes Randy Fenoli disponibles à Pronuptia Lyon. Les créations du célèbre styliste américain, entre glamour et sophistication.",
+  "meta_description": "4 robes Randy Fenoli disponibles à Pronuptia Lyon. Les créations du célèbre styliste américain, entre glamour et sophistication.",
   "description": "Randy Fenoli, star mondiale de l'univers bridal, crée des robes spectaculaires pensées pour sublimer chaque silhouette. Glamour, audace et féminité à chaque modèle.",
   "hero_image": "/assets/images/randy-fenoli/lexington.jpg",
   "hero_gradient": "",
@@ -13,21 +13,28 @@
       "name": "Lexington",
       "main_photo": "/assets/images/randy-fenoli/lexington.jpg",
       "additional_photos": ["/assets/images/randy-fenoli/lexington-2.jpg", "/assets/images/randy-fenoli/lexington-3.jpg", "/assets/images/randy-fenoli/lexington-4.jpg", "/assets/images/randy-fenoli/lexington-5.jpg", "/assets/images/randy-fenoli/lexington-6.jpg", "/assets/images/randy-fenoli/lexington-7.jpg", "/assets/images/randy-fenoli/lexington-8.jpg"],
-      "description": "",
+      "description": "Grandiose et éblouissante, la robe Lexington est une déclaration de luxe absolu. Son corsage en dentelle perlée scintille de mille éclats, alliant broderies précieuses et perles délicatement cousues pour un effet haute couture envoûtant. Le dos profondément ouvert révèle une colonne vertébrale parée de dentelle lumineuse, d'une sensualité inoubliable. La jupe en satin se déploie en un volume princesse somptueux, dont la traîne majestueuse emplit l'espace avec une prestance royale. Lexington est la robe des mariées qui veulent écrire leur plus beau chapitre, avec éclat, glamour et une élégance digne des plus grands contes.",
       "placeholder_color": ""
     },
     {
       "name": "Lissette",
       "main_photo": "/assets/images/randy-fenoli/lissette.jpg",
       "additional_photos": ["/assets/images/randy-fenoli/lissette-2.jpg", "/assets/images/randy-fenoli/lissette-3.jpg", "/assets/images/randy-fenoli/lissette-4.jpg", "/assets/images/randy-fenoli/lissette-5.jpg"],
-      "description": "",
+      "description": "Raffinée et profondément romantique, la robe Lissette est un hommage à l'élégance française la plus noble. Entièrement réalisée en dentelle de Calais, elle enveloppe la silhouette d'un motif floral d'une richesse incomparable. Son col montant et ses manches longues en dentelle transparente forment un boléro amovible, offrant deux looks en un : couvert et mystérieux pour la cérémonie, puis sensuellement dévoilé pour la réception. Le dos s'ouvre sur un décolleté en cœur surprenant, d'une élégance saisissante. Avec sa traîne en dentelle festonnée, Lissette est la robe des mariées qui cultivent le secret avec une grâce absolue.",
       "placeholder_color": ""
     },
     {
       "name": "Lorena",
       "main_photo": "/assets/images/randy-fenoli/lorena.jpg",
       "additional_photos": ["/assets/images/randy-fenoli/lorena-2.jpg", "/assets/images/randy-fenoli/lorena-3.jpg", "/assets/images/randy-fenoli/lorena-4.jpg"],
-      "description": "",
+      "description": "Lumineuse et souveraine, la robe Lorena incarne l'élégance méditerranéenne dans toute sa splendeur. Ses bretelles tombantes off-shoulder encadrent les épaules avec une sensualité douce et raffinée, tandis que le bustier drapé en cœur sculpte la silhouette avec grâce. Le satin d'une blancheur ivoire capte la lumière à chaque mouvement, révélant toute la noblesse de la matière. La jupe s'épanouit en un volume ample et majestueux, dont la traîne royale se déploie avec une prestance naturelle. Lorena est la robe des mariées qui avancent avec assurance, portant leur bonheur comme une évidence absolue.",
+      "placeholder_color": ""
+    },
+    {
+      "name": "Jada",
+      "main_photo": "/assets/images/randy-fenoli/jada.jpg",
+      "additional_photos": [],
+      "description": "Architecturale et audacieuse, la robe Jada redéfinit l'élégance nuptiale contemporaine. Son bustier corseté sans bretelles sculpte la taille avec une précision couture, mettant en valeur la féminité de la silhouette avec une modernité assumée. Le mikado, tissu noble et structuré, confère à la jupe princesse un volume généreux et une tenue impeccable, sublimé par une fente frontale qui insuffle une touche de sensualité inattendue. Les poches discrètes, détail aussi pratique que chic, complètent ce portrait d'une mariée libre et élégante. Jada est la robe des femmes qui allient caractère, raffinement et une irrésistible confiance en elles.",
       "placeholder_color": ""
     }
   ]
