@@ -1309,10 +1309,19 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 }
 .brand-logo-item:hover { opacity: 1; }
 .brand-logo-item img {
-  height: 42px;
-  max-width: 150px;
+  height: 32px;
   width: auto;
-  object-fit: contain;
+  display: block;
+}
+.brand-logo-item--randy img {
+  height: 48px;
+}
+.brand-logo-item--modeca img {
+  height: 24px;
+}
+.brand-logo-item--justin img {
+  height: auto;
+  width: 190px;
 }
 .brand-logo-item--text {
   font-family: 'Cormorant Garamond', serif;
@@ -1320,10 +1329,6 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   font-weight: 400;
   letter-spacing: 0.08em;
   color: var(--c-dark);
-}
-.brand-logo-item--randy img {
-  height: 60px;
-  max-width: 180px;
 }
 
 /* ── Collection intro logo ───────────────────────── */

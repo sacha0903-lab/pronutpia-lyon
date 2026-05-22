@@ -12,42 +12,54 @@
     {
       "name": "Fallon",
       "main_photo": "/assets/images/pronuptia/fallon.jpg",
-      "additional_photos": ["/assets/images/pronuptia/fallon-2.jpg"],
+      "additional_photos": [
+        "/assets/images/pronuptia/fallon-2.jpg"
+      ],
       "description": "Fallon est une robe de mariée bohème et élégante, confectionnée en mousseline fluide pour une silhouette légère et raffinée. Son décolleté en V met délicatement le buste en valeur, tandis que ses manches longues en tulle brodé apportent une touche romantique et féminine. La jupe aérienne se prolonge par une fente subtile ornée de détails scintillants, offrant modernité et sensualité. Son dos plongeant souligne avec élégance la silhouette et ajoute une finition glamour. Parfaite pour une mariée à la recherche d'une robe à la fois chic, douce et intemporelle, Fallon incarne la grâce et la délicatesse.",
       "placeholder_color": ""
     },
     {
       "name": "Farida",
       "main_photo": "/assets/images/pronuptia/farida.jpg",
-      "additional_photos": ["/assets/images/pronuptia/farida-2.jpg"],
+      "additional_photos": [
+        "/assets/images/pronuptia/farida-2.jpg"
+      ],
       "description": "Farida est une robe de mariée bohème en mousseline, pensée pour les mariées en quête de légèreté et d'élégance naturelle. Son corsage délicatement orné de dentelle raffinée sublime la silhouette avec féminité et romantisme. Les manches fluides apportent une touche aérienne et moderne, tandis que la jupe en mousseline tombe avec grâce pour un mouvement doux et élégant. Son dos échancré dévoile subtilement la peau et ajoute une note glamour à l'ensemble. À la fois chic, bohème et intemporelle, Farida est idéale pour une cérémonie romantique, en extérieur comme dans un lieu raffiné, avec une allure pleine de douceur et de poésie.",
       "placeholder_color": ""
     },
     {
       "name": "Filipine",
       "main_photo": "/assets/images/pronuptia/filipine.jpg",
-      "additional_photos": ["/assets/images/pronuptia/filipine-2.jpg"],
+      "additional_photos": [
+        "/assets/images/pronuptia/filipine-2.jpg"
+      ],
       "description": "Filipine est une robe de mariée majestueuse en mikado, sublimée par de délicates touches de dentelle pour une allure élégante et intemporelle. Sa coupe princesse met en valeur la silhouette grâce à un bustier structuré et un décolleté épaules dénudées, apportant féminité et raffinement. Le tissu mikado offre un tombé somptueux et une tenue parfaite, tandis que les détails de dentelle soulignent subtilement la taille et le dos. Sa longue traîne ajoute une dimension royale et spectaculaire à l'ensemble. Chic, moderne et sophistiquée, Filipine est idéale pour la mariée qui rêve d'une robe à l'élégance classique avec une touche contemporaine et romantique.",
       "placeholder_color": ""
     },
     {
       "name": "Fiona",
       "main_photo": "/assets/images/pronuptia/fiona.jpg",
-      "additional_photos": ["/assets/images/pronuptia/fiona-2.jpg"],
+      "additional_photos": [
+        "/assets/images/pronuptia/fiona-2.jpg"
+      ],
       "description": "Fiona est une robe de mariée élégante et raffinée, confectionnée en crêpe fluide et délicate dentelle. Sa coupe près du corps sublime la silhouette avec douceur et modernité, tandis que son décolleté plongeant apporte une touche de féminité assumée. Les manches longues en dentelle transparente dévoilent un travail délicat et romantique. Son dos ouvert met en valeur l'allure avec sophistication, prolongé par une rangée de boutons raffinés. La jupe fluide, agrémentée d'une fente subtile et d'une légère traîne, offre une démarche gracieuse et aérienne. Fiona est la robe idéale pour la mariée moderne en quête d'élégance intemporelle et de romantisme.",
       "placeholder_color": ""
     },
     {
       "name": "Fiorenza",
       "main_photo": "/assets/images/pronuptia/fiorenza.jpg",
-      "additional_photos": ["/assets/images/pronuptia/fiorenza-2.jpg"],
-      "description": "",
+      "additional_photos": [
+        "/assets/images/pronuptia/fiorenza-2.jpg"
+      ],
+      "description": "Fioranza est une robe de mariée romantique et aérienne, réalisée en mousseline fluide et délicate dentelle perlée. Son corsage finement travaillé sublime le décolleté avec élégance grâce à des détails floraux raffinés et de fines bretelles délicates. Le dos transparent apporte une touche de sensualité tout en restant sophistiqué. La jupe en mousseline légère offre un tombé vaporeux et gracieux, idéal pour une allure naturelle et élégante. De subtils motifs de dentelle et de perles viennent sublimer la traîne avec poésie. Fioranza est la robe parfaite pour la mariée moderne recherchant douceur, féminité et raffinement intemporel le jour de son mariage.",
       "placeholder_color": ""
     },
     {
       "name": "Florence",
       "main_photo": "/assets/images/pronuptia/florence.jpg",
-      "additional_photos": ["/assets/images/pronuptia/florence-2.jpg"],
+      "additional_photos": [
+        "/assets/images/pronuptia/florence-2.jpg"
+      ],
       "description": "Florence est une robe de mariée majestueuse et intemporelle, confectionnée en mikado pour une allure élégante et structurée. Son bustier délicatement drapé sublime le décolleté avec raffinement, tandis que sa coupe ample apporte volume et grâce à chaque mouvement. Les manches longues en dentelle transparente ajoutent une touche romantique et sophistiquée, mettant subtilement en valeur les bras. La fente discrète sur le devant modernise la silhouette avec féminité et élégance. Son dos dégagé, prolongé par une rangée de boutons délicats, complète cette création avec charme. Florence est la robe idéale pour la mariée en quête d'élégance royale et de modernité raffinée.",
       "placeholder_color": ""
     }
