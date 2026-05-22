@@ -27,6 +27,16 @@
     return String(s ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
+  // Convertit un chemin .jpg en .webp si applicable
+  function toWebp(path) {
+    return path ? path.replace(/\.jpg$/i, '.webp') : path;
+  }
+  // Génère un <picture> avec source webp + img jpg
+  function picture(jpgSrc, alt, attrs) {
+    const webpSrc = toWebp(jpgSrc);
+    const attrsStr = attrs ? ` ${attrs}` : '';
+    return `<picture><source srcset="${escA(webpSrc)}" type="image/webp"><img src="${escA(jpgSrc)}" alt="${escA(alt)}"${attrsStr}></picture>`;
+  }
 
   // ── Fetch : settings + toutes les collections en parallèle ───────────────
   let settings, navCols;
@@ -71,7 +81,7 @@
   const hero = el('page-hero');
   if (hero) {
     const bg = col.hero_image
-      ? `<img src="${escA(col.hero_image)}" alt="${escA(col.title)}" style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;">`
+      ? picture(col.hero_image, col.title, 'style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;"')
       : `<div style="width:100%;height:100%;background:${escA(col.hero_gradient)};position:absolute;inset:0;"></div>`;
     hero.innerHTML = `
       <div class="page-hero__bg">${bg}</div>
@@ -116,12 +126,12 @@
     grid.innerHTML = col.dresses.map((d, i) => {
       const delay = `reveal-d${(i % 4) + 1}`;
       let attrs = `data-lightbox data-brand="${escA(col.title)}" data-name="${escA(d.name)}"`;
-      if (d.additional_photos?.length) attrs += ` data-photos="${escA(d.additional_photos.join(','))}"`;
+      if (d.additional_photos?.length) attrs += ` data-photos="${escA(d.additional_photos.map(toWebp).join(','))}"`;
       if (d.description)               attrs += ` data-description="${escA(d.description)}"`;
-      attrs += ` data-full="${escA(d.main_photo ?? '')}"`;
+      attrs += ` data-full="${escA(toWebp(d.main_photo ?? ''))}"`;
 
       const img = d.main_photo
-        ? `<img src="${escA(d.main_photo)}" alt="${escA(d.name)} — ${escA(col.title)}" loading="lazy">`
+        ? picture(d.main_photo, `${d.name} — ${col.title}`, 'loading="lazy"')
         : `<div class="dress-card__placeholder" style="background:${escA(d.placeholder_color)};">
             <svg class="dress-icon-svg" viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="40" cy="14" rx="11" ry="13" fill="currentColor" opacity="0.3"/>
