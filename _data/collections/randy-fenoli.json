@@ -7,7 +7,7 @@
   "description": "Randy Fenoli, star mondiale de l'univers bridal, crée des robes spectaculaires pensées pour sublimer chaque silhouette. Glamour, audace et féminité à chaque modèle.",
   "hero_image": "/assets/images/randy-fenoli/lexington.jpg",
   "hero_gradient": "",
-  "logo": "/assets/images/logos/randy-fenoli.png",
+  "logo": "/assets/images/logos/randy-fenoli.webp",
   "dresses": [
     {
       "name": "Lexington",
@@ -32,10 +32,10 @@
     },
     {
       "name": "Jada",
-      "main_photo": "/assets/images/randy-fenoli/jada.jpg",
+      "main_photo": "",
       "additional_photos": [],
       "description": "Architecturale et audacieuse, la robe Jada redéfinit l'élégance nuptiale contemporaine. Son bustier corseté sans bretelles sculpte la taille avec une précision couture, mettant en valeur la féminité de la silhouette avec une modernité assumée. Le mikado, tissu noble et structuré, confère à la jupe princesse un volume généreux et une tenue impeccable, sublimé par une fente frontale qui insuffle une touche de sensualité inattendue. Les poches discrètes, détail aussi pratique que chic, complètent ce portrait d'une mariée libre et élégante. Jada est la robe des femmes qui allient caractère, raffinement et une irrésistible confiance en elles.",
-      "placeholder_color": ""
+      "placeholder_color": "linear-gradient(135deg, #c9b99a, #e8ddd0)"
     }
   ]
 }
