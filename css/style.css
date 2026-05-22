@@ -1321,6 +1321,10 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   letter-spacing: 0.08em;
   color: var(--c-dark);
 }
+.brand-logo-item--randy img {
+  max-height: 72px;
+  max-width: 210px;
+}
 
 /* ── Collection intro logo ───────────────────────── */
 .collection-intro__logo {
