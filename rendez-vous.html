@@ -18,7 +18,7 @@
   <meta property="og:image:height" content="600">
   <meta property="og:locale"      content="fr_FR">
   <meta property="og:site_name"   content="Pronuptia Lyon">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -572,13 +572,9 @@
             <div class="rdv-form__divider"></div>
             <p class="form-subtitle">Nous vous recontacterons sous 24h pour confirmer votre créneau.</p>
 
-            <!-- ACTION Formspree : remplacez VOTRE_ID par votre ID Formspree (https://formspree.io) -->
-            <form id="rdv-form" action="https://formspree.io/f/VOTRE_ID" method="POST" novalidate>
-              <!-- Champ anti-spam honeypot (invisible) -->
-              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-              <!-- Redirection après envoi -->
-              <input type="hidden" name="_next" value="https://pronuptia-lyon.fr/rendez-vous.html?envoi=ok">
-              <input type="hidden" name="_subject" value="Nouvelle demande de rendez-vous — Pronuptia Lyon">
+            <form id="rdv-form" name="rendez-vous" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+              <input type="hidden" name="form-name" value="rendez-vous">
+              <p style="display:none"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
               <!-- Prénom / Nom -->
               <div class="form-row">
@@ -669,6 +665,11 @@
               <button type="submit" class="btn-submit-full">Envoyer ma demande de rendez-vous</button>
 
             </form>
+
+            <!-- Error state -->
+            <p id="form-error" style="display:none;color:#c0392b;font-family:'Montserrat',sans-serif;font-size:0.8rem;margin-top:12px;text-align:center;">
+              Une erreur est survenue. Merci de réessayer ou de nous appeler au <a href="tel:+33478371258" style="color:#c0392b;">04 78 37 12 58</a>.
+            </p>
 
             <!-- Success state -->
             <div class="form-success" id="form-success">
@@ -809,27 +810,23 @@
   </script>
 
   <script>
-    // Form submission handler (demo — no real backend)
     (function () {
       var form    = document.getElementById('rdv-form');
       var success = document.getElementById('form-success');
-
       if (!form) return;
 
-      // Set minimum date to today
+      // Date minimum = demain
       var dateInput = document.getElementById('f-date');
       if (dateInput) {
         var today = new Date();
-        var yyyy  = today.getFullYear();
-        var mm    = String(today.getMonth() + 1).padStart(2, '0');
-        var dd    = String(today.getDate() + 1).padStart(2, '0');
-        dateInput.min = yyyy + '-' + mm + '-' + dd;
+        today.setDate(today.getDate() + 1);
+        dateInput.min = today.toISOString().split('T')[0];
       }
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Basic validation
+        // Validation
         var required = form.querySelectorAll('[required]');
         var valid = true;
         required.forEach(function (field) {
@@ -840,26 +837,42 @@
             field.style.borderColor = '';
           }
         });
-
         if (!valid) {
-          var firstInvalid = form.querySelector('[required]:invalid, [style*="c0392b"]');
-          if (firstInvalid) firstInvalid.focus();
+          var first = form.querySelector('[style*="c0392b"]');
+          if (first) first.focus();
           return;
         }
 
-        // Hide form, show success
-        form.style.display = 'none';
-        success.style.display = 'block';
+        // Envoi
+        var btn = form.querySelector('.btn-submit-full');
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours…';
 
-        // Scroll into view
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        })
+        .then(function (res) {
+          if (res.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            throw new Error('Erreur serveur');
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Envoyer ma demande de rendez-vous';
+          var err = document.getElementById('form-error');
+          if (err) err.style.display = 'block';
+        });
       });
 
-      // Clear validation styling on input
+      // Reset validation styling
       form.querySelectorAll('.form-control').forEach(function (field) {
-        field.addEventListener('input', function () {
-          this.style.borderColor = '';
-        });
+        field.addEventListener('input', function () { this.style.borderColor = ''; });
       });
     })();
   </script>
