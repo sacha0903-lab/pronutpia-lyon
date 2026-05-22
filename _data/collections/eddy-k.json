@@ -7,7 +7,7 @@
   "description": "Eddy K impose une vision résolument contemporaine de la robe de mariée. Des lignes épurées, des matières luxueuses et une coupe millimétrée pour la mariée au style architectural et affirmé.",
   "hero_image": "",
   "hero_gradient": "linear-gradient(145deg,#181820,#303040,#484860)",
-  "logo": "",
+  "logo": "/assets/images/logos/eddy-k.webp",
   "dresses": [
     {
       "name": "Artemia",
