@@ -99,13 +99,12 @@
   // ── Collection intro ─────────────────────────────────────────────────────
   const intro = el('collection-intro');
   if (intro) {
-    const logo = col.logo
-      ? `<img src="${escA(col.logo)}" alt="${escA(col.title)}" class="collection-intro__logo">`
-      : '';
+    const brandBlock = col.logo
+      ? `<img src="${escA(col.logo)}" alt="${escA(col.title)}" class="collection-intro__logo" data-slug="${escA(slug)}">`
+      : `<div class="collection-intro__brand">${esc(col.title)}</div>`;
     intro.innerHTML = `
       <div>
-        ${logo}
-        <div class="collection-intro__brand">${esc(col.title)}</div>
+        ${brandBlock}
         <div class="collection-intro__count eyebrow">${n} robe${n > 1 ? 's disponibles' : ' disponible'}</div>
       </div>
       <div>

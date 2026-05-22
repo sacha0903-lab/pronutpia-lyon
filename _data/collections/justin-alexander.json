@@ -7,7 +7,7 @@
   "description": "Justin Alexander est synonyme d'élégance classique revisitée. Des créations intemporelles aux finitions couture, pour la mariée qui rêve d'une robe à la fois grandiose et raffinée.",
   "hero_image": "",
   "hero_gradient": "linear-gradient(145deg,#2a2010,#706040,#a09070)",
-  "logo": "",
+  "logo": "/assets/images/logos/justin-alexander.svg",
   "dresses": [
     {
       "name": "Alexandra",

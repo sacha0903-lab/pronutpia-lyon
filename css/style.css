@@ -1331,3 +1331,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   margin-bottom: 10px;
   display: block;
 }
+.collection-intro__logo[data-slug="randy-fenoli"] {
+  max-height: 130px;
+  max-width: 360px;
+}
