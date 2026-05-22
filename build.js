@@ -185,7 +185,9 @@ function footerLinks() {
   ).join('\n');
 }
 
-// ── Full page template ────────────────────────────────────────────────────────
+// ── Shell template (contenu rendu dynamiquement par collection-page.js) ───────
+// Le build génère uniquement le squelette HTML avec les meta SEO et la nav.
+// Tout le contenu (robes, horaires, intro…) est chargé depuis les JSON au runtime.
 
 function generatePage(c) {
   return `<!DOCTYPE html>
@@ -205,7 +207,7 @@ function generatePage(c) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="stylesheet" href="../css/style.css?v=3">
 </head>
 <body>
 
@@ -226,7 +228,7 @@ function generatePage(c) {
         <a href="../index.html" class="nav-link">Accueil</a>
         <div class="nav-item--dropdown">
           <a href="../galerie.html" class="nav-link active">Collections</a>
-          <div class="nav-dropdown">
+          <div class="nav-dropdown" id="nav-dropdown">
 ${navDropdown()}
           </div>
         </div>
@@ -249,7 +251,8 @@ ${navDropdown()}
     </div>
   </header>
 
-${heroSection(c)}
+  <!-- PAGE HERO — rendu par collection-page.js -->
+  <section class="page-hero" id="page-hero"></section>
 
   <!-- BREADCRUMB -->
   <div class="container">
@@ -258,20 +261,26 @@ ${heroSection(c)}
       <span class="breadcrumb-sep">›</span>
       <a href="../galerie.html">Collections</a>
       <span class="breadcrumb-sep">›</span>
-      <span>${escapeHtml(c.title)}</span>
+      <span id="breadcrumb-title"></span>
     </nav>
   </div>
 
-${collectionIntro(c)}
+  <!-- COLLECTION INTRO — rendu par collection-page.js -->
+  <div class="container">
+    <div class="collection-intro" id="collection-intro"></div>
+  </div>
 
-${dressGrid(c)}
+  <!-- DRESS GRID — rendu par collection-page.js -->
+  <div class="container">
+    <div class="collection-dresses-grid" id="dress-grid"></div>
+  </div>
 
   <!-- CTA SECTION -->
   <section class="section-cta">
     <div class="container">
       <span class="eyebrow">Votre robe vous attend</span>
       <h2>Essayez cette collection<br><em>en boutique</em></h2>
-      <p>Prenez rendez-vous pour une consultation personnalisée et découvrez nos modèles ${escapeHtml(c.title)} dans notre boutique de Lyon.</p>
+      <p id="cta-text"></p>
       <a href="../rendez-vous.html" class="btn btn--outline"><span>Prendre rendez-vous</span></a>
     </div>
   </section>
@@ -287,16 +296,16 @@ ${dressGrid(c)}
               <div class="logo-divider" style="margin:5px 0;"></div>
               <span class="logo-sub">Lyon</span>
             </div>
-            <p class="footer-tagline">${escapeHtml(settings.tagline)}</p>
+            <p class="footer-tagline" id="footer-tagline"></p>
             <div class="footer-social">
-              <a href="${escapeAttr(settings.instagram)}" aria-label="Instagram">ig</a>
-              <a href="${escapeAttr(settings.facebook)}" aria-label="Facebook">fb</a>
-              <a href="${escapeAttr(settings.pinterest)}" aria-label="Pinterest">pt</a>
+              <a href="#" id="footer-ig" aria-label="Instagram">ig</a>
+              <a href="#" id="footer-fb" aria-label="Facebook">fb</a>
+              <a href="#" id="footer-pt" aria-label="Pinterest">pt</a>
             </div>
           </div>
           <div>
             <div class="footer-col-title">Collections</div>
-            <div class="footer-col-links">
+            <div class="footer-col-links" id="footer-collection-links">
 ${footerLinks()}
             </div>
           </div>
@@ -314,18 +323,16 @@ ${footerLinks()}
             <div class="footer-contact-items">
               <div class="footer-contact-item">
                 <div class="fci-icon">📍</div>
-                <div class="fci-text"><strong>Adresse</strong>${escapeHtml(settings.address)}<br>${escapeHtml(settings.city)}</div>
+                <div class="fci-text"><strong>Adresse</strong><span id="footer-address"></span></div>
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">📞</div>
-                <div class="fci-text"><strong>Téléphone</strong>${escapeHtml(settings.phone)}</div>
+                <div class="fci-text"><strong>Téléphone</strong><span id="footer-phone"></span></div>
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">🕐</div>
                 <div class="fci-text"><strong>Horaires</strong>
-                  <div class="hours-list">
-${footerHours()}
-                  </div>
+                  <div class="hours-list" id="footer-hours"></div>
                 </div>
               </div>
             </div>
@@ -356,7 +363,8 @@ ${footerHours()}
     </div>
   </div>
 
-  <script src="../js/main.js?v=2"></script>
+  <script src="../js/main.js?v=3"></script>
+  <script src="../js/collection-page.js?v=1"></script>
 </body>
 </html>`;
 }
@@ -372,4 +380,4 @@ for (const slug of NAV_ORDER) {
   console.log(`✓ collections/${c.slug}.html  (${c.dresses.length} robes)`);
 }
 
-console.log(`\n✓ Build terminé — ${NAV_ORDER.length} pages générées`);
+console.log(`\n✓ Build terminé — ${NAV_ORDER.length} shells générés`);
