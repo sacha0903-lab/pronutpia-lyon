@@ -29,6 +29,27 @@
       "additional_photos": [],
       "description": "",
       "placeholder_color": "linear-gradient(160deg,#404050,#606070)"
+    },
+    {
+      "name": "Tatum",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "Légèreté et sensualité se rencontrent dans cette robe de mariée bohème-chic en mousseline et dentelle. Le corsage en dentelle florale sur fond nude, subtilement décolleté en V, épouse le buste avec délicatesse, soutenu par de fines bretelles spaghetti pour un effet aérien et féminin. La jupe ample en mousseline fluide tombe avec grâce en une longue traîne romantique, créant un mouvement envoûtant à chaque pas. Le dos révèle une finition tout aussi soignée, avec une dentelle délicate qui orne l'ourlet de la traîne. Une robe intemporelle pour une mariée libre, élégante et naturellement lumineuse.",
+      "placeholder_color": "linear-gradient(160deg,#606070,#404050)"
+    },
+    {
+      "name": "Trisha",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "Sophistiquée et envoûtante, la robe Trisha sublime la mariée moderne avec une coupe épaules dénudées d'une élégance absolue. Le bustier drapé en crêpe fluide épouse le décolleté avec sensualité, tandis que les longues manches en dentelle transparente apportent une touche romantique et raffinée. La jupe ligne A en crêpe lisse tombe avec fluidité en une généreuse traîne majestueuse, rehaussée d'une fente subtilement élégante. Le dos décolleté révèle une silhouette sculpturale mise en valeur par le tombé impeccable du tissu. Une robe intemporelle, alliant modernité et romantisme, pour une mariée à la fois audacieuse et gracieuse.",
+      "placeholder_color": "linear-gradient(160deg,#404050,#606070)"
+    },
+    {
+      "name": "Sylvie",
+      "main_photo": "",
+      "additional_photos": [],
+      "description": "Véritable œuvre d'art, cette robe de mariée princesse ensorcelle par sa jupe volumineuse entièrement recouverte d'appliques de dentelle en motifs de feuillage et de fleurs, créant un effet féerique et tridimensionnel absolument saisissant. Le corsage en dentelle transparente, subtilement décolleté en V plongeant, épouse le buste avec élégance, soutenu par de fines bretelles spaghetti délicatement ornées. La jupe en tulle et dentelle s'épanouit en un volume généreux et romantique, idéal pour une entrée majestueuse. Une robe somptueuse et lumineuse, pensée pour la mariée qui rêve d'une silhouette de conte de fées, entre nature et sophistication.",
+      "placeholder_color": "linear-gradient(160deg,#606070,#404050)"
     }
   ]
 }
