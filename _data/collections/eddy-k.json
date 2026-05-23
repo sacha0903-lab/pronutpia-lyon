@@ -3,53 +3,32 @@
   "slug": "eddy-k",
   "nav_label": "Eddy K",
   "in_footer": true,
-  "meta_description": "Découvrez les 3 robes de la collection Eddy K chez Pronuptia Lyon. Des créations italiennes au style épuré et moderne.",
+  "meta_description": "Découvrez les robes de la collection Eddy K chez Pronuptia Lyon. Des créations italiennes au style épuré et moderne.",
   "description": "Eddy K impose une vision résolument contemporaine de la robe de mariée. Des lignes épurées, des matières luxueuses et une coupe millimétrée pour la mariée au style architectural et affirmé.",
   "hero_image": "",
   "hero_gradient": "linear-gradient(145deg,#181820,#303040,#484860)",
   "logo": "/assets/images/logos/eddy-k.webp",
   "dresses": [
     {
-      "name": "Artemia",
-      "main_photo": "",
-      "additional_photos": [],
-      "description": "D'une élégance sculptée et intemporelle, la robe Artemia incarne la quintessence du style Eddy K. Le corsage ajusté, rehaussé d'une dentelle précieuse aux motifs floraux raffinés, épouse la silhouette avec une précision couture. La jupe évasée en crêpe de soie tombe avec majesté, révélant à chaque mouvement la richesse du tissu. Le dos subtilement décolleté, encadré de dentelle, achève cette robe d'une sophistication absolue. Pour la mariée qui cherche l'alliance parfaite entre architecture et grâce féminine.",
-      "placeholder_color": "linear-gradient(160deg,#404050,#606070)"
-    },
-    {
-      "name": "Bold",
-      "main_photo": "",
-      "additional_photos": [],
-      "description": "Affirmée et lumineuse, la robe Bold revendique une féminité sans compromis. La coupe sirène épouse le corps avec précision, mettant en valeur chaque courbe avec une sensualité maîtrisée. Le bustier structuré, orné d'une broderie géométrique subtile, affirme un style contemporain et fort, tandis que la jupe s'évase en une traîne spectaculaire au volume parfaitement dosé. Une robe qui s'impose, pensée pour la mariée moderne qui ose faire une entrée inoubliable.",
-      "placeholder_color": "linear-gradient(160deg,#606070,#404050)"
-    },
-    {
-      "name": "Contour",
-      "main_photo": "",
-      "additional_photos": [],
-      "description": "Pure et sculptée, la robe Contour célèbre la ligne du corps avec une précision architecturale. La coupe fourreau en crêpe mat colle à la silhouette comme une seconde peau, révélant les contours avec élégance et assurance. L'encolure drapée apporte une dimension romantique à ce design résolument épuré, tandis que la traîne légère confère à la robe une allure de défilé. Pour la mariée minimaliste qui sait que la perfection réside dans la simplicité.",
-      "placeholder_color": "linear-gradient(160deg,#404050,#606070)"
-    },
-    {
       "name": "Tatum",
       "main_photo": "",
       "additional_photos": [],
       "description": "Légèreté et sensualité se rencontrent dans cette robe de mariée bohème-chic en mousseline et dentelle. Le corsage en dentelle florale sur fond nude, subtilement décolleté en V, épouse le buste avec délicatesse, soutenu par de fines bretelles spaghetti pour un effet aérien et féminin. La jupe ample en mousseline fluide tombe avec grâce en une longue traîne romantique, créant un mouvement envoûtant à chaque pas. Le dos révèle une finition tout aussi soignée, avec une dentelle délicate qui orne l'ourlet de la traîne. Une robe intemporelle pour une mariée libre, élégante et naturellement lumineuse.",
-      "placeholder_color": "linear-gradient(160deg,#606070,#404050)"
+      "placeholder_color": "linear-gradient(160deg,#404050,#606070)"
     },
     {
       "name": "Trisha",
       "main_photo": "",
       "additional_photos": [],
       "description": "Sophistiquée et envoûtante, la robe Trisha sublime la mariée moderne avec une coupe épaules dénudées d'une élégance absolue. Le bustier drapé en crêpe fluide épouse le décolleté avec sensualité, tandis que les longues manches en dentelle transparente apportent une touche romantique et raffinée. La jupe ligne A en crêpe lisse tombe avec fluidité en une généreuse traîne majestueuse, rehaussée d'une fente subtilement élégante. Le dos décolleté révèle une silhouette sculpturale mise en valeur par le tombé impeccable du tissu. Une robe intemporelle, alliant modernité et romantisme, pour une mariée à la fois audacieuse et gracieuse.",
-      "placeholder_color": "linear-gradient(160deg,#404050,#606070)"
+      "placeholder_color": "linear-gradient(160deg,#606070,#404050)"
     },
     {
       "name": "Sylvie",
       "main_photo": "",
       "additional_photos": [],
       "description": "Véritable œuvre d'art, cette robe de mariée princesse ensorcelle par sa jupe volumineuse entièrement recouverte d'appliques de dentelle en motifs de feuillage et de fleurs, créant un effet féerique et tridimensionnel absolument saisissant. Le corsage en dentelle transparente, subtilement décolleté en V plongeant, épouse le buste avec élégance, soutenu par de fines bretelles spaghetti délicatement ornées. La jupe en tulle et dentelle s'épanouit en un volume généreux et romantique, idéal pour une entrée majestueuse. Une robe somptueuse et lumineuse, pensée pour la mariée qui rêve d'une silhouette de conte de fées, entre nature et sophistication.",
-      "placeholder_color": "linear-gradient(160deg,#606070,#404050)"
+      "placeholder_color": "linear-gradient(160deg,#404050,#606070)"
     }
   ]
 }
