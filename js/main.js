@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!lightbox || !allPhotos.length) return;
     currentIndex = (index + allPhotos.length) % allPhotos.length;
     const photo = allPhotos[currentIndex];
-    if (lbImg)   { lbImg.src = photo.src; lbImg.alt = photo.name; }
+    if (lbImg)   { lbImg.src = photo.src; lbImg.alt = photo.name; lbImg.style.display = photo.src ? '' : 'none'; }
     if (lbBrand) lbBrand.textContent = photo.brand;
     if (lbName)  lbName.textContent  = photo.name;
     if (lbDesc)  { lbDesc.textContent = photo.description || ''; lbDesc.style.display = photo.description ? '' : 'none'; }
@@ -161,7 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const extras = card.dataset.photos ? card.dataset.photos.split(',').map(s => s.trim()) : [];
       const srcs   = [full, ...extras].filter(Boolean);
       const startIndex = allPhotos.length;
-      srcs.forEach(src => allPhotos.push({ src, brand, name, description }));
+      if (srcs.length) {
+        srcs.forEach(src => allPhotos.push({ src, brand, name, description }));
+      } else {
+        // Carte placeholder sans photo : on l'enregistre quand même pour afficher la description
+        allPhotos.push({ src: '', brand, name, description });
+      }
       card.addEventListener('click', () => openLightbox(startIndex));
     });
   };
