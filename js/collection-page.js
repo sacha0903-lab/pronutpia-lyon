@@ -1,6 +1,12 @@
 /* collection-page.js — rendu dynamique depuis les JSON _data/
    Chargé sur chaque page collections/*.html
-   Aucun build nécessaire : le CMS commit le JSON → la page le lit au chargement. */
+   Aucun build nécessaire : le CMS commit le JSON → la page le lit au chargement.
+
+   Stratégie de chargement en 2 phases :
+   - Phase 1 (critique)     : settings + collection courante seulement (2 requêtes)
+                              → page rendue + loader libéré immédiatement
+   - Phase 2 (arrière-plan) : 8 autres collections en parallèle
+                              → nav dropdown + footer liens remplis sans bloquer */
 
 (async function () {
   'use strict';
@@ -38,25 +44,22 @@
     return `<picture><source srcset="${escA(webpSrc)}" type="image/webp"><img src="${escA(jpgSrc)}" alt="${escA(alt)}"${attrsStr}></picture>`;
   }
 
-  // ── Fetch : settings + toutes les collections en parallèle ───────────────
-  let settings, navCols;
+  const el = id => document.getElementById(id);
+
+  // ── Phase 1 : fetches critiques (2 requêtes seulement) ───────────────────
+  // Seuls settings + la collection de cette page sont nécessaires pour rendre
+  // le contenu visible. Les autres collections (nav, footer) chargent ensuite.
+  let settings, col;
   try {
-    const results = await Promise.all([
+    [settings, col] = await Promise.all([
       fetch('/_data/settings.json').then(r => { if (!r.ok) throw r; return r.json(); }),
-      ...NAV_ORDER.map(s =>
-        fetch(`/_data/collections/${s}.json`).then(r => { if (!r.ok) throw r; return r.json(); })
-      )
+      fetch(`/_data/collections/${slug}.json`).then(r => { if (!r.ok) throw r; return r.json(); })
     ]);
-    settings = results[0];
-    navCols  = results.slice(1);          // dans l'ordre de NAV_ORDER
   } catch (err) {
     console.warn('[collection-page] Erreur chargement JSON :', err);
     window._pageReady?.();
     return;
   }
-
-  const col    = navCols[NAV_ORDER.indexOf(slug)];
-  const footerCols = FOOTER_ORDER.map(s => navCols[NAV_ORDER.indexOf(s)]);
 
   if (!col) {
     console.warn('[collection-page] Collection inconnue :', slug);
@@ -66,16 +69,6 @@
 
   const n    = col.dresses.length;
   const nStr = `${n} robe${n > 1 ? 's' : ''}`;
-  const el   = id => document.getElementById(id);
-
-  // ── Navigation dropdown ──────────────────────────────────────────────────
-  const navDropdown = el('nav-dropdown');
-  if (navDropdown) {
-    navDropdown.innerHTML = navCols.map((c, i) => {
-      const cnt = c.dresses.length;
-      return `<a href="${NAV_ORDER[i]}.html">${esc(c.nav_label || c.title)} <span class="dd-count">${cnt} robe${cnt > 1 ? 's' : ''}</span></a>`;
-    }).join('');
-  }
 
   // ── Hero ─────────────────────────────────────────────────────────────────
   const hero = el('page-hero');
@@ -172,15 +165,46 @@
   if (el('footer-fb') && settings.facebook)  el('footer-fb').href = settings.facebook;
   if (el('footer-pt') && settings.pinterest) el('footer-pt').href = settings.pinterest;
 
-  // ── Footer — liens collections ────────────────────────────────────────────
-  const footerLinks = el('footer-collection-links');
-  if (footerLinks) {
-    footerLinks.innerHTML = footerCols.map(c =>
-      `<a href="${c.slug || FOOTER_ORDER[footerCols.indexOf(c)]}.html">${esc(c.nav_label || c.title)}</a>`
-    ).join('');
-  }
-
-  // ── Signaler que la page est prête ───────────────────────────────────────
+  // ── Libérer le loader : la page est prête ────────────────────────────────
+  // Les 8 autres collections n'étant pas encore chargées, nav dropdown et
+  // footer liens se rempliront en arrière-plan sans bloquer l'affichage.
   window._pageReady?.();
+
+  // ── Phase 2 : fetches secondaires en arrière-plan ────────────────────────
+  // Lance les 8 requêtes restantes après que le loader soit levé.
+  // Le réseau est libre, pas de compétition avec le rendu principal.
+  const otherSlugs = NAV_ORDER.filter(s => s !== slug);
+  Promise.all(
+    otherSlugs.map(s =>
+      fetch(`/_data/collections/${s}.json`)
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)
+    )
+  ).then(results => {
+    // Reconstituer la map complète dans l'ordre NAV_ORDER
+    const colMap = { [slug]: col };
+    otherSlugs.forEach((s, i) => { if (results[i]) colMap[s] = results[i]; });
+
+    // Nav dropdown (comptage de robes par collection)
+    const navDropdown = el('nav-dropdown');
+    if (navDropdown) {
+      navDropdown.innerHTML = NAV_ORDER.map(s => {
+        const c = colMap[s];
+        if (!c) return '';
+        const cnt = c.dresses.length;
+        return `<a href="${s}.html">${esc(c.nav_label || c.title)} <span class="dd-count">${cnt} robe${cnt > 1 ? 's' : ''}</span></a>`;
+      }).join('');
+    }
+
+    // Footer — liens collections
+    const footerLinks = el('footer-collection-links');
+    if (footerLinks) {
+      footerLinks.innerHTML = FOOTER_ORDER.map(s => {
+        const c = colMap[s];
+        if (!c) return '';
+        return `<a href="${s}.html">${esc(c.nav_label || c.title)}</a>`;
+      }).join('');
+    }
+  });
 
 })();

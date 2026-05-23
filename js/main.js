@@ -21,6 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ─── AUTOPLAY VIDÉO HERO (Safari) ─── */
+  // Safari ignore autoplay quand preload="none". On appelle .play() explicitement.
+  const heroVideo = document.querySelector('.hero__video');
+  if (heroVideo) {
+    heroVideo.play().catch(() => {
+      // Autoplay refusé (ex. Low Power Mode iOS) — le poster reste affiché, c'est ok
+    });
+  }
+
   /* ─── STICKY HEADER ─── */
   const header = document.getElementById('site-header');
   if (header) {
