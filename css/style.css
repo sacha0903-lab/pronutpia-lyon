@@ -1278,6 +1278,28 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 }
 @media (max-width: 680px) {
   :root { --gutter: 20px; --header-h: 72px; }
+
+  /* Logo mobile : image seule, sans texte "Lyon", pour garantir la visibilité */
+  .logo-sub { display: none; }
+  .site-logo { gap: 0; }
+  .site-logo__img { height: 48px; }
+
+  /* Overrides is-scrolled pour éviter la surspécificité CSS */
+  .is-scrolled .site-logo__img { height: 48px; }
+  .is-scrolled .site-logo { gap: 0; }
+
+  /* Hero : poster image en fallback quand la vidéo ne joue pas */
+  .hero__bg-fallback {
+    background: url('../assets/hero-poster.jpg') center/cover no-repeat;
+  }
+  .hero__content { padding-bottom: 60px; }
+
+  /* Sections : espacement vertical réduit sur mobile */
+  .section-intro { padding: 80px 0 70px; }
+  .section-stats { padding: 60px 0; }
+  .section-featured { padding: 80px 0; }
+  .section-brands { padding: 56px 0; }
+
   .hero__title { font-size: clamp(2.4rem, 10vw, 3.8rem); }
   .collections-grid { grid-template-columns: 1fr; gap: 12px; }
   .featured-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -1288,7 +1310,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .footer-bottom-inner { flex-direction: column; gap: 12px; text-align: center; }
   .hero__actions { flex-direction: column; align-items: flex-start; }
   .hero__scroll-hint { display: none; }
-  .section-cta { padding: 100px 0; }
+  .section-cta { padding: 90px 0; }
   h1 { font-size: clamp(2rem, 9vw, 3rem); }
   h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
