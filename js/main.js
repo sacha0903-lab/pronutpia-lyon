@@ -22,9 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─── AUTOPLAY VIDÉO HERO (Safari) ─── */
-  // Safari ignore autoplay quand preload="none". On appelle .play() explicitement.
+  // Sur mobile (≤680px) : vidéo masquée via CSS, pas de téléchargement.
+  // Sur desktop : appel explicite pour Safari qui ignore l'attribut autoplay avec preload="metadata".
   const heroVideo = document.querySelector('.hero__video');
-  if (heroVideo) {
+  if (heroVideo && window.innerWidth > 680) {
     heroVideo.play().catch(() => {
       // Autoplay refusé (ex. Low Power Mode iOS) — le poster reste affiché, c'est ok
     });

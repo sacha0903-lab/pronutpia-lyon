@@ -1286,6 +1286,9 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 
   /* Overrides is-scrolled pour éviter la surspécificité CSS */
   .is-scrolled .site-logo__img { height: 48px; }
+
+  /* Vidéo hero : masquée sur mobile → pas de téléchargement, le poster CSS prend le relais */
+  .hero__video { display: none; }
   .is-scrolled .site-logo { gap: 0; }
 
   /* Hero : poster image en fallback quand la vidéo ne joue pas */
