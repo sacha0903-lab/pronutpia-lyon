@@ -6,17 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── PAGE LOADER ─── */
   const loader = document.getElementById('page-loader');
+  let loaderHidden = false;
   const doHideLoader = () => {
-    if (loader) {
-      loader.classList.add('loaded');
-      setTimeout(() => loader.remove(), 400);
-    }
+    if (!loader || loaderHidden) return;
+    loaderHidden = true;
+    loader.classList.add('loaded');
+    setTimeout(() => loader.remove(), 400);
   };
   // collection-page.js pose window._waitForAsync = true avant de fetch le JSON
   // et appelle window._pageReady() quand le contenu est prêt.
   window._pageReady = doHideLoader;
   if (loader) {
+    // Sécurité : masquer le loader après 800ms max quelle que soit la progression
+    // du réseau (vidéo hero, images, fonts…). Évite tout blocage sur cold start.
+    const maxTimer = setTimeout(doHideLoader, 800);
     window.addEventListener('load', () => {
+      clearTimeout(maxTimer);
       if (!window._waitForAsync) doHideLoader();
     });
   }
