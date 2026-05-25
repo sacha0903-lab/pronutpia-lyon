@@ -21,13 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ─── AUTOPLAY VIDÉO HERO (Safari) ─── */
-  // Sur mobile (≤680px) : vidéo masquée via CSS, pas de téléchargement.
-  // Sur desktop : appel explicite pour Safari qui ignore l'attribut autoplay avec preload="metadata".
+  /* ─── AUTOPLAY VIDÉO HERO (tous navigateurs + Safari + mobile) ─── */
+  // Safari ignore parfois l'attribut autoplay même avec muted+playsinline.
+  // On force .play() explicitement, et on réessaie sur canplay si nécessaire
+  // (cas Safari quand la vidéo n'a pas encore suffisamment bufférisé).
   const heroVideo = document.querySelector('.hero__video');
-  if (heroVideo && window.innerWidth > 680) {
+  if (heroVideo) {
     heroVideo.play().catch(() => {
-      // Autoplay refusé (ex. Low Power Mode iOS) — le poster reste affiché, c'est ok
+      // Échec immédiat (Safari pas prêt, ou politique autoplay) :
+      // réessayer dès que la vidéo a assez de données pour démarrer.
+      heroVideo.addEventListener('canplay', () => {
+        heroVideo.play().catch(() => {
+          // Toujours refusé (ex. Low Power Mode iOS) — le poster reste affiché
+        });
+      }, { once: true });
     });
   }
 

@@ -1,0 +1,22 @@
+{
+  "name": "Pronuptia Lyon",
+  "short_name": "Pronuptia",
+  "description": "Boutique robes de mariée au cœur du 2ème arrondissement de Lyon.",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#3D1E2E",
+  "background_color": "#F8F0E8",
+  "icons": [
+    {
+      "src": "/assets/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
