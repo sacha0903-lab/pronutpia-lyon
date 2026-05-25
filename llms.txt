@@ -1,0 +1,39 @@
+# Pronuptia Lyon
+
+> Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon, au 9 rue des Remparts d'Ainay. Plus de vingt ans d'expérience au service des futures mariées.
+
+## Informations
+
+- Adresse : 9 rue des Remparts d'Ainay, 69002 Lyon, France
+- Téléphone : 04 78 37 12 58
+- Email : contact@pronuptia-lyon.fr
+- Horaires : mardi–vendredi 10h–19h, samedi 10h–18h30
+- Site : https://pronuptia-lyon.fr
+
+## Collections disponibles en boutique
+
+- Amélie (19 robes)
+- Justin Alexander (10 robes)
+- Modeca + Le Papillon (16 robes)
+- Pronuptia (6 robes)
+- Libelle (6 robes)
+- Randy Fenoli (3 robes)
+- Eddy K (3 robes)
+- Robes courtes Modeca (3 robes)
+- Terre Alice
+
+## Pages
+
+- [Accueil](https://pronuptia-lyon.fr/)
+- [Galerie](https://pronuptia-lyon.fr/galerie.html)
+- [Rendez-vous](https://pronuptia-lyon.fr/rendez-vous.html)
+- [À propos](https://pronuptia-lyon.fr/a-propos.html)
+- [Collection Amélie](https://pronuptia-lyon.fr/collections/amelie.html)
+- [Collection Justin Alexander](https://pronuptia-lyon.fr/collections/justin-alexander.html)
+- [Collection Modeca + Le Papillon](https://pronuptia-lyon.fr/collections/modeca-papillon.html)
+- [Collection Pronuptia](https://pronuptia-lyon.fr/collections/pronuptia.html)
+- [Collection Libelle](https://pronuptia-lyon.fr/collections/libelle.html)
+- [Collection Randy Fenoli](https://pronuptia-lyon.fr/collections/randy-fenoli.html)
+- [Collection Eddy K](https://pronuptia-lyon.fr/collections/eddy-k.html)
+- [Collection Robes courtes Modeca](https://pronuptia-lyon.fr/collections/modeca-courtes.html)
+- [Collection Terre Alice](https://pronuptia-lyon.fr/collections/terre-alice.html)
