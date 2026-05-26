@@ -74,6 +74,8 @@
   <link rel="preload" href="css/style.css?v=4" as="style">
   <link rel="stylesheet" href="css/style.css?v=4">
   <link rel="preload" href="assets/images/logos/pronuptia.webp?v=3" as="image">
+  <link rel="preload" href="assets/hero-poster.jpg" as="image">
+  <link rel="preload" href="assets/images/amelie/46036.webp" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -155,12 +157,12 @@
           muted
           loop
           playsinline
-          preload="auto"
+          preload="none"
           poster="assets/hero-poster.jpg"
           aria-hidden="true"
         >
-          <source src="assets/hero.webm?v=3" type="video/webm">
-          <source src="assets/hero.mp4?v=3" type="video/mp4">
+          <source src="assets/hero.webm?v=4" type="video/webm">
+          <source src="assets/hero.mp4?v=4" type="video/mp4">
         </video>
       </div>
       <div class="hero__overlay"></div>
@@ -235,7 +237,7 @@
 
           <!-- Amélie — Grande carte -->
           <a href="collections/amelie.html" class="collection-card reveal">
-            <div class="collection-card__bg"><img src="assets/images/amelie/46036.webp" alt="Collection Amélie" loading="lazy"></div>
+            <div class="collection-card__bg"><img src="assets/images/amelie/46036.webp" alt="Collection Amélie" loading="eager" fetchpriority="high"></div>
             <div class="collection-card__overlay"></div>
             <div class="collection-card__body">
               <div class="collection-card__count">19 robes</div>
@@ -246,7 +248,7 @@
 
           <!-- Justin Alexander -->
           <a href="collections/justin-alexander.html" class="collection-card reveal reveal-d1">
-            <div class="collection-card__bg"><img src="assets/images/amelie/36024.webp" alt="Justin Alexander" loading="lazy" style="object-position: center 35%;"></div>
+            <div class="collection-card__bg"><img src="assets/images/amelie/36024.webp" alt="Justin Alexander" loading="eager" style="object-position: center 35%;"></div>
             <div class="collection-card__overlay"></div>
             <div class="collection-card__body">
               <div class="collection-card__count">10 robes</div>
@@ -257,7 +259,7 @@
 
           <!-- Modeca + Papillon -->
           <a href="collections/modeca-papillon.html" class="collection-card reveal reveal-d2">
-            <div class="collection-card__bg"><img src="assets/images/modeca/maurisse.webp" alt="Modeca + Le Papillon" loading="lazy"></div>
+            <div class="collection-card__bg"><img src="assets/images/modeca/maurisse.webp" alt="Modeca + Le Papillon" loading="eager"></div>
             <div class="collection-card__overlay"></div>
             <div class="collection-card__body">
               <div class="collection-card__count">16 robes</div>
