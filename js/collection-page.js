@@ -117,10 +117,7 @@
   if (grid) {
     grid.innerHTML = col.dresses.map((d, i) => {
       const delay = `reveal-d${(i % 4) + 1}`;
-      let attrs = `data-lightbox data-brand="${escA(col.title)}" data-name="${escA(d.name)}"`;
-      if (d.additional_photos?.length) attrs += ` data-photos="${escA(d.additional_photos.map(toWebp).join(','))}"`;
-      if (d.description)               attrs += ` data-description="${escA(d.description)}"`;
-      attrs += ` data-full="${escA(toWebp(d.main_photo ?? ''))}"`;
+      const href  = `product?col=${encodeURIComponent(slug)}&i=${i}`;
 
       const img = d.main_photo
         ? picture(d.main_photo, `${d.name} — ${col.title}`, 'loading="lazy"')
@@ -133,20 +130,19 @@
           </div>`;
 
       return `
-      <div class="dress-card reveal ${delay}" ${attrs}>
+      <a href="${escA(href)}" class="dress-card reveal ${delay}">
         <div class="dress-card__img-wrap">
           ${img}
-          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Agrandir</div></div>
+          <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Voir le modèle</div></div>
         </div>
         <div class="dress-card__info">
           <div class="dress-card__brand">${esc(col.title)}</div>
           <div class="dress-card__name">${esc(d.name)}</div>
         </div>
-      </div>`;
+      </a>`;
     }).join('');
 
-    // Réinitialiser lightbox et reveal pour les nouveaux éléments
-    if (typeof window.initLightbox === 'function') window.initLightbox();
+    // Réinitialiser reveal pour les nouveaux éléments
     if (window.revealObserver) {
       grid.querySelectorAll('.reveal').forEach(e => window.revealObserver.observe(e));
     }

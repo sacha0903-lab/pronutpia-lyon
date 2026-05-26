@@ -46,12 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── STICKY HEADER ─── */
   const header = document.getElementById('site-header');
   if (header) {
+    // Only use transparent header on pages with a hero section (homepage)
+    const hasHero = !!document.querySelector('.hero');
     let rafPending = false;
     const handleScroll = () => {
       if (rafPending) return;
       rafPending = true;
       requestAnimationFrame(() => {
-        if (window.scrollY > 60) {
+        if (!hasHero || window.scrollY > 60) {
           header.classList.remove('is-transparent');
           header.classList.add('is-scrolled');
         } else {
