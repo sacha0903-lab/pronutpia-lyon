@@ -350,8 +350,8 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 
 /* Hamburger */
 .hamburger { display: none; flex-direction: column; gap: 5px; width: 26px; padding: 2px; }
-.hamburger span { display: block; height: 1px; background: var(--c-ivory); transition: all 0.35s ease; transform-origin: center; }
-.is-scrolled .hamburger span { background: var(--c-warm-black); }
+.hamburger span { display: block; height: 2px; background: var(--c-ivory); transition: all 0.35s ease; transform-origin: center; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7)); }
+.is-scrolled .hamburger span { background: var(--c-warm-black); filter: none; }
 .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
