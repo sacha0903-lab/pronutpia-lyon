@@ -32,13 +32,13 @@ function rel(p) {
 // Order used in the navigation dropdown
 const NAV_ORDER = [
   'amelie', 'pronuptia', 'libelle', 'randy-fenoli',
-  'modeca-courtes', 'modeca-papillon', 'terre-alice', 'eddy-k', 'justin-alexander'
+  'modeca-courtes', 'modeca-papillon', 'eddy-k', 'justin-alexander'
 ];
 
 // Order used in the footer (modeca-courtes excluded, justin-alexander moved up)
 const FOOTER_ORDER = [
   'amelie', 'pronuptia', 'justin-alexander', 'randy-fenoli',
-  'libelle', 'modeca-papillon', 'terre-alice', 'eddy-k'
+  'libelle', 'modeca-papillon', 'eddy-k'
 ];
 
 // ── Load data ─────────────────────────────────────────────────────────────────
