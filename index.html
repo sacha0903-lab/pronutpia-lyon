@@ -71,6 +71,20 @@
   }
   </script>
 
+  <!-- JSON-LD : Vidéo hero (indexation Google Vidéos) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Boutique Pronuptia Lyon — Robes de Mariée",
+    "description": "Découvrez l'ambiance de notre boutique Pronuptia Lyon, spécialisée dans les robes de mariée au cœur du 2ème arrondissement de Lyon. Plus de 67 modèles des plus grandes collections.",
+    "thumbnailUrl": "https://pronuptia-lyon.fr/assets/hero-poster.jpg",
+    "uploadDate": "2025-05-26",
+    "duration": "PT15S",
+    "contentUrl": "https://pronuptia-lyon.fr/assets/hero.mp4"
+  }
+  </script>
+
   <link rel="preload" href="css/style.css?v=4" as="style">
   <link rel="stylesheet" href="css/style.css?v=4">
   <link rel="preload" href="assets/images/logos/pronuptia.webp?v=3" as="image">
@@ -157,7 +171,7 @@
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
           poster="assets/hero-poster.jpg"
           aria-hidden="true"
         >
@@ -434,7 +448,6 @@
           <a href="collections/justin-alexander.html" class="brand-logo-item brand-logo-item--justin reveal reveal-d1"><img src="assets/images/logos/justin-alexander.svg" alt="Justin Alexander" loading="lazy"></a>
           <a href="collections/libelle.html" class="brand-logo-item reveal reveal-d2"><img src="assets/images/logos/libelle.webp" alt="Libelle" loading="lazy"></a>
           <a href="collections/eddy-k.html" class="brand-logo-item reveal reveal-d3"><img src="assets/images/logos/eddy-k.webp" alt="Eddy K" loading="lazy"></a>
-          <a href="collections/terre-alice.html" class="brand-logo-item brand-logo-item--text reveal reveal-d1">Terre Alice</a>
         </div>
       </div>
     </section>

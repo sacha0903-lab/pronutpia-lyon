@@ -10,11 +10,11 @@
 
   const NAV_ORDER = [
     'amelie', 'pronuptia', 'libelle', 'randy-fenoli',
-    'modeca-courtes', 'modeca-papillon', 'terre-alice', 'eddy-k', 'justin-alexander'
+    'modeca-courtes', 'modeca-papillon', 'eddy-k', 'justin-alexander'
   ];
   const FOOTER_ORDER = [
     'amelie', 'pronuptia', 'justin-alexander', 'randy-fenoli',
-    'libelle', 'modeca-papillon', 'terre-alice', 'eddy-k'
+    'libelle', 'modeca-papillon', 'eddy-k'
   ];
 
   // ── Helpers ───────────────────────────────────────────────────────────────
@@ -57,6 +57,32 @@
 
   // Mise à jour du titre de la page
   document.title = `${dress.name} — ${col.title} — Pronuptia Lyon`;
+
+  // ── Canonical + Open Graph dynamiques ────────────────────────────────────
+  const canonicalUrl = `https://pronuptia-lyon.fr/collections/product.html?col=${encodeURIComponent(colSlug)}&i=${dIdx}`;
+  const ogTitle = `${dress.name} — ${col.title} — Pronuptia Lyon`;
+  const rawDesc = dress.description
+    ? String(dress.description).replace(/\s+/g, ' ').trim().slice(0, 155)
+    : `Découvrez ${dress.name}, robe de la collection ${col.title} disponible chez Pronuptia Lyon.`;
+
+  const canonEl = document.querySelector('link[rel="canonical"]');
+  if (canonEl) canonEl.setAttribute('href', canonicalUrl);
+
+  ['og:url', 'og:title', 'og:description'].forEach(prop => {
+    const m = document.querySelector(`meta[property="${prop}"]`);
+    if (!m) return;
+    if (prop === 'og:url')         m.setAttribute('content', canonicalUrl);
+    else if (prop === 'og:title')  m.setAttribute('content', ogTitle);
+    else                           m.setAttribute('content', rawDesc);
+  });
+
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', rawDesc);
+
+  if (dress.main_photo) {
+    const ogImg = document.querySelector('meta[property="og:image"]');
+    if (ogImg) ogImg.setAttribute('content', `https://pronuptia-lyon.fr${toWebp(dress.main_photo)}`);
+  }
 
   // ── Construction du tableau de photos ────────────────────────────────────
   const photos = [dress.main_photo, ...(dress.additional_photos ?? [])]
