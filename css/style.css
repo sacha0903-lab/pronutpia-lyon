@@ -1275,6 +1275,9 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .about-layout { gap: 40px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
   .stat-item + .stat-item::before { display: none; }
+  .stat-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .section-stats { padding: 48px 0; }
+  .section-collections { padding: 48px 0; }
 }
 @media (max-width: 680px) {
   :root { --gutter: 20px; --header-h: 72px; }
@@ -1298,7 +1301,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 
   /* Sections : espacement vertical réduit sur mobile */
   .section-intro { padding: 80px 0 70px; }
-  .section-stats { padding: 60px 0; }
+  .section-stats { padding: 48px 0; }
   .section-featured { padding: 80px 0; }
   .section-brands { padding: 56px 0; }
 
