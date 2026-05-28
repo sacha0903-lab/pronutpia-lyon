@@ -10,7 +10,7 @@ Futures mariées, 25–42 ans, région Lyonnaise. En phase de recherche active d
 
 ## Product Purpose
 
-Site vitrine de la boutique Pronuptia Lyon, 9 rue des Remparts d'Ainay. Objectif principal : générer des prises de rendez-vous en boutique. Secondairement : présenter les 67 robes de 9 créateurs exclusifs (Amélie, Justin Alexander, Randy Fenoli, Eddy K, Libellé, Modeca, La Terre d'Alice…). Succès = la mariée imagine déjà se voir dans une robe de la boutique avant d'avoir pris son RDV.
+Site vitrine de la boutique Pronuptia Lyon, 9 rue des Remparts d'Ainay. Objectif principal : générer des prises de rendez-vous en boutique. Secondairement : présenter les robes de 8 créateurs exclusifs (Amélie, Justin Alexander, Randy Fenoli, Eddy K, Libellé, Modeca, Pronuptia…). Succès = la mariée imagine déjà se voir dans une robe de la boutique avant d'avoir pris son RDV.
 
 ## Brand Personality
 

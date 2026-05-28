@@ -62,12 +62,6 @@
   </url>
 
   <url>
-    <loc>https://pronuptia-lyon.fr/collections/terre-alice.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://pronuptia-lyon.fr/collections/eddy-k.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -78,5 +72,88 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Fiches produit — Amélie (19) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=3</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=4</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=5</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=6</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=7</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=8</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=9</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=10</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=11</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=12</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=13</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=14</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=15</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=16</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=17</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=amelie&amp;i=18</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Fiches produit — Pronuptia (6) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=pronuptia&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=pronuptia&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=pronuptia&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=pronuptia&amp;i=3</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=pronuptia&amp;i=4</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=pronuptia&amp;i=5</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Fiches produit — Libellé (6) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=libelle&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=libelle&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=libelle&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=libelle&amp;i=3</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=libelle&amp;i=4</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=libelle&amp;i=5</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Fiches produit — Randy Fenoli (4) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=randy-fenoli&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=randy-fenoli&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=randy-fenoli&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=randy-fenoli&amp;i=3</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Fiches produit — Modeca Courtes (3) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-courtes&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-courtes&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-courtes&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Fiches produit — Modeca Papillon (16) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=3</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=4</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=5</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=6</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=7</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=8</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=9</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=10</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=11</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=12</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=13</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=14</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=modeca-papillon&amp;i=15</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Fiches produit — Eddy K (3) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=eddy-k&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=eddy-k&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=eddy-k&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Fiches produit — Justin Alexander (10) -->
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=0</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=1</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=3</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=4</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=5</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=6</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=7</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=8</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://pronuptia-lyon.fr/collections/product.html?col=justin-alexander&amp;i=9</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 
 </urlset>

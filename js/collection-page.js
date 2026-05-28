@@ -16,11 +16,11 @@
 
   const NAV_ORDER = [
     'amelie', 'pronuptia', 'libelle', 'randy-fenoli',
-    'modeca-courtes', 'modeca-papillon', 'terre-alice', 'eddy-k', 'justin-alexander'
+    'modeca-courtes', 'modeca-papillon', 'eddy-k', 'justin-alexander'
   ];
   const FOOTER_ORDER = [
     'amelie', 'pronuptia', 'justin-alexander', 'randy-fenoli',
-    'libelle', 'modeca-papillon', 'terre-alice', 'eddy-k'
+    'libelle', 'modeca-papillon', 'eddy-k'
   ];
 
   const slug = location.pathname.replace(/.*\//, '').replace(/\.html$/, '');

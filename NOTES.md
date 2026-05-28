@@ -19,7 +19,6 @@ site pronuptia/
 │   ├── randy-fenoli.html       ✅ Randy Fenoli (4 robes)
 │   ├── modeca-courtes.html     ✅ Robes Courtes Modeca (3 robes)
 │   ├── modeca-papillon.html    ✅ Modeca + Le Papillon (16 robes)
-│   ├── terre-alice.html        ✅ La Terre d'Alice (6 robes)
 │   ├── eddy-k.html             ✅ Eddy K (3 robes)
 │   └── justin-alexander.html   ✅ Justin Alexander (10 robes)
 ├── assets/
@@ -55,7 +54,6 @@ site pronuptia/
 | Randy Fenoli          | 4     | collections/randy-fenoli.html |
 | Robes Courtes Modeca  | 3     | collections/modeca-courtes.html |
 | Modeca + Le Papillon  | 16    | collections/modeca-papillon.html |
-| La Terre d'Alice      | 6     | collections/terre-alice.html |
 | Eddy K                | 3     | collections/eddy-k.html   |
 | Justin Alexander      | 10    | collections/justin-alexander.html |
 
