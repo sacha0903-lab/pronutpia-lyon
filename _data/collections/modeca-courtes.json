@@ -12,23 +12,37 @@
     {
       "name": "Odrie",
       "main_photo": "/assets/images/modeca-courtes/odrie.jpg",
-      "additional_photos": ["/assets/images/modeca-courtes/odrie-2.jpg", "/assets/images/modeca-courtes/odrie-3.jpg", "/assets/images/modeca-courtes/odrie-4.jpg"],
+      "additional_photos": [
+        "/assets/images/modeca-courtes/odrie-2.jpg",
+        "/assets/images/modeca-courtes/odrie-3.jpg",
+        "/assets/images/modeca-courtes/odrie-4.jpg"
+      ],
       "description": "",
-      "placeholder_color": ""
+      "placeholder_color": "",
+      "style": "Courte"
     },
     {
       "name": "Olea",
       "main_photo": "/assets/images/modeca-courtes/olea.jpg",
-      "additional_photos": ["/assets/images/modeca-courtes/olea-2.jpg", "/assets/images/modeca-courtes/olea-3.jpg"],
+      "additional_photos": [
+        "/assets/images/modeca-courtes/olea-2.jpg",
+        "/assets/images/modeca-courtes/olea-3.jpg"
+      ],
       "description": "",
-      "placeholder_color": ""
+      "placeholder_color": "",
+      "style": "Courte"
     },
     {
       "name": "Olisa",
       "main_photo": "/assets/images/modeca-courtes/olisa.jpg",
-      "additional_photos": ["/assets/images/modeca-courtes/olisa-2.jpg", "/assets/images/modeca-courtes/olisa-3.jpg", "/assets/images/modeca-courtes/olisa-4.jpg"],
+      "additional_photos": [
+        "/assets/images/modeca-courtes/olisa-2.jpg",
+        "/assets/images/modeca-courtes/olisa-3.jpg",
+        "/assets/images/modeca-courtes/olisa-4.jpg"
+      ],
       "description": "",
-      "placeholder_color": ""
+      "placeholder_color": "",
+      "style": "Courte"
     }
   ]
 }

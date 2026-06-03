@@ -5,7 +5,7 @@
    Stratégie de chargement en 2 phases :
    - Phase 1 (critique)     : settings + collection courante seulement (2 requêtes)
                               → page rendue + loader libéré immédiatement
-   - Phase 2 (arrière-plan) : 8 autres collections en parallèle
+   - Phase 2 (arrière-plan) : autres collections en parallèle
                               → nav dropdown + footer liens remplis sans bloquer */
 
 (async function () {
@@ -16,7 +16,7 @@
 
   const NAV_ORDER = [
     'amelie', 'pronuptia', 'libelle', 'randy-fenoli',
-    'modeca-courtes', 'modeca-papillon', 'eddy-k', 'justin-alexander'
+    'modeca-papillon', 'eddy-k', 'justin-alexander'
   ];
   const FOOTER_ORDER = [
     'amelie', 'pronuptia', 'justin-alexander', 'randy-fenoli',
@@ -33,11 +33,9 @@
     return String(s ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
-  // Convertit un chemin .jpg en .webp si applicable
   function toWebp(path) {
     return path ? path.replace(/\.jpg$/i, '.webp') : path;
   }
-  // Génère un <picture> avec source webp + img jpg
   function picture(jpgSrc, alt, attrs) {
     const webpSrc = toWebp(jpgSrc);
     const attrsStr = attrs ? ` ${attrs}` : '';
@@ -46,9 +44,7 @@
 
   const el = id => document.getElementById(id);
 
-  // ── Phase 1 : fetches critiques (2 requêtes seulement) ───────────────────
-  // Seuls settings + la collection de cette page sont nécessaires pour rendre
-  // le contenu visible. Les autres collections (nav, footer) chargent ensuite.
+  // ── Phase 1 : fetches critiques ──────────────────────────────────────────
   let settings, col;
   try {
     [settings, col] = await Promise.all([
@@ -112,12 +108,25 @@
     ctaTxt.textContent = `Prenez rendez-vous pour une consultation personnalisée et découvrez nos modèles ${col.title} dans notre boutique de Lyon.`;
   }
 
+  // ── Filtres silhouettes ───────────────────────────────────────────────────
+  const styles = [...new Set(col.dresses.map(d => d.style).filter(Boolean))].sort();
+  const styleFilterEl = el('style-filters');
+  if (styleFilterEl && styles.length > 1) {
+    styleFilterEl.innerHTML =
+      `<button class="style-filter-btn active" data-style="all">Toutes</button>` +
+      styles.map(s => `<button class="style-filter-btn" data-style="${escA(s)}">${esc(s)}</button>`).join('');
+    styleFilterEl.style.display = '';
+  } else if (styleFilterEl) {
+    styleFilterEl.style.display = 'none';
+  }
+
   // ── Grille de robes ──────────────────────────────────────────────────────
   const grid = el('dress-grid');
   if (grid) {
     grid.innerHTML = col.dresses.map((d, i) => {
       const delay = `reveal-d${(i % 4) + 1}`;
       const href  = `product?col=${encodeURIComponent(slug)}&i=${i}`;
+      const styleAttr = d.style ? ` data-style="${escA(d.style)}"` : '';
 
       const img = d.main_photo
         ? picture(d.main_photo, `${d.name} — ${col.title}`, 'loading="lazy"')
@@ -130,13 +139,12 @@
           </div>`;
 
       return `
-      <a href="${escA(href)}" class="dress-card reveal ${delay}">
+      <a href="${escA(href)}" class="dress-card reveal ${delay}"${styleAttr}>
         <div class="dress-card__img-wrap">
           ${img}
           <div class="dress-card__overlay"><div class="dress-card__overlay-txt">Voir le modèle</div></div>
         </div>
         <div class="dress-card__info">
-          <div class="dress-card__brand">${esc(col.title)}</div>
           <div class="dress-card__name">${esc(d.name)}</div>
         </div>
       </a>`;
@@ -145,6 +153,21 @@
     // Réinitialiser reveal pour les nouveaux éléments
     if (window.revealObserver) {
       grid.querySelectorAll('.reveal').forEach(e => window.revealObserver.observe(e));
+    }
+
+    // Activer les filtres de style
+    if (styleFilterEl) {
+      styleFilterEl.addEventListener('click', e => {
+        const btn = e.target.closest('.style-filter-btn');
+        if (!btn) return;
+        styleFilterEl.querySelectorAll('.style-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.style;
+        grid.querySelectorAll('.dress-card').forEach(card => {
+          const match = filter === 'all' || card.dataset.style === filter;
+          card.style.display = match ? '' : 'none';
+        });
+      });
     }
   }
 
@@ -161,14 +184,10 @@
   if (el('footer-fb') && settings.facebook)  el('footer-fb').href = settings.facebook;
   if (el('footer-pt') && settings.pinterest) el('footer-pt').href = settings.pinterest;
 
-  // ── Libérer le loader : la page est prête ────────────────────────────────
-  // Les 8 autres collections n'étant pas encore chargées, nav dropdown et
-  // footer liens se rempliront en arrière-plan sans bloquer l'affichage.
+  // ── Libérer le loader ────────────────────────────────────────────────────
   window._pageReady?.();
 
   // ── Phase 2 : fetches secondaires en arrière-plan ────────────────────────
-  // Lance les 8 requêtes restantes après que le loader soit levé.
-  // Le réseau est libre, pas de compétition avec le rendu principal.
   const otherSlugs = NAV_ORDER.filter(s => s !== slug);
   Promise.all(
     otherSlugs.map(s =>
@@ -177,11 +196,9 @@
         .catch(() => null)
     )
   ).then(results => {
-    // Reconstituer la map complète dans l'ordre NAV_ORDER
     const colMap = { [slug]: col };
     otherSlugs.forEach((s, i) => { if (results[i]) colMap[s] = results[i]; });
 
-    // Nav dropdown (comptage de robes par collection)
     const navDropdown = el('nav-dropdown');
     if (navDropdown) {
       navDropdown.innerHTML = NAV_ORDER.map(s => {
@@ -192,7 +209,6 @@
       }).join('');
     }
 
-    // Footer — liens collections
     const footerLinks = el('footer-collection-links');
     if (footerLinks) {
       footerLinks.innerHTML = FOOTER_ORDER.map(s => {

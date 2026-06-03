@@ -14,70 +14,80 @@
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)",
+      "style": "Princesse"
     },
     {
       "name": "Bianca",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)",
+      "style": "Sirène"
     },
     {
       "name": "Charlotte",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)",
+      "style": "Princesse"
     },
     {
       "name": "Daphné",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)",
+      "style": "Bohème"
     },
     {
       "name": "Éléna",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)",
+      "style": "Sirène"
     },
     {
       "name": "Fiona",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)",
+      "style": "Fluide"
     },
     {
       "name": "Grace",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)",
+      "style": "Princesse"
     },
     {
       "name": "Helena",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)",
+      "style": "Fourreau"
     },
     {
       "name": "Isabella",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)"
+      "placeholder_color": "linear-gradient(160deg,#c0b8a8,#a09888)",
+      "style": "Princesse"
     },
     {
       "name": "Julia",
       "main_photo": "",
       "additional_photos": [],
       "description": "",
-      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)"
+      "placeholder_color": "linear-gradient(160deg,#d0c8b8,#b0a898)",
+      "style": "Bohème"
     }
   ]
 }
