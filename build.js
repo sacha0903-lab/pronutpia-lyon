@@ -221,7 +221,7 @@ function generatePage(c) {
   <header id="site-header" class="site-header is-transparent">
     <div class="header-inner container">
       <a href="../index.html" class="site-logo">
-        <img src="../assets/images/logos/pronuptia.png?v=3" alt="Pronuptia" class="site-logo__img">
+        <img src="../assets/images/logos/pronuptia.webp?v=3" alt="Pronuptia" class="site-logo__img">
         <span class="logo-sub">Lyon</span>
       </a>
       <nav class="main-nav">
@@ -274,7 +274,7 @@ ${navDropdown()}
 
   <!-- STYLE FILTERS — rendu par collection-page.js -->
   <div class="container">
-    <div class="style-filters" id="style-filters" style="display:none"></div>
+    <div class="collection-style-filters" id="style-filters" style="display:none; margin-top: 32px;"></div>
   </div>
 
   <!-- DRESS GRID — rendu par collection-page.js -->
