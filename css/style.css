@@ -1387,7 +1387,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 /* Ajustements visuels par logo */
 .brand-logo-item[href*="amelie"]        img { height: 80px; }
 .brand-logo-item[href*="pronuptia"]     img { height: 64px; }
-.brand-logo-item--randy                 img { height: 86px; }
+.brand-logo-item--randy                 img { height: 132px; }
 .brand-logo-item[href*="libelle"]       img { height: 26px; }
 .brand-logo-item[href*="eddy-k"]        img { height: 30px; }
 .brand-logo-item--justin                img { height: 22px; }
