@@ -233,6 +233,7 @@ ${navDropdown()}
           </div>
         </div>
         <a href="../galerie.html" class="nav-link">Galerie</a>
+        <a href="../coups-de-coeur.html" class="nav-link">Coups de cœur</a>
         <a href="../a-propos.html" class="nav-link">À Propos</a>
         <a href="../rendez-vous.html" class="nav-link">Contact</a>
       </nav>
@@ -245,6 +246,7 @@ ${navDropdown()}
         <a href="../index.html" class="mobile-nav-link">Accueil</a>
         <a href="../galerie.html" class="mobile-nav-link active">Collections</a>
         <a href="../galerie.html" class="mobile-nav-link">Galerie</a>
+        <a href="../coups-de-coeur.html" class="mobile-nav-link">Coups de cœur</a>
         <a href="../a-propos.html" class="mobile-nav-link">À Propos</a>
         <a href="../rendez-vous.html" class="mobile-nav-link">Contact</a>
       </nav>
@@ -268,6 +270,11 @@ ${navDropdown()}
   <!-- COLLECTION INTRO — rendu par collection-page.js -->
   <div class="container">
     <div class="collection-intro" id="collection-intro"></div>
+  </div>
+
+  <!-- STYLE FILTERS — rendu par collection-page.js -->
+  <div class="container">
+    <div class="style-filters" id="style-filters" style="display:none"></div>
   </div>
 
   <!-- DRESS GRID — rendu par collection-page.js -->
