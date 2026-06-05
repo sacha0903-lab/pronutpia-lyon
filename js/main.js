@@ -191,7 +191,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Carte placeholder sans photo : on l'enregistre quand même pour afficher la description
         allPhotos.push({ src: '', brand, name, description });
       }
-      card.addEventListener('click', () => openLightbox(startIndex));
+      const col = card.dataset.collection;
+      const idx = card.dataset.i;
+      const href = card.dataset.href;
+      if (col !== undefined && idx !== undefined) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+          window.location.href = `collections/product.html?col=${encodeURIComponent(col)}&i=${idx}`;
+        });
+      } else if (href) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => { window.location.href = href; });
+      } else {
+        card.addEventListener('click', () => openLightbox(startIndex));
+      }
     });
   };
   initLightbox();
