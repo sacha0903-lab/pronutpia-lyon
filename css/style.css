@@ -1422,8 +1422,8 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .product-section { padding: calc(var(--header-h) + 32px) 0 100px; }
 .product-layout {
   display: grid;
-  grid-template-columns: 48% 1fr;
-  gap: 56px;
+  grid-template-columns: 58% 1fr;
+  gap: 64px;
   margin-top: 32px;
   align-items: start;
 }
@@ -1432,7 +1432,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .product-gallery__main {
   position: relative;
   aspect-ratio: 2/3;
-  max-height: 78vh;
+  max-height: 90vh;
   overflow: hidden;
   background: var(--c-parchment);
   cursor: zoom-in;
@@ -1545,11 +1545,15 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   margin-bottom: 28px;
 }
 .product-info__desc {
-  font-size: 0.92rem;
-  line-height: 1.95;
-  color: var(--c-taupe);
+  font-family: var(--f-display);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--c-warm-black);
   font-weight: 300;
   margin-bottom: 40px;
+  padding-left: 20px;
+  border-left: 2px solid var(--c-bordeaux);
 }
 .product-info__cta { display: block; width: fit-content; margin-bottom: 24px; }
 .product-back {
@@ -1636,13 +1640,13 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 
 .zoom-img-wrap {
   display: flex; align-items: center; justify-content: center;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 96vw;
+  max-height: 96vh;
   cursor: default;
 }
 #zoom-img {
-  max-height: 88vh;
-  max-width: 88vw;
+  max-height: 94vh;
+  max-width: 94vw;
   object-fit: contain;
   display: block;
 }
