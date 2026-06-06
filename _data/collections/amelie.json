@@ -250,6 +250,15 @@
       "description": "Poésie pure et élégance naturelle, cette robe de mariée incarne la féminité dans toute sa splendeur. Le corsage semi-transparent en dentelle fine, aux motifs de feuillage délicat sur fond nude, crée un effet seconde peau envoûtant, sublimé par un décolleté en V profond et de larges bretelles structurées. La jupe en tulle vaporeux, d'une légèreté incomparable, s'épanouit en une majestueuse traîne qui ondule avec grâce à chaque pas. Dans le dos, un décolleté plongeant apporte une touche de sensualité raffinée. Une robe intemporelle et lumineuse, parfaite pour une mariée éprise de romantisme et d'élégance naturelle.",
       "placeholder_color": "",
       "style": "Bohème"
+    },
+    {
+      "name": "Sacha",
+      "style": "Fluide",
+      "description": "test robe sacha",
+      "main_photo": "/assets/images/uploads/1780788728008-9aabba57-ad-robe-rooftop.png",
+      "additional_photos": [
+        "/assets/images/uploads/1780788730280-1197b1d3-ad-chemise-lin.png"
+      ]
     }
   ]
 }
