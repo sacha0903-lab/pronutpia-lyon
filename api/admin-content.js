@@ -6,6 +6,8 @@ const BRANCH = 'main';
 
 const ALLOWED_FILES = [
   '_data/settings.json',
+  '_data/pages/home.json',
+  '_data/pages/about.json',
   '_data/collections/amelie.json',
   '_data/collections/pronuptia.json',
   '_data/collections/libelle.json',

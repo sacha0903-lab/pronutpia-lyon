@@ -197,6 +197,9 @@ textarea{resize:vertical;min-height:80px;line-height:1.5}
       <div class="sb-section">Général</div>
       <button class="nav-item" data-view="dashboard"><span class="ico">🏠</span> Tableau de bord</button>
       <button class="nav-item" data-view="settings"><span class="ico">⚙️</span> Paramètres boutique</button>
+      <div class="sb-section">Pages</div>
+      <button class="nav-item" data-view="page:home"><span class="ico">🏠</span> Page Accueil</button>
+      <button class="nav-item" data-view="page:about"><span class="ico">📄</span> À propos</button>
       <div class="sb-section">Collections</div>
       <div id="nav-cols"></div>
     </div>
@@ -368,6 +371,8 @@ async function navigate(view) {
   try {
     if (view === 'dashboard') renderDashboard(area);
     else if (view === 'settings') await renderSettings(area);
+    else if (view === 'page:home') await renderPageHome(area);
+    else if (view === 'page:about') await renderPageAbout(area);
     else if (view.startsWith('col:')) await renderCollection(area, view.slice(4));
   } catch(ex) {
     area.innerHTML = `<div class="empty-state">
@@ -392,6 +397,16 @@ function renderDashboard(area) {
           <div class="dash-ico">⚙️</div>
           <div class="dash-title">Paramètres boutique</div>
           <div class="dash-desc">Coordonnées, horaires, réseaux sociaux</div>
+        </div>
+        <div class="dash-card" onclick="navigate('page:home')">
+          <div class="dash-ico">🏠</div>
+          <div class="dash-title">Page Accueil</div>
+          <div class="dash-desc">Titres, textes et sections de la page d'accueil</div>
+        </div>
+        <div class="dash-card" onclick="navigate('page:about')">
+          <div class="dash-ico">📄</div>
+          <div class="dash-title">Page À propos</div>
+          <div class="dash-desc">Histoire de la boutique et texte sur Isabelle</div>
         </div>
         ${COLS.map(c => `
           <div class="dash-card" onclick="navigate('col:${c.slug}')">
@@ -498,6 +513,144 @@ async function renderSettings(area) {
       cache[SETTINGS_FILE].content = JSON.stringify(updated, null, 2);
       if (res.sha) cache[SETTINGS_FILE].sha = res.sha;
       toast('Paramètres enregistrés !', 'success');
+      showDeployBanner();
+    } catch(ex) { toast(ex.message, 'error'); }
+    finally { btn.disabled = false; btn.textContent = 'Enregistrer'; }
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// PAGE ACCUEIL
+// ══════════════════════════════════════════════════════
+const PAGE_HOME_FILE = '_data/pages/home.json';
+async function renderPageHome(area) {
+  const {parsed:d} = await loadFile(PAGE_HOME_FILE);
+
+  area.innerHTML = `
+    <div class="page-header">
+      <h1>Page Accueil</h1>
+      <div class="header-right">
+        <button class="btn btn-primary" id="save-page-home">Enregistrer</button>
+      </div>
+    </div>
+    <div class="page-body">
+
+      <div class="card">
+        <div class="card-head"><h2>Section Bienvenue</h2></div>
+        <div class="card-body">
+          <div class="field"><label>Accroche (eyebrow)</label><input type="text" id="ph-intro-eyebrow" value="${esc(d.intro_eyebrow||'')}"></div>
+          <div class="field"><label>Titre</label><input type="text" id="ph-intro-title" value="${esc(d.intro_title||'')}"></div>
+          <div class="field"><label>Paragraphe</label><textarea id="ph-intro-text" rows="4">${esc(d.intro_text||'')}</textarea></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Section Notre histoire</h2></div>
+        <div class="card-body">
+          <div class="field"><label>Accroche (eyebrow)</label><input type="text" id="ph-about-eyebrow" value="${esc(d.about_eyebrow||'')}"></div>
+          <div class="field"><label>Titre</label><input type="text" id="ph-about-title" value="${esc(d.about_title||'')}"></div>
+          <div class="field"><label>Paragraphe 1</label><textarea id="ph-about-text1" rows="4">${esc(d.about_text1||'')}</textarea></div>
+          <div class="field"><label>Paragraphe 2</label><textarea id="ph-about-text2" rows="3">${esc(d.about_text2||'')}</textarea></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Section Rendez-vous (appel à l'action)</h2></div>
+        <div class="card-body">
+          <div class="field"><label>Accroche (eyebrow)</label><input type="text" id="ph-cta-eyebrow" value="${esc(d.cta_eyebrow||'')}"></div>
+          <div class="field"><label>Titre</label><input type="text" id="ph-cta-title" value="${esc(d.cta_title||'')}"></div>
+          <div class="field"><label>Paragraphe</label><textarea id="ph-cta-text" rows="3">${esc(d.cta_text||'')}</textarea></div>
+        </div>
+      </div>
+
+    </div>`;
+
+  document.getElementById('save-page-home').addEventListener('click', async () => {
+    const btn = document.getElementById('save-page-home');
+    btn.disabled = true; btn.textContent = 'Enregistrement…';
+    const updated = {
+      intro_eyebrow: v('ph-intro-eyebrow'),
+      intro_title:   v('ph-intro-title'),
+      intro_text:    v('ph-intro-text'),
+      about_eyebrow: v('ph-about-eyebrow'),
+      about_title:   v('ph-about-title'),
+      about_text1:   v('ph-about-text1'),
+      about_text2:   v('ph-about-text2'),
+      cta_eyebrow:   v('ph-cta-eyebrow'),
+      cta_title:     v('ph-cta-title'),
+      cta_text:      v('ph-cta-text'),
+    };
+    try {
+      const res = await apiPut(`/api/admin-content?file=${enc(PAGE_HOME_FILE)}`, {
+        content: JSON.stringify(updated, null, 2),
+        sha: cache[PAGE_HOME_FILE].sha,
+        message: 'Admin: page accueil',
+      });
+      cache[PAGE_HOME_FILE].parsed = updated;
+      cache[PAGE_HOME_FILE].content = JSON.stringify(updated, null, 2);
+      if (res.sha) cache[PAGE_HOME_FILE].sha = res.sha;
+      toast('Page Accueil enregistrée !', 'success');
+      showDeployBanner();
+    } catch(ex) { toast(ex.message, 'error'); }
+    finally { btn.disabled = false; btn.textContent = 'Enregistrer'; }
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// PAGE À PROPOS
+// ══════════════════════════════════════════════════════
+const PAGE_ABOUT_FILE = '_data/pages/about.json';
+async function renderPageAbout(area) {
+  const {parsed:d} = await loadFile(PAGE_ABOUT_FILE);
+
+  area.innerHTML = `
+    <div class="page-header">
+      <h1>Page À propos</h1>
+      <div class="header-right">
+        <button class="btn btn-primary" id="save-page-about">Enregistrer</button>
+      </div>
+    </div>
+    <div class="page-body">
+
+      <div class="card">
+        <div class="card-head"><h2>Présentation d'Isabelle</h2></div>
+        <div class="card-body">
+          <div class="field"><label>Accroche (eyebrow)</label><input type="text" id="pa-eyebrow" value="${esc(d.eyebrow||'')}"></div>
+          <div class="field"><label>Titre (sous l'eyebrow)</label><input type="text" id="pa-title" value="${esc(d.title||'')}"></div>
+          <div class="field"><label>Paragraphe 1</label><textarea id="pa-p1" rows="4">${esc(d.p1||'')}</textarea></div>
+          <div class="field"><label>Paragraphe 2</label><textarea id="pa-p2" rows="4">${esc(d.p2||'')}</textarea></div>
+          <div class="field"><label>Paragraphe 3</label><textarea id="pa-p3" rows="3">${esc(d.p3||'')}</textarea></div>
+          <div class="field"><label>Paragraphe 4</label><textarea id="pa-p4" rows="3">${esc(d.p4||'')}</textarea></div>
+          <div class="field"><label>Paragraphe 5</label><textarea id="pa-p5" rows="4">${esc(d.p5||'')}</textarea></div>
+          <div class="field"><label>Citation (blockquote)</label><textarea id="pa-blockquote" rows="2">${esc(d.blockquote||'')}</textarea></div>
+        </div>
+      </div>
+
+    </div>`;
+
+  document.getElementById('save-page-about').addEventListener('click', async () => {
+    const btn = document.getElementById('save-page-about');
+    btn.disabled = true; btn.textContent = 'Enregistrement…';
+    const updated = {
+      eyebrow:    v('pa-eyebrow'),
+      title:      v('pa-title'),
+      p1:         v('pa-p1'),
+      p2:         v('pa-p2'),
+      p3:         v('pa-p3'),
+      p4:         v('pa-p4'),
+      p5:         v('pa-p5'),
+      blockquote: v('pa-blockquote'),
+    };
+    try {
+      const res = await apiPut(`/api/admin-content?file=${enc(PAGE_ABOUT_FILE)}`, {
+        content: JSON.stringify(updated, null, 2),
+        sha: cache[PAGE_ABOUT_FILE].sha,
+        message: 'Admin: page à propos',
+      });
+      cache[PAGE_ABOUT_FILE].parsed = updated;
+      cache[PAGE_ABOUT_FILE].content = JSON.stringify(updated, null, 2);
+      if (res.sha) cache[PAGE_ABOUT_FILE].sha = res.sha;
+      toast('Page À propos enregistrée !', 'success');
       showDeployBanner();
     } catch(ex) { toast(ex.message, 'error'); }
     finally { btn.disabled = false; btn.textContent = 'Enregistrer'; }
