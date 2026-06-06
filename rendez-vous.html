@@ -468,7 +468,7 @@
       <a href="rendez-vous.html">Contact</a>
     </nav>
     <a href="rendez-vous.html" class="mobile-rdv">Prendre rendez-vous</a>
-    <p class="mobile-contact">04 78 37 12 58<br>9 rue des Remparts d'Ainay, Lyon 2ème</p>
+    <p class="mobile-contact"><span id="mobile-phone">04 78 37 12 58</span><br>9 rue des Remparts d'Ainay, Lyon 2ème</p>
   </div>
 
   <main>
@@ -515,7 +515,7 @@
                 <div class="contact-item__icon">&#9679;</div>
                 <div class="contact-item__body">
                   <strong>Téléphone</strong>
-                  <a href="tel:+33478371258">04 78 37 12 58</a>
+                  <a href="tel:+33478371258" id="contact-phone-link">04 78 37 12 58</a>
                 </div>
               </div>
 
@@ -733,7 +733,7 @@
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">&#9679;</div>
-                <div class="fci-text"><strong>Téléphone</strong>04 78 37 12 58</div>
+                <div class="fci-text"><strong>Téléphone</strong><span id="footer-phone">04 78 37 12 58</span></div>
               </div>
               <div class="footer-contact-item">
                 <div class="fci-icon">&#9679;</div>
@@ -743,7 +743,7 @@
                 <div class="fci-icon">&#9679;</div>
                 <div class="fci-text">
                   <strong>Horaires</strong>
-                  <div class="hours-list" style="margin-top:6px;display:flex;flex-direction:column;gap:6px;">
+                  <div class="hours-list" id="footer-hours" style="margin-top:6px;display:flex;flex-direction:column;gap:6px;">
                     <div class="hours-row" style="display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-size:0.72rem;color:#5a5450;"><span style="font-weight:600;color:var(--c-ivory,#faf7f2);">Mar – Ven</span><span>10h – 19h</span></div>
                     <div class="hours-row" style="display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-size:0.72rem;color:#5a5450;"><span style="font-weight:600;color:var(--c-ivory,#faf7f2);">Samedi</span><span>10h – 18h30</span></div>
                     <div class="hours-row" style="display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-size:0.72rem;color:#5a5450;"><span style="font-weight:600;color:var(--c-ivory,#faf7f2);">Dim – Lun</span><span>Fermé</span></div>
@@ -782,6 +782,7 @@
   </div>
 
   <script src="js/main.js?v=3" defer></script>
+  <script src="js/settings.js?v=1" defer></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/sp6M=" crossorigin></script>
   <script>
     (function() {
