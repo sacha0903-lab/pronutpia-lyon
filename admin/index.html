@@ -1,12 +1,807 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex">
-  <title>Administration — Pronuptia Lyon</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Administration — Pronuptia Lyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#F7F5F2;
+  --white:#FFFFFF;
+  --sidebar:#1A1A1A;
+  --sidebar-text:rgba(255,255,255,.82);
+  --sidebar-hover:rgba(255,255,255,.07);
+  --sidebar-active:rgba(255,255,255,.13);
+  --accent:#8B2252;
+  --accent-dark:#701B43;
+  --accent-light:#FBF0F5;
+  --success:#16A34A;
+  --success-bg:#F0FDF4;
+  --error:#DC2626;
+  --error-bg:#FEF2F2;
+  --border:#E5E0D8;
+  --text:#1A1A1A;
+  --text-muted:#6E6B66;
+  --radius:10px;
+  --shadow:0 1px 4px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.05);
+}
+
+html,body{height:100%;font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);font-size:15px;line-height:1.5}
+
+/* ─── LOGIN ──────────────────────────────────────────── */
+#login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--bg)}
+.login-card{background:var(--white);border-radius:16px;padding:48px 40px;width:100%;max-width:400px;box-shadow:0 4px 32px rgba(0,0,0,.1)}
+.login-logo{text-align:center;margin-bottom:32px}
+.login-logo .brand{font-size:20px;font-weight:600;letter-spacing:2px;color:var(--accent);text-transform:uppercase}
+.login-logo .sub{font-size:12px;color:var(--text-muted);margin-top:4px;letter-spacing:.5px}
+.login-card p{color:var(--text-muted);font-size:14px;margin-bottom:24px;line-height:1.6}
+
+/* ─── FORMS ──────────────────────────────────────────── */
+label{display:block;font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:5px;letter-spacing:.3px;text-transform:uppercase}
+input[type=text],input[type=password],input[type=email],input[type=tel],textarea,select{
+  width:100%;padding:9px 13px;border:1.5px solid var(--border);border-radius:7px;
+  font-size:14px;font-family:inherit;color:var(--text);background:var(--white);
+  transition:border-color .15s;outline:none
+}
+input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+textarea{resize:vertical;min-height:80px;line-height:1.5}
+.field{margin-bottom:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid-2{grid-template-columns:1fr}}
+
+/* ─── BUTTONS ─────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:7px;font-size:13px;font-weight:500;border:none;cursor:pointer;transition:all .15s;font-family:inherit;line-height:1}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover:not(:disabled){background:var(--accent-dark)}
+.btn-primary:disabled{opacity:.55;cursor:default}
+.btn-secondary{background:var(--white);color:var(--text);border:1.5px solid var(--border)}
+.btn-secondary:hover{background:var(--bg)}
+.btn-danger{background:var(--error-bg);color:var(--error);border:1.5px solid #FCA5A5}
+.btn-danger:hover{background:#FEE2E2}
+.btn-sm{padding:5px 12px;font-size:12px}
+.btn-full{width:100%;justify-content:center}
+.btn-icon{padding:6px;border-radius:6px;background:transparent;border:1.5px solid var(--border)}
+.btn-icon:hover{background:var(--bg)}
+
+/* ─── APP LAYOUT ─────────────────────────────────────── */
+#app{display:none;height:100vh;overflow:hidden}
+#app.visible{display:grid;grid-template-columns:220px 1fr}
+
+/* ─── SIDEBAR ─────────────────────────────────────────── */
+#sidebar{background:var(--sidebar);color:var(--sidebar-text);display:flex;flex-direction:column;overflow-y:auto}
+.sidebar-header{padding:22px 18px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-brand{font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#fff}
+.sb-sub{font-size:11px;opacity:.45;margin-top:3px}
+.sb-nav{flex:1;padding:10px 0}
+.sb-section{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:.38;padding:14px 18px 5px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 18px;cursor:pointer;font-size:13px;transition:background .1s;color:var(--sidebar-text);border:none;background:transparent;width:100%;text-align:left}
+.nav-item:hover{background:var(--sidebar-hover)}
+.nav-item.active{background:var(--sidebar-active);color:#fff;font-weight:500}
+.nav-item .ico{font-size:15px;flex-shrink:0}
+.sb-footer{padding:14px 18px;border-top:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:8px}
+.sb-link{font-size:12px;opacity:.52;cursor:pointer;color:var(--sidebar-text);text-decoration:none;background:none;border:none;text-align:left;padding:0;font-family:inherit}
+.sb-link:hover{opacity:1}
+
+/* ─── MAIN ────────────────────────────────────────────── */
+#main{overflow-y:auto;background:var(--bg);display:flex;flex-direction:column}
+.deploy-banner{background:#FFFBEB;border-bottom:1px solid #FDE68A;padding:9px 28px;font-size:12px;color:#92400E;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.deploy-dot{width:7px;height:7px;border-radius:50%;background:#F59E0B;animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.page-header{background:var(--white);border-bottom:1px solid var(--border);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;position:sticky;top:0;z-index:10}
+.page-header h1{font-size:18px;font-weight:600}
+.header-right{display:flex;gap:10px;align-items:center}
+.page-body{padding:28px;flex:1}
+
+/* ─── CARDS ───────────────────────────────────────────── */
+.card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;margin-bottom:18px}
+.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-head h2{font-size:14px;font-weight:600}
+.card-body{padding:18px}
+
+/* ─── LOADING / ERROR ─────────────────────────────────── */
+.loading{display:flex;align-items:center;justify-content:center;padding:60px;color:var(--text-muted);gap:12px;font-size:14px}
+.spinner{width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .75s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty-state{padding:40px;text-align:center;color:var(--text-muted);font-size:14px}
+
+/* ─── HOURS ───────────────────────────────────────────── */
+.hour-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.hour-row input{flex:1}
+
+/* ─── IMAGE UPLOAD ────────────────────────────────────── */
+.img-drop{border:2px dashed var(--border);border-radius:8px;padding:18px;text-align:center;cursor:pointer;transition:all .15s;background:var(--bg);user-select:none}
+.img-drop:hover{border-color:var(--accent);background:var(--accent-light)}
+.img-drop.filled{border-style:solid;border-color:var(--border);padding:0;background:transparent;overflow:hidden}
+.img-drop img{display:block;width:100%;height:160px;object-fit:cover}
+.img-drop .drop-label{font-size:12px;color:var(--text-muted);margin-top:6px}
+.img-drop .drop-icon{font-size:24px}
+.img-drop input[type=file]{display:none}
+
+/* ─── PHOTO GRID ──────────────────────────────────────── */
+.photo-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.photo-thumb{position:relative;width:76px;height:76px}
+.photo-thumb img{width:100%;height:100%;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
+.photo-thumb .del-btn{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:var(--error);color:#fff;border:none;font-size:10px;cursor:pointer;line-height:18px;text-align:center;padding:0;font-weight:700}
+.photo-add{width:76px;height:76px;border-radius:6px;border:2px dashed var(--border);background:var(--bg);cursor:pointer;font-size:22px;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:all .15s}
+.photo-add:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+
+/* ─── DRESS LIST ──────────────────────────────────────── */
+.dress-list{display:flex;flex-direction:column}
+.dress-row{display:flex;align-items:center;gap:12px;padding:10px 14px;cursor:default}
+.dress-row:hover{background:var(--bg)}
+.dress-row:not(:last-child){border-bottom:1px solid var(--border)}
+.dress-thumb{width:44px;height:44px;border-radius:6px;object-fit:cover;border:1px solid var(--border);flex-shrink:0;background:var(--border)}
+.dress-thumb-ph{width:44px;height:44px;border-radius:6px;background:var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.dress-info{flex:1;min-width:0}
+.dress-name{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dress-style{font-size:12px;color:var(--text-muted)}
+.dress-btns{display:flex;gap:6px;flex-shrink:0}
+.dress-editor-wrap{background:var(--accent-light);border:1.5px solid #E2C3D3;border-radius:8px;padding:18px;margin:0 14px 10px}
+
+/* ─── TOAST ───────────────────────────────────────────── */
+#toast{position:fixed;bottom:20px;right:20px;z-index:200;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+.toast{padding:11px 16px;border-radius:8px;font-size:13px;font-weight:500;box-shadow:var(--shadow);animation:tin .2s ease;display:flex;align-items:center;gap:7px;pointer-events:auto}
+.toast-success{background:var(--success-bg);color:var(--success);border:1px solid #BBF7D0}
+.toast-error{background:var(--error-bg);color:var(--error);border:1px solid #FCA5A5}
+.toast-info{background:var(--white);color:var(--text);border:1px solid var(--border)}
+@keyframes tin{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+
+/* ─── DASHBOARD ───────────────────────────────────────── */
+.dash-welcome{font-size:22px;font-weight:600;margin-bottom:6px}
+.dash-sub{color:var(--text-muted);font-size:14px;margin-bottom:28px}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.dash-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:18px;cursor:pointer;transition:all .15s}
+.dash-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light);transform:translateY(-1px)}
+.dash-ico{font-size:26px;margin-bottom:10px}
+.dash-title{font-weight:600;font-size:14px;margin-bottom:3px}
+.dash-desc{font-size:12px;color:var(--text-muted)}
+.badge{display:inline-block;background:var(--bg);border:1px solid var(--border);color:var(--text-muted);font-size:11px;padding:2px 8px;border-radius:20px;margin-top:5px}
+</style>
 </head>
 <body>
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+
+<!-- ════════ LOGIN ════════ -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="brand">Pronuptia Lyon</div>
+      <div class="sub">Interface d'administration</div>
+    </div>
+    <p>Entrez votre mot de passe pour gérer le contenu du site.</p>
+    <form id="login-form">
+      <div class="field">
+        <label for="pwd">Mot de passe</label>
+        <input type="password" id="pwd" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <div id="login-err" style="display:none;color:var(--error);font-size:13px;margin-bottom:12px"></div>
+      <button type="submit" class="btn btn-primary btn-full" id="login-btn">Se connecter</button>
+    </form>
+  </div>
+</div>
+
+<!-- ════════ APP ════════ -->
+<div id="app">
+
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <div class="sb-brand">Pronuptia Lyon</div>
+      <div class="sb-sub">Gestion du site</div>
+    </div>
+    <div class="sb-nav">
+      <div class="sb-section">Général</div>
+      <button class="nav-item" data-view="dashboard"><span class="ico">🏠</span> Tableau de bord</button>
+      <button class="nav-item" data-view="settings"><span class="ico">⚙️</span> Paramètres boutique</button>
+      <div class="sb-section">Collections</div>
+      <div id="nav-cols"></div>
+    </div>
+    <div class="sb-footer">
+      <a href="/" target="_blank" class="sb-link">↗ Voir le site en direct</a>
+      <button id="logout-btn" class="sb-link">Déconnexion</button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <div id="main">
+    <div id="deploy-banner" style="display:none" class="deploy-banner">
+      <div class="deploy-dot"></div>
+      Modifications sauvegardées — le site se met à jour (environ 2 minutes)…
+    </div>
+    <div id="content"></div>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════════════════
+const COLS = [
+  {slug:'amelie',          label:'Amélie',               file:'_data/collections/amelie.json'},
+  {slug:'pronuptia',       label:'Pronuptia',            file:'_data/collections/pronuptia.json'},
+  {slug:'libelle',         label:'Libelle',              file:'_data/collections/libelle.json'},
+  {slug:'randy-fenoli',    label:'Randy Fenoli',         file:'_data/collections/randy-fenoli.json'},
+  {slug:'eddy-k',          label:'Eddy K',               file:'_data/collections/eddy-k.json'},
+  {slug:'justin-alexander',label:'Justin Alexander',     file:'_data/collections/justin-alexander.json'},
+  {slug:'modeca-papillon', label:'Modeca + Le Papillon', file:'_data/collections/modeca-papillon.json'},
+  {slug:'modeca-courtes',  label:'Robes Courtes',        file:'_data/collections/modeca-courtes.json'},
+];
+const SETTINGS_FILE = '_data/settings.json';
+const DRESS_STYLES = ['Sirène','Fluide','Bohème','Princesse','Romantique','Minimaliste','Courte','Autre'];
+
+// ══════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════
+let token = sessionStorage.getItem('adm_tok') || null;
+const cache = {}; // file → {content, sha, parsed}
+
+// ══════════════════════════════════════════════════════
+// API HELPERS
+// ══════════════════════════════════════════════════════
+async function apiPost(path, body) {
+  const r = await fetch(path, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.error || 'Erreur serveur');
+  return d;
+}
+async function apiGet(path) {
+  const r = await fetch(path, {headers:{Authorization:`Bearer ${token}`}});
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.error || 'Erreur serveur');
+  return d;
+}
+async function apiPut(path, body) {
+  const r = await fetch(path, {method:'PUT', headers:{'Content-Type':'application/json', Authorization:`Bearer ${token}`}, body:JSON.stringify(body)});
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.error || 'Erreur serveur');
+  return d;
+}
+async function apiUpload(filename, dataUrl) {
+  const r = await fetch('/api/admin-upload', {method:'POST', headers:{'Content-Type':'application/json', Authorization:`Bearer ${token}`}, body:JSON.stringify({filename, dataUrl})});
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.error || 'Erreur upload');
+  return d;
+}
+async function loadFile(file) {
+  if (cache[file]) return cache[file];
+  const d = await apiGet(`/api/admin-content?file=${encodeURIComponent(file)}`);
+  cache[file] = {content:d.content, sha:d.sha, parsed:JSON.parse(d.content)};
+  return cache[file];
+}
+
+// ══════════════════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════════════════
+function toast(msg, type='info', ms=3500) {
+  const icons = {success:'✓', error:'✕', info:'ℹ'};
+  const el = document.createElement('div');
+  el.className = `toast toast-${type}`;
+  el.innerHTML = `<span>${icons[type]||''}</span> ${msg}`;
+  document.getElementById('toast').appendChild(el);
+  setTimeout(() => el.style.opacity='0', ms - 300);
+  setTimeout(() => el.remove(), ms);
+}
+
+// ══════════════════════════════════════════════════════
+// DEPLOY BANNER
+// ══════════════════════════════════════════════════════
+let deployTimer;
+function showDeployBanner() {
+  const b = document.getElementById('deploy-banner');
+  b.style.display = 'flex';
+  clearTimeout(deployTimer);
+  deployTimer = setTimeout(() => b.style.display='none', 4 * 60000);
+}
+
+// ══════════════════════════════════════════════════════
+// AUTH
+// ══════════════════════════════════════════════════════
+document.getElementById('login-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = document.getElementById('login-btn');
+  const err = document.getElementById('login-err');
+  btn.disabled = true; btn.textContent = 'Connexion…'; err.style.display='none';
+  try {
+    const d = await apiPost('/api/admin-auth', {password: document.getElementById('pwd').value});
+    token = d.token;
+    sessionStorage.setItem('adm_tok', token);
+    showApp();
+  } catch(ex) {
+    err.textContent = ex.message;
+    err.style.display = 'block';
+  } finally {
+    btn.disabled = false; btn.textContent = 'Se connecter';
+  }
+});
+
+document.getElementById('logout-btn').addEventListener('click', () => {
+  token = null; sessionStorage.removeItem('adm_tok');
+  Object.keys(cache).forEach(k => delete cache[k]);
+  document.getElementById('app').classList.remove('visible');
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('pwd').value = '';
+});
+
+function showApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').classList.add('visible');
+  buildSidebarCols();
+  navigate('dashboard');
+}
+
+// ══════════════════════════════════════════════════════
+// SIDEBAR
+// ══════════════════════════════════════════════════════
+function buildSidebarCols() {
+  document.getElementById('nav-cols').innerHTML = COLS.map(c =>
+    `<button class="nav-item" data-view="col:${c.slug}"><span class="ico">👗</span> ${c.label}</button>`
+  ).join('');
+}
+
+document.getElementById('sidebar').addEventListener('click', e => {
+  const item = e.target.closest('[data-view]');
+  if (item) navigate(item.dataset.view);
+});
+
+function setActiveNav(view) {
+  document.querySelectorAll('.nav-item').forEach(el =>
+    el.classList.toggle('active', el.dataset.view === view)
+  );
+}
+
+// ══════════════════════════════════════════════════════
+// ROUTER
+// ══════════════════════════════════════════════════════
+async function navigate(view) {
+  setActiveNav(view);
+  const area = document.getElementById('content');
+  area.innerHTML = `<div class="loading"><div class="spinner"></div> Chargement…</div>`;
+  try {
+    if (view === 'dashboard') renderDashboard(area);
+    else if (view === 'settings') await renderSettings(area);
+    else if (view.startsWith('col:')) await renderCollection(area, view.slice(4));
+  } catch(ex) {
+    area.innerHTML = `<div class="empty-state">
+      <p style="font-size:16px;font-weight:600;margin-bottom:8px">Erreur de chargement</p>
+      <p style="color:var(--text-muted)">${esc(ex.message)}</p>
+      <br><button class="btn btn-secondary" onclick="navigate('${view}')">Réessayer</button>
+    </div>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════
+// DASHBOARD
+// ══════════════════════════════════════════════════════
+function renderDashboard(area) {
+  area.innerHTML = `
+    <div class="page-header"><h1>Tableau de bord</h1></div>
+    <div class="page-body">
+      <div class="dash-welcome">Bonjour 👋</div>
+      <div class="dash-sub">Que souhaitez-vous modifier aujourd'hui&nbsp;?</div>
+      <div class="dash-grid">
+        <div class="dash-card" onclick="navigate('settings')">
+          <div class="dash-ico">⚙️</div>
+          <div class="dash-title">Paramètres boutique</div>
+          <div class="dash-desc">Coordonnées, horaires, réseaux sociaux</div>
+        </div>
+        ${COLS.map(c => `
+          <div class="dash-card" onclick="navigate('col:${c.slug}')">
+            <div class="dash-ico">👗</div>
+            <div class="dash-title">${c.label}</div>
+            <div class="dash-desc">Robes, photos, descriptions</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+}
+
+// ══════════════════════════════════════════════════════
+// SETTINGS
+// ══════════════════════════════════════════════════════
+async function renderSettings(area) {
+  const {parsed:d} = await loadFile(SETTINGS_FILE);
+
+  area.innerHTML = `
+    <div class="page-header">
+      <h1>Paramètres boutique</h1>
+      <div class="header-right">
+        <button class="btn btn-primary" id="save-settings">Enregistrer</button>
+      </div>
+    </div>
+    <div class="page-body">
+
+      <div class="card">
+        <div class="card-head"><h2>Informations de contact</h2></div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div class="field"><label>Nom de la boutique</label><input type="text" id="s-name" value="${esc(d.boutique_name||'')}"></div>
+            <div class="field"><label>Accroche (footer)</label><input type="text" id="s-tagline" value="${esc(d.tagline||'')}"></div>
+            <div class="field"><label>Adresse (rue)</label><input type="text" id="s-addr" value="${esc(d.address||'')}"></div>
+            <div class="field"><label>Ville + code postal</label><input type="text" id="s-city" value="${esc(d.city||'')}"></div>
+            <div class="field"><label>Téléphone</label><input type="tel" id="s-phone" value="${esc(d.phone||'')}"></div>
+            <div class="field"><label>Email</label><input type="email" id="s-email" value="${esc(d.email||'')}"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Horaires d'ouverture</h2>
+          <button class="btn btn-secondary btn-sm" id="add-hour">+ Ajouter</button>
+        </div>
+        <div class="card-body">
+          <div id="hours-list"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Réseaux sociaux</h2></div>
+        <div class="card-body">
+          <div class="field"><label>Instagram</label><input type="text" id="s-ig" value="${esc(d.instagram||'')}" placeholder="https://instagram.com/pronuptialyon"></div>
+          <div class="field"><label>Facebook</label><input type="text" id="s-fb" value="${esc(d.facebook||'')}"></div>
+          <div class="field"><label>Pinterest</label><input type="text" id="s-pin" value="${esc(d.pinterest||'')}"></div>
+        </div>
+      </div>
+
+    </div>`;
+
+  // ── HOURS ──
+  let hours = JSON.parse(JSON.stringify(d.hours || []));
+
+  function renderHours() {
+    document.getElementById('hours-list').innerHTML = hours.map((h,i) => `
+      <div class="hour-row">
+        <input type="text" class="hr-days" data-i="${i}" value="${esc(h.days||'')}" placeholder="ex : Mar – Ven">
+        <input type="text" class="hr-h" data-i="${i}" value="${esc(h.hours||'')}" placeholder="ex : 10h – 20h">
+        <button class="btn btn-danger btn-sm hr-del" data-i="${i}">Supprimer</button>
+      </div>`).join('') || '<p style="font-size:13px;color:var(--text-muted)">Aucun horaire. Cliquez "+ Ajouter".</p>';
+    bindHours();
+  }
+  function bindHours() {
+    document.querySelectorAll('.hr-days').forEach(el => el.addEventListener('input', e => { hours[e.target.dataset.i].days = e.target.value; }));
+    document.querySelectorAll('.hr-h').forEach(el => el.addEventListener('input', e => { hours[e.target.dataset.i].hours = e.target.value; }));
+    document.querySelectorAll('.hr-del').forEach(el => el.addEventListener('click', e => { hours.splice(+e.target.dataset.i, 1); renderHours(); }));
+  }
+  renderHours();
+  document.getElementById('add-hour').addEventListener('click', () => { hours.push({days:'',hours:''}); renderHours(); });
+
+  // ── SAVE ──
+  document.getElementById('save-settings').addEventListener('click', async () => {
+    const btn = document.getElementById('save-settings');
+    btn.disabled = true; btn.textContent = 'Enregistrement…';
+    // Sync hours
+    document.querySelectorAll('.hr-days').forEach(el => { hours[el.dataset.i].days = el.value; });
+    document.querySelectorAll('.hr-h').forEach(el => { hours[el.dataset.i].hours = el.value; });
+    const updated = {
+      boutique_name: v('s-name'), tagline: v('s-tagline'),
+      address: v('s-addr'), city: v('s-city'),
+      phone: v('s-phone'), email: v('s-email'),
+      hours,
+      instagram: v('s-ig'), facebook: v('s-fb'), pinterest: v('s-pin'),
+    };
+    try {
+      const res = await apiPut(`/api/admin-content?file=${enc(SETTINGS_FILE)}`, {
+        content: JSON.stringify(updated, null, 2),
+        sha: cache[SETTINGS_FILE].sha,
+        message: 'Admin: paramètres boutique',
+      });
+      cache[SETTINGS_FILE].parsed = updated;
+      cache[SETTINGS_FILE].content = JSON.stringify(updated, null, 2);
+      if (res.sha) cache[SETTINGS_FILE].sha = res.sha;
+      toast('Paramètres enregistrés !', 'success');
+      showDeployBanner();
+    } catch(ex) { toast(ex.message, 'error'); }
+    finally { btn.disabled = false; btn.textContent = 'Enregistrer'; }
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// COLLECTION
+// ══════════════════════════════════════════════════════
+async function renderCollection(area, slug) {
+  const col = COLS.find(c => c.slug === slug);
+  if (!col) { area.innerHTML = '<p class="empty-state">Collection inconnue.</p>'; return; }
+
+  const {parsed:data} = await loadFile(col.file);
+
+  // Cloner pour édition en mémoire
+  let dresses = JSON.parse(JSON.stringify(data.dresses || []));
+  const pending = {}; // 'hero' | 'main-N' | 'extra-N' → File[]
+
+  area.innerHTML = `
+    <div class="page-header">
+      <h1>${col.label}</h1>
+      <div class="header-right">
+        <span style="font-size:12px;color:var(--text-muted)">${dresses.length} robe${dresses.length>1?'s':''}</span>
+        <button class="btn btn-primary" id="save-col">Enregistrer tout</button>
+      </div>
+    </div>
+    <div class="page-body">
+
+      <div class="card">
+        <div class="card-head"><h2>Infos de la collection</h2></div>
+        <div class="card-body">
+          <div class="field"><label>Titre</label><input type="text" id="c-title" value="${esc(data.title||'')}"></div>
+          <div class="field"><label>Description (texte d'intro affiché sur la page)</label><textarea id="c-desc" rows="3">${esc(data.description||'')}</textarea></div>
+          <div class="field">
+            <label>Image principale (hero)</label>
+            <div id="hero-drop" class="img-drop ${data.hero_image?'filled':''}">
+              ${data.hero_image ? `<img src="${esc(data.hero_image)}" alt="Hero">` : `<div class="drop-icon">📷</div><div class="drop-label">Cliquer pour choisir une image</div>`}
+              <input type="file" id="hero-file" accept="image/*">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Robes de la collection</h2>
+          <button class="btn btn-secondary btn-sm" id="add-dress">+ Ajouter une robe</button>
+        </div>
+        <div id="dresses-wrap"></div>
+      </div>
+
+    </div>`;
+
+  // ── HERO IMAGE ──
+  setupImgDrop('hero-drop', 'hero-file', f => { pending.hero = f; });
+
+  // ── DRESS LIST ──
+  function renderDresses() {
+    const wrap = document.getElementById('dresses-wrap');
+    if (!dresses.length) {
+      wrap.innerHTML = '<p class="empty-state">Aucune robe. Cliquez sur "+ Ajouter une robe" pour commencer.</p>';
+      return;
+    }
+    wrap.innerHTML = `<div class="dress-list">${dresses.map((d,i) => `
+      <div id="dress-block-${i}">
+        <div class="dress-row">
+          ${d.main_photo
+            ? `<img class="dress-thumb" src="${esc(d.main_photo)}" alt="" onerror="this.style.display='none';document.getElementById('dph-${i}').style.display='flex'">`
+            : ''}
+          <div class="dress-thumb-ph" id="dph-${i}" style="${d.main_photo?'display:none':''}">👗</div>
+          <div class="dress-info">
+            <div class="dress-name">${esc(d.name)||'Sans nom'}</div>
+            <div class="dress-style">${esc(d.style||'')}</div>
+          </div>
+          <div class="dress-btns">
+            <button class="btn btn-secondary btn-sm" data-edit="${i}">Modifier</button>
+            <button class="btn btn-danger btn-sm" data-del="${i}">✕</button>
+          </div>
+        </div>
+        <div id="dedit-${i}" style="display:none"></div>
+      </div>`).join('')}</div>`;
+
+    document.querySelectorAll('[data-edit]').forEach(btn => btn.addEventListener('click', () => toggleEditor(+btn.dataset.edit)));
+    document.querySelectorAll('[data-del]').forEach(btn => btn.addEventListener('click', () => {
+      if (confirm(`Supprimer la robe "${dresses[btn.dataset.del]?.name||''}" ?`)) {
+        dresses.splice(+btn.dataset.del, 1);
+        renderDresses();
+      }
+    }));
+  }
+
+  function toggleEditor(i) {
+    const el = document.getElementById(`dedit-${i}`);
+    const isOpen = el && el.style.display !== 'none';
+    // Fermer tous
+    document.querySelectorAll('[id^="dedit-"]').forEach(e => { e.style.display='none'; e.innerHTML=''; });
+    if (!isOpen) openEditor(i);
+  }
+
+  function openEditor(i) {
+    const el = document.getElementById(`dedit-${i}`);
+    if (!el) return;
+    const d = dresses[i];
+    const extras = JSON.parse(JSON.stringify(d.additional_photos || []));
+    const extraFiles = []; // File objects à uploader
+
+    el.style.display = 'block';
+    el.innerHTML = `
+      <div class="dress-editor-wrap">
+        <div class="grid-2">
+          <div class="field"><label>Nom / référence</label><input type="text" id="dn-${i}" value="${esc(d.name||'')}"></div>
+          <div class="field"><label>Style</label>
+            <select id="ds-${i}">
+              <option value="">— Choisir —</option>
+              ${DRESS_STYLES.map(s => `<option${d.style===s?' selected':''}>${s}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Description</label><textarea id="dd-${i}" rows="3">${esc(d.description||'')}</textarea></div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Photo principale</label>
+            <div id="mp-drop-${i}" class="img-drop ${d.main_photo?'filled':''}" style="max-width:180px">
+              ${d.main_photo ? `<img src="${esc(d.main_photo)}" alt="">` : `<div class="drop-icon">📷</div><div class="drop-label">Ajouter</div>`}
+              <input type="file" id="mp-file-${i}" accept="image/*">
+            </div>
+          </div>
+          <div class="field">
+            <label>Photos supplémentaires</label>
+            <div id="ep-grid-${i}" class="photo-grid"></div>
+            <input type="file" id="ep-file-${i}" accept="image/*" multiple style="display:none">
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:4px">
+          <button class="btn btn-primary btn-sm" id="dsave-${i}">Enregistrer cette robe</button>
+          <button class="btn btn-secondary btn-sm" id="dcancel-${i}">Annuler</button>
+        </div>
+      </div>`;
+
+    // Main photo drop
+    let mainPhotoFile = null;
+    let mainPhotoPath = d.main_photo || '';
+    setupImgDrop(`mp-drop-${i}`, `mp-file-${i}`, f => { mainPhotoFile = f; mainPhotoPath = ''; });
+
+    // Extra photos
+    function renderExtras() {
+      const grid = document.getElementById(`ep-grid-${i}`);
+      if (!grid) return;
+      grid.innerHTML = extras.map((p,pi) => {
+        const src = (p && p._local) ? p._local : (typeof p === 'string' ? p : '');
+        return `<div class="photo-thumb"><img src="${esc(src)}" alt=""><button class="del-btn" data-pi="${pi}">×</button></div>`;
+      }).join('') + `<div class="photo-add" id="ep-add-${i}">+</div>`;
+      grid.querySelectorAll('.del-btn').forEach(b => b.addEventListener('click', () => { extras.splice(+b.dataset.pi,1); renderExtras(); }));
+      document.getElementById(`ep-add-${i}`)?.addEventListener('click', () => document.getElementById(`ep-file-${i}`).click());
+    }
+    renderExtras();
+
+    document.getElementById(`ep-file-${i}`).addEventListener('change', e => {
+      for (const f of e.target.files) {
+        extras.push({_local: URL.createObjectURL(f), _file: f});
+        extraFiles.push(f);
+      }
+      renderExtras();
+    });
+
+    // Save dress to memory
+    document.getElementById(`dsave-${i}`).addEventListener('click', async () => {
+      const btn = document.getElementById(`dsave-${i}`);
+      btn.disabled = true; btn.textContent = 'Enregistrement…';
+      try {
+        // Upload main photo if changed
+        if (mainPhotoFile) {
+          const du = await fileToDataUrl(mainPhotoFile);
+          const res = await apiUpload(mainPhotoFile.name, du);
+          mainPhotoPath = res.path;
+          mainPhotoFile = null;
+        }
+        // Upload new extra photos
+        const finalExtras = extras.filter(p => typeof p === 'string').concat([]);
+        // Gather existing paths
+        for (const p of extras) {
+          if (typeof p === 'string') { /* already in finalExtras */ }
+        }
+        const existingPaths = extras.filter(p => typeof p === 'string');
+        const newUploadedPaths = [];
+        for (const p of extras) {
+          if (p && p._file) {
+            const du = await fileToDataUrl(p._file);
+            const res = await apiUpload(p._file.name, du);
+            newUploadedPaths.push(res.path);
+          }
+        }
+        const additionalPhotos = [...existingPaths, ...newUploadedPaths];
+
+        dresses[i] = {
+          ...dresses[i],
+          name: document.getElementById(`dn-${i}`)?.value || d.name,
+          style: document.getElementById(`ds-${i}`)?.value || d.style,
+          description: document.getElementById(`dd-${i}`)?.value || d.description,
+          main_photo: mainPhotoPath,
+          additional_photos: additionalPhotos,
+        };
+        toast('Robe mise à jour. Cliquez "Enregistrer tout" pour publier.', 'info');
+        renderDresses();
+      } catch(ex) { toast(ex.message, 'error'); }
+      finally { btn.disabled=false; btn.textContent='Enregistrer cette robe'; }
+    });
+
+    document.getElementById(`dcancel-${i}`).addEventListener('click', () => {
+      el.style.display='none'; el.innerHTML='';
+    });
+  }
+
+  // Add dress
+  document.getElementById('add-dress').addEventListener('click', () => {
+    dresses.push({name:'Nouvelle robe',style:'',description:'',main_photo:'',additional_photos:[]});
+    renderDresses();
+    setTimeout(() => {
+      const last = dresses.length - 1;
+      openEditor(last);
+      document.getElementById(`dedit-${last}`)?.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }, 60);
+  });
+
+  // Save all
+  document.getElementById('save-col').addEventListener('click', async () => {
+    const btn = document.getElementById('save-col');
+    btn.disabled = true; btn.textContent = 'Enregistrement…';
+    try {
+      // Upload hero if changed
+      let heroPath = data.hero_image || '';
+      if (pending.hero) {
+        const du = await fileToDataUrl(pending.hero);
+        const res = await apiUpload(pending.hero.name, du);
+        heroPath = res.path;
+        delete pending.hero;
+      }
+      const updated = {
+        ...data,
+        title: v('c-title'),
+        description: v('c-desc'),
+        hero_image: heroPath,
+        dresses,
+      };
+      const res = await apiPut(`/api/admin-content?file=${enc(col.file)}`, {
+        content: JSON.stringify(updated, null, 2),
+        sha: cache[col.file].sha,
+        message: `Admin: collection ${col.label}`,
+      });
+      cache[col.file].parsed = updated;
+      cache[col.file].content = JSON.stringify(updated, null, 2);
+      if (res.sha) cache[col.file].sha = res.sha;
+      toast(`Collection ${col.label} enregistrée !`, 'success');
+      showDeployBanner();
+    } catch(ex) { toast(ex.message, 'error'); }
+    finally { btn.disabled=false; btn.textContent='Enregistrer tout'; }
+  });
+
+  renderDresses();
+}
+
+// ══════════════════════════════════════════════════════
+// IMAGE DROP HELPER
+// ══════════════════════════════════════════════════════
+function setupImgDrop(areaId, fileId, onFile) {
+  const area = document.getElementById(areaId);
+  const input = document.getElementById(fileId);
+  if (!area || !input) return;
+  area.addEventListener('click', () => input.click());
+  input.addEventListener('change', e => {
+    const f = e.target.files[0]; if (!f) return;
+    const url = URL.createObjectURL(f);
+    area.classList.add('filled');
+    area.innerHTML = `<img src="${url}" alt=""><input type="file" id="${fileId}" accept="image/*" style="display:none">`;
+    area.querySelector('input').addEventListener('change', ev => {
+      const nf = ev.target.files[0]; if (!nf) return;
+      area.querySelector('img').src = URL.createObjectURL(nf);
+      onFile(nf);
+    });
+    area.addEventListener('click', () => area.querySelector('input').click());
+    onFile(f);
+  });
+}
+
+function fileToDataUrl(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = e => res(e.target.result);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════════════════
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;'); }
+function v(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+function enc(s) { return encodeURIComponent(s); }
+
+// ══════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════
+if (token) showApp();
+</script>
 </body>
 </html>
