@@ -246,26 +246,27 @@ const cache = {}; // file → {content, sha, parsed}
 // ══════════════════════════════════════════════════════
 // API HELPERS
 // ══════════════════════════════════════════════════════
+const API_BASE = 'https://pronuptia-lyon-git-main-sacha-b-projects9.vercel.app';
 async function apiPost(path, body) {
-  const r = await fetch(path, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+  const r = await fetch(API_BASE + path, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
   const d = await r.json();
   if (!r.ok) throw new Error(d.error || 'Erreur serveur');
   return d;
 }
 async function apiGet(path) {
-  const r = await fetch(path, {headers:{Authorization:`Bearer ${token}`}});
+  const r = await fetch(API_BASE + path, {headers:{Authorization:`Bearer ${token}`}});
   const d = await r.json();
   if (!r.ok) throw new Error(d.error || 'Erreur serveur');
   return d;
 }
 async function apiPut(path, body) {
-  const r = await fetch(path, {method:'PUT', headers:{'Content-Type':'application/json', Authorization:`Bearer ${token}`}, body:JSON.stringify(body)});
+  const r = await fetch(API_BASE + path, {method:'PUT', headers:{'Content-Type':'application/json', Authorization:`Bearer ${token}`}, body:JSON.stringify(body)});
   const d = await r.json();
   if (!r.ok) throw new Error(d.error || 'Erreur serveur');
   return d;
 }
 async function apiUpload(filename, dataUrl) {
-  const r = await fetch('/api/admin-upload', {method:'POST', headers:{'Content-Type':'application/json', Authorization:`Bearer ${token}`}, body:JSON.stringify({filename, dataUrl})});
+  const r = await fetch(API_BASE + '/api/admin-upload', {method:'POST', headers:{'Content-Type':'application/json', Authorization:`Bearer ${token}`}, body:JSON.stringify({filename, dataUrl})});
   const d = await r.json();
   if (!r.ok) throw new Error(d.error || 'Erreur upload');
   return d;
