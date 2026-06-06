@@ -173,10 +173,10 @@ textarea{resize:vertical;min-height:80px;line-height:1.5}
       <div class="sub">Interface d'administration</div>
     </div>
     <p>Entrez votre mot de passe pour gérer le contenu du site.</p>
-    <form id="login-form">
+    <form id="login-form" novalidate>
       <div class="field">
         <label for="pwd">Mot de passe</label>
-        <input type="password" id="pwd" placeholder="••••••••" autocomplete="current-password">
+        <input type="password" id="pwd" placeholder="••••••••" autocomplete="off">
       </div>
       <div id="login-err" style="display:none;color:var(--error);font-size:13px;margin-bottom:12px"></div>
       <button type="submit" class="btn btn-primary btn-full" id="login-btn">Se connecter</button>
