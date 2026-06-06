@@ -22,14 +22,7 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Configuration serveur manquante. Contactez l\'administrateur.' });
   }
 
-  let match = false;
-  try {
-    match =
-      password.length === expected.length &&
-      crypto.timingSafeEqual(Buffer.from(password), Buffer.from(expected));
-  } catch {
-    match = false;
-  }
+  const match = password.trim() === expected.trim();
 
   if (!match) {
     return res.status(401).json({ error: 'Mot de passe incorrect' });
