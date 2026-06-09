@@ -1192,18 +1192,18 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .form-check label { font-size: 0.78rem; color: var(--c-taupe); font-weight: 400; text-transform: none; letter-spacing: 0; }
 
 /* ─── RDV TYPES SECTION ─── */
-.rdv-types-section { padding: 52px 0 40px; background: var(--c-warm-black); }
+.rdv-types-section { padding: 52px 0 40px; background: var(--c-parchment); }
 .rdv-types-header { text-align: center; max-width: 560px; margin: 0 auto 32px; }
-.rdv-types-header .eyebrow { color: var(--c-champagne); }
-.rdv-types-header h2 { color: var(--c-ivory); margin-bottom: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
-.rdv-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: oklch(25% 0.012 45); }
+.rdv-types-header .eyebrow { color: var(--c-bordeaux); }
+.rdv-types-header h2 { color: var(--c-warm-black); margin-bottom: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.rdv-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--c-champagne-light); }
 .rdv-type-card { background: var(--c-ivory); padding: 36px 40px; display: flex; flex-direction: column; gap: 18px; border-top: 3px solid var(--c-bordeaux); }
-.rdv-type-card--privilege { background: var(--c-warm-black); color: var(--c-ivory); border: 1px solid oklch(26% 0.015 45); border-top: 3px solid var(--c-champagne); }
+.rdv-type-card--privilege { background: var(--c-bordeaux); color: var(--c-ivory); border-top: 3px solid var(--c-champagne); }
 .rdv-type-card__meta-row { display: flex; align-items: center; gap: 14px; }
 .rdv-type-card__label { display: inline-block; font-size: 0.57rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid var(--c-bordeaux); color: var(--c-bordeaux); padding: 3px 10px; background: none; }
 .rdv-type-card--privilege .rdv-type-card__label { border-color: var(--c-champagne); color: var(--c-champagne); }
 .rdv-type-card__duration { font-size: 0.7rem; color: var(--c-taupe); letter-spacing: 0.06em; }
-.rdv-type-card--privilege .rdv-type-card__duration { color: oklch(62% 0.018 60); }
+.rdv-type-card--privilege .rdv-type-card__duration { color: oklch(78% 0.022 20); }
 .rdv-type-card__header h3 { font-family: var(--f-display); font-size: clamp(1.3rem, 2vw, 1.6rem); margin: 8px 0 4px; line-height: 1.2; color: var(--c-warm-black); }
 .rdv-type-card__header h3 em { font-style: italic; color: var(--c-bordeaux); }
 .rdv-type-card--privilege .rdv-type-card__header h3 { color: var(--c-ivory); }
@@ -1211,14 +1211,14 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .rdv-type-card__price { font-family: var(--f-display); font-size: 2rem; font-style: italic; color: var(--c-bordeaux); line-height: 1; margin: 0 0 4px; }
 .rdv-type-card--privilege .rdv-type-card__price { color: var(--c-champagne); }
 .rdv-type-card__sub { font-size: 0.8rem; color: var(--c-taupe); line-height: 1.6; margin: 0; }
-.rdv-type-card--privilege .rdv-type-card__sub { color: oklch(65% 0.018 60); }
+.rdv-type-card--privilege .rdv-type-card__sub { color: oklch(80% 0.018 20); }
 .rdv-type-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .rdv-type-card__list li { font-size: 0.8rem; color: var(--c-taupe); padding-left: 20px; position: relative; line-height: 1.5; }
 .rdv-type-card__list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 9px; height: 1px; background: var(--c-bordeaux); }
-.rdv-type-card--privilege .rdv-type-card__list li { color: oklch(70% 0.018 60); }
+.rdv-type-card--privilege .rdv-type-card__list li { color: oklch(82% 0.016 20); }
 .rdv-type-card--privilege .rdv-type-card__list li::before { background: var(--c-champagne); }
 .rdv-type-card__cta-note { font-size: 0.68rem; color: var(--c-taupe); text-transform: uppercase; letter-spacing: 0.1em; padding-top: 14px; border-top: 1px solid var(--c-champagne-light); margin: 0; }
-.rdv-type-card--privilege .rdv-type-card__cta-note { color: oklch(55% 0.018 60); border-top-color: oklch(24% 0.015 45); }
+.rdv-type-card--privilege .rdv-type-card__cta-note { color: oklch(75% 0.02 20); border-top-color: oklch(38% 0.075 18); }
 /* RDV type radio buttons (formulaire) */
 .rdv-type-radios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .rdv-type-radio { display: block; cursor: pointer; }
