@@ -485,6 +485,62 @@
       <div class="page-hero__deco"></div>
     </section>
 
+    <!-- ═══ RDV TYPES ═══ -->
+    <section class="rdv-types-section">
+      <div class="container">
+        <div class="rdv-types-header reveal">
+          <span class="eyebrow">Choisissez votre expérience</span>
+          <h2>Deux formules, <em>un seul objectif</em></h2>
+          <p>Trouver la robe qui vous ressemble, dans un cadre pensé pour vous.</p>
+        </div>
+        <div class="rdv-types-grid">
+
+          <!-- Découverte -->
+          <div class="rdv-type-card reveal">
+            <div class="rdv-type-card__header">
+              <span class="rdv-type-card__label">Gratuit</span>
+              <h3>Rendez-vous Découverte</h3>
+              <p class="rdv-type-card__sub">Le premier pas vers votre robe de rêve</p>
+            </div>
+            <ul class="rdv-type-card__list">
+              <li>Durée : 1 heure</li>
+              <li>Entretien personnalisé avec votre conseillère</li>
+              <li>Essayage de 3 à 5 robes sélectionnées selon vos envies</li>
+              <li>Jusqu'à 2 accompagnants</li>
+              <li>Conseils morphologie et style</li>
+            </ul>
+            <div class="rdv-type-card__footer">
+              <span class="rdv-type-card__price">Gratuit</span>
+              <span class="rdv-type-card__note">sur réservation</span>
+            </div>
+          </div>
+
+          <!-- Privilège -->
+          <div class="rdv-type-card rdv-type-card--privilege reveal reveal-d1">
+            <div class="rdv-type-card__header">
+              <span class="rdv-type-card__label rdv-type-card__label--gold">50 €</span>
+              <h3>Rendez-vous Privilège</h3>
+              <p class="rdv-type-card__sub">Une expérience exclusive entièrement dédiée à votre mariage</p>
+            </div>
+            <ul class="rdv-type-card__list">
+              <li>Durée : 1h30</li>
+              <li>Boutique privatisée</li>
+              <li>Robes essayées illimitées</li>
+              <li>Accompagnants illimités</li>
+              <li>Boissons offertes</li>
+              <li>Conseils personnalisés approfondis</li>
+              <li>Photos souvenirs autorisées</li>
+            </ul>
+            <div class="rdv-type-card__footer">
+              <span class="rdv-type-card__price">50 €</span>
+              <span class="rdv-type-card__note">déduits du prix de votre robe à l'achat</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ═══ RDV SECTION ═══ -->
     <section class="rdv-section">
       <div class="container">
@@ -550,15 +606,6 @@
 
             </div>
 
-            <!-- Free note -->
-            <div class="rdv-free-note">
-              <div class="rdv-free-note__icon">&#10022;</div>
-              <div class="rdv-free-note__text">
-                <strong>Consultation offerte</strong>
-                La prise de rendez-vous et la consultation en boutique sont entièrement gratuites et sans engagement. Nous sommes là pour vous accompagner, pas vous presser.
-              </div>
-            </div>
-
             <!-- Map -->
             <div class="rdv-map">
               <div id="rdv-leaflet-map"></div>
@@ -574,6 +621,27 @@
             <form id="rdv-form" name="rendez-vous" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
               <input type="hidden" name="form-name" value="rendez-vous">
               <p style="display:none"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+              <!-- Type de rendez-vous -->
+              <div class="form-group">
+                <label>Type de rendez-vous <span class="req">*</span></label>
+                <div class="rdv-type-radios">
+                  <label class="rdv-type-radio" for="rdv-decouverte">
+                    <input type="radio" id="rdv-decouverte" name="type_rdv" value="Découverte (gratuit)" required>
+                    <span class="rdv-type-radio__box">
+                      <span class="rdv-type-radio__name">Découverte</span>
+                      <span class="rdv-type-radio__price">Gratuit</span>
+                    </span>
+                  </label>
+                  <label class="rdv-type-radio" for="rdv-privilege">
+                    <input type="radio" id="rdv-privilege" name="type_rdv" value="Privilège (50 €)">
+                    <span class="rdv-type-radio__box">
+                      <span class="rdv-type-radio__name">Privilège</span>
+                      <span class="rdv-type-radio__price">50 €</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
 
               <!-- Prénom / Nom -->
               <div class="form-row">
