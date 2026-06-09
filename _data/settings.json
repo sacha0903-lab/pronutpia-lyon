@@ -3,20 +3,20 @@
   "tagline": "Boutique de robes de mariée au cœur du 2ème arrondissement de Lyon.",
   "address": "9 rue des Remparts d'Ainay",
   "city": "69002 Lyon",
-  "phone": "01 01 01 01 01",
+  "phone": "06 11 34 69 35",
   "email": "",
   "hours": [
     {
-      "days": "Mar – Ven",
-      "hours": "10h – 19h"
+      "days": "Lundi",
+      "hours": "Fermé"
+    },
+    {
+      "days": "Mardi - Vendredi",
+      "hours": "10h30 - 13h00 et 14h30 - 19h00"
     },
     {
       "days": "Samedi",
-      "hours": "10h – 18h30"
-    },
-    {
-      "days": "Dim – Lun",
-      "hours": "Fermé"
+      "hours": "10h00 - 19h00"
     }
   ],
   "instagram": "#",
