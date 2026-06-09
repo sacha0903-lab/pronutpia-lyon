@@ -1189,29 +1189,34 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .form-check label { font-size: 0.78rem; color: var(--c-taupe); font-weight: 400; text-transform: none; letter-spacing: 0; }
 
 /* ─── RDV TYPES SECTION ─── */
-.rdv-types-section { padding: 80px 0 60px; background: var(--c-parchment); }
-.rdv-types-header { text-align: center; max-width: 560px; margin: 0 auto 52px; }
-.rdv-types-header h2 { margin-bottom: 14px; }
-.rdv-types-header p { font-size: 0.9rem; color: var(--c-taupe); line-height: 1.8; }
-.rdv-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.rdv-type-card { background: var(--c-ivory); padding: 44px 40px; display: flex; flex-direction: column; gap: 28px; }
-.rdv-type-card--privilege { background: var(--c-warm-black); color: var(--c-ivory); }
-.rdv-type-card__header h3 { font-family: var(--f-display); font-size: 1.85rem; margin: 12px 0 8px; }
-.rdv-type-card__label { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: var(--c-parchment); color: var(--c-warm-black); padding: 4px 12px; margin-bottom: 4px; }
-.rdv-type-card__label--gold { background: var(--c-champagne); }
-.rdv-type-card__sub { font-size: 0.88rem; color: var(--c-taupe); line-height: 1.7; }
-.rdv-type-card--privilege .rdv-type-card__sub { color: oklch(72% 0.018 60); }
-.rdv-type-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.rdv-type-card__list li { font-size: 0.85rem; color: var(--c-taupe); padding-left: 20px; position: relative; line-height: 1.5; }
-.rdv-type-card__list li::before { content: '—'; position: absolute; left: 0; color: var(--c-bordeaux); font-size: 0.9rem; }
-.rdv-type-card--privilege .rdv-type-card__list li { color: oklch(72% 0.018 60); }
-.rdv-type-card--privilege .rdv-type-card__list li::before { color: var(--c-champagne); }
-.rdv-type-card__footer { padding-top: 22px; border-top: 1px solid var(--c-parchment); }
-.rdv-type-card--privilege .rdv-type-card__footer { border-color: oklch(24% 0.015 45); }
-.rdv-type-card__price { font-family: var(--f-display); font-size: 2rem; color: var(--c-bordeaux); display: block; line-height: 1; margin-bottom: 4px; }
+.rdv-types-section { padding: 96px 0 80px; background: var(--c-warm-black); }
+.rdv-types-header { text-align: center; max-width: 560px; margin: 0 auto 60px; }
+.rdv-types-header .eyebrow { color: var(--c-champagne); }
+.rdv-types-header h2 { color: var(--c-ivory); margin-bottom: 14px; }
+.rdv-types-header p { font-size: 0.9rem; color: oklch(68% 0.018 60); line-height: 1.8; }
+.rdv-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: oklch(25% 0.012 45); }
+.rdv-type-card { background: var(--c-ivory); padding: 60px 52px; display: flex; flex-direction: column; gap: 32px; border-top: 3px solid var(--c-bordeaux); }
+.rdv-type-card--privilege { background: var(--c-warm-black); color: var(--c-ivory); border: 1px solid oklch(26% 0.015 45); border-top: 3px solid var(--c-champagne); }
+.rdv-type-card__meta-row { display: flex; align-items: center; gap: 16px; }
+.rdv-type-card__label { display: inline-block; font-size: 0.57rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid var(--c-bordeaux); color: var(--c-bordeaux); padding: 4px 12px; background: none; }
+.rdv-type-card--privilege .rdv-type-card__label { border-color: var(--c-champagne); color: var(--c-champagne); }
+.rdv-type-card__duration { font-size: 0.72rem; color: var(--c-taupe); letter-spacing: 0.06em; }
+.rdv-type-card--privilege .rdv-type-card__duration { color: oklch(62% 0.018 60); }
+.rdv-type-card__header h3 { font-family: var(--f-display); font-size: clamp(1.7rem, 2.8vw, 2.4rem); margin: 16px 0 10px; line-height: 1.2; color: var(--c-warm-black); }
+.rdv-type-card__header h3 em { font-style: italic; color: var(--c-bordeaux); }
+.rdv-type-card--privilege .rdv-type-card__header h3 { color: var(--c-ivory); }
+.rdv-type-card--privilege .rdv-type-card__header h3 em { color: var(--c-champagne); }
+.rdv-type-card__price { font-family: var(--f-display); font-size: 2.8rem; font-style: italic; color: var(--c-bordeaux); line-height: 1; margin: 0 0 8px; }
 .rdv-type-card--privilege .rdv-type-card__price { color: var(--c-champagne); }
-.rdv-type-card__note { font-size: 0.75rem; color: var(--c-taupe); display: block; line-height: 1.4; }
-.rdv-type-card--privilege .rdv-type-card__note { color: oklch(60% 0.018 60); }
+.rdv-type-card__sub { font-size: 0.85rem; color: var(--c-taupe); line-height: 1.7; margin: 0; }
+.rdv-type-card--privilege .rdv-type-card__sub { color: oklch(65% 0.018 60); }
+.rdv-type-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+.rdv-type-card__list li { font-size: 0.84rem; color: var(--c-taupe); padding-left: 22px; position: relative; line-height: 1.55; }
+.rdv-type-card__list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 10px; height: 1px; background: var(--c-bordeaux); }
+.rdv-type-card--privilege .rdv-type-card__list li { color: oklch(70% 0.018 60); }
+.rdv-type-card--privilege .rdv-type-card__list li::before { background: var(--c-champagne); }
+.rdv-type-card__cta-note { font-size: 0.72rem; color: var(--c-taupe); text-transform: uppercase; letter-spacing: 0.1em; padding-top: 18px; border-top: 1px solid var(--c-champagne-light); margin: 0; }
+.rdv-type-card--privilege .rdv-type-card__cta-note { color: oklch(55% 0.018 60); border-top-color: oklch(24% 0.015 45); }
 /* RDV type radio buttons (formulaire) */
 .rdv-type-radios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .rdv-type-radio { display: block; cursor: pointer; }
@@ -1345,6 +1350,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .about-visual { min-height: 320px; position: relative; }
   .about-text { padding: 60px 32px; }
   .rdv-types-grid { grid-template-columns: 1fr; }
+  .rdv-type-card { padding: 44px 36px; }
   .rdv-layout { grid-template-columns: 1fr; gap: 50px; }
   .rdv-form { padding: 36px 28px; }
   .collection-intro { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 30px; }
