@@ -1156,9 +1156,12 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .rdv-info p { font-size: 0.92rem; color: var(--c-taupe); line-height: 1.95; font-weight: 300; margin-bottom: 40px; }
 .contact-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; }
 .contact-item { display: flex; gap: 16px; align-items: flex-start; }
-.ci-icon { width: 42px; height: 42px; flex-shrink: 0; background: var(--c-parchment); display: flex; align-items: center; justify-content: center; color: var(--c-bordeaux); font-size: 0.85rem; }
-.ci-body { font-size: 0.85rem; color: var(--c-taupe); line-height: 1.7; }
-.ci-body strong { display: block; font-size: 0.60rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--c-warm-black); margin-bottom: 3px; }
+.ci-icon, .contact-item__icon { width: 42px; height: 42px; flex-shrink: 0; background: var(--c-parchment); display: flex; align-items: center; justify-content: center; color: var(--c-bordeaux); font-size: 0.85rem; }
+.ci-body, .contact-item__body { font-size: 0.85rem; color: var(--c-taupe); line-height: 1.7; }
+.ci-body strong, .contact-item__body strong { display: block; font-size: 0.60rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--c-warm-black); margin-bottom: 6px; }
+.hours-mini { display: flex; flex-direction: column; gap: 5px; }
+.hours-mini-row { display: flex; justify-content: space-between; gap: 16px; font-size: 0.82rem; }
+.hours-mini-row .day { color: var(--c-warm-black); font-weight: 500; }
 .rdv-form { display: flex; flex-direction: column; gap: 18px; background: var(--c-parchment); padding: 50px 44px; }
 .rdv-form h3 { font-family: var(--f-display); font-size: 1.8rem; margin-bottom: 8px; }
 .rdv-form .form-subtitle { font-size: 0.8rem; color: var(--c-taupe); margin-bottom: 24px; }
@@ -1189,33 +1192,32 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .form-check label { font-size: 0.78rem; color: var(--c-taupe); font-weight: 400; text-transform: none; letter-spacing: 0; }
 
 /* ─── RDV TYPES SECTION ─── */
-.rdv-types-section { padding: 96px 0 80px; background: var(--c-warm-black); }
-.rdv-types-header { text-align: center; max-width: 560px; margin: 0 auto 60px; }
+.rdv-types-section { padding: 52px 0 40px; background: var(--c-warm-black); }
+.rdv-types-header { text-align: center; max-width: 560px; margin: 0 auto 32px; }
 .rdv-types-header .eyebrow { color: var(--c-champagne); }
-.rdv-types-header h2 { color: var(--c-ivory); margin-bottom: 14px; }
-.rdv-types-header p { font-size: 0.9rem; color: oklch(68% 0.018 60); line-height: 1.8; }
+.rdv-types-header h2 { color: var(--c-ivory); margin-bottom: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 .rdv-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: oklch(25% 0.012 45); }
-.rdv-type-card { background: var(--c-ivory); padding: 60px 52px; display: flex; flex-direction: column; gap: 32px; border-top: 3px solid var(--c-bordeaux); }
+.rdv-type-card { background: var(--c-ivory); padding: 36px 40px; display: flex; flex-direction: column; gap: 18px; border-top: 3px solid var(--c-bordeaux); }
 .rdv-type-card--privilege { background: var(--c-warm-black); color: var(--c-ivory); border: 1px solid oklch(26% 0.015 45); border-top: 3px solid var(--c-champagne); }
-.rdv-type-card__meta-row { display: flex; align-items: center; gap: 16px; }
-.rdv-type-card__label { display: inline-block; font-size: 0.57rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid var(--c-bordeaux); color: var(--c-bordeaux); padding: 4px 12px; background: none; }
+.rdv-type-card__meta-row { display: flex; align-items: center; gap: 14px; }
+.rdv-type-card__label { display: inline-block; font-size: 0.57rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid var(--c-bordeaux); color: var(--c-bordeaux); padding: 3px 10px; background: none; }
 .rdv-type-card--privilege .rdv-type-card__label { border-color: var(--c-champagne); color: var(--c-champagne); }
-.rdv-type-card__duration { font-size: 0.72rem; color: var(--c-taupe); letter-spacing: 0.06em; }
+.rdv-type-card__duration { font-size: 0.7rem; color: var(--c-taupe); letter-spacing: 0.06em; }
 .rdv-type-card--privilege .rdv-type-card__duration { color: oklch(62% 0.018 60); }
-.rdv-type-card__header h3 { font-family: var(--f-display); font-size: clamp(1.7rem, 2.8vw, 2.4rem); margin: 16px 0 10px; line-height: 1.2; color: var(--c-warm-black); }
+.rdv-type-card__header h3 { font-family: var(--f-display); font-size: clamp(1.3rem, 2vw, 1.6rem); margin: 8px 0 4px; line-height: 1.2; color: var(--c-warm-black); }
 .rdv-type-card__header h3 em { font-style: italic; color: var(--c-bordeaux); }
 .rdv-type-card--privilege .rdv-type-card__header h3 { color: var(--c-ivory); }
 .rdv-type-card--privilege .rdv-type-card__header h3 em { color: var(--c-champagne); }
-.rdv-type-card__price { font-family: var(--f-display); font-size: 2.8rem; font-style: italic; color: var(--c-bordeaux); line-height: 1; margin: 0 0 8px; }
+.rdv-type-card__price { font-family: var(--f-display); font-size: 2rem; font-style: italic; color: var(--c-bordeaux); line-height: 1; margin: 0 0 4px; }
 .rdv-type-card--privilege .rdv-type-card__price { color: var(--c-champagne); }
-.rdv-type-card__sub { font-size: 0.85rem; color: var(--c-taupe); line-height: 1.7; margin: 0; }
+.rdv-type-card__sub { font-size: 0.8rem; color: var(--c-taupe); line-height: 1.6; margin: 0; }
 .rdv-type-card--privilege .rdv-type-card__sub { color: oklch(65% 0.018 60); }
-.rdv-type-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px; flex: 1; }
-.rdv-type-card__list li { font-size: 0.84rem; color: var(--c-taupe); padding-left: 22px; position: relative; line-height: 1.55; }
-.rdv-type-card__list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 10px; height: 1px; background: var(--c-bordeaux); }
+.rdv-type-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.rdv-type-card__list li { font-size: 0.8rem; color: var(--c-taupe); padding-left: 20px; position: relative; line-height: 1.5; }
+.rdv-type-card__list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 9px; height: 1px; background: var(--c-bordeaux); }
 .rdv-type-card--privilege .rdv-type-card__list li { color: oklch(70% 0.018 60); }
 .rdv-type-card--privilege .rdv-type-card__list li::before { background: var(--c-champagne); }
-.rdv-type-card__cta-note { font-size: 0.72rem; color: var(--c-taupe); text-transform: uppercase; letter-spacing: 0.1em; padding-top: 18px; border-top: 1px solid var(--c-champagne-light); margin: 0; }
+.rdv-type-card__cta-note { font-size: 0.68rem; color: var(--c-taupe); text-transform: uppercase; letter-spacing: 0.1em; padding-top: 14px; border-top: 1px solid var(--c-champagne-light); margin: 0; }
 .rdv-type-card--privilege .rdv-type-card__cta-note { color: oklch(55% 0.018 60); border-top-color: oklch(24% 0.015 45); }
 /* RDV type radio buttons (formulaire) */
 .rdv-type-radios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -1350,7 +1352,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .about-visual { min-height: 320px; position: relative; }
   .about-text { padding: 60px 32px; }
   .rdv-types-grid { grid-template-columns: 1fr; }
-  .rdv-type-card { padding: 44px 36px; }
+  .rdv-type-card { padding: 32px 28px; }
   .rdv-layout { grid-template-columns: 1fr; gap: 50px; }
   .rdv-form { padding: 36px 28px; }
   .collection-intro { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 30px; }
