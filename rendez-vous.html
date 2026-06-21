@@ -611,135 +611,27 @@
             </div>
           </div>
 
-          <!-- Right: form -->
+          <!-- Right: Brideall booking -->
           <div class="rdv-form reveal reveal-d1" id="rdv-form-wrapper">
             <h3>Réserver mon essayage</h3>
             <div class="rdv-form__divider"></div>
-            <p class="form-subtitle">Nous vous recontacterons sous 24h pour confirmer votre créneau.</p>
+            <p class="form-subtitle">Prenez directement RDV en ligne&nbsp;!</p>
 
-            <form id="rdv-form" novalidate>
+            <a href="http://app.bride-all.com/agendaonline/pronuptialyon/rendez-vous-pronuptia-lyon"
+               target="_blank" rel="noopener"
+               class="btn-submit-full"
+               style="display:block;text-align:center;text-decoration:none;margin-bottom:28px;">
+              PRISE DE RDV ON LINE
+            </a>
 
-              <!-- Type de rendez-vous -->
-              <div class="form-group">
-                <label>Type de rendez-vous <span class="req">*</span></label>
-                <div class="rdv-type-radios">
-                  <label class="rdv-type-radio" for="rdv-decouverte">
-                    <input type="radio" id="rdv-decouverte" name="type_rdv" value="Découverte (gratuit)" required>
-                    <span class="rdv-type-radio__box">
-                      <span class="rdv-type-radio__name">Découverte</span>
-                      <span class="rdv-type-radio__price">Gratuit</span>
-                    </span>
-                  </label>
-                  <label class="rdv-type-radio" for="rdv-privilege">
-                    <input type="radio" id="rdv-privilege" name="type_rdv" value="Privilège (50 €)">
-                    <span class="rdv-type-radio__box">
-                      <span class="rdv-type-radio__name">Privilège</span>
-                      <span class="rdv-type-radio__price">50 €</span>
-                    </span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Prénom / Nom -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="f-prenom">Prénom <span class="req">*</span></label>
-                  <input type="text" id="f-prenom" name="prenom" class="form-control" placeholder="Votre prénom" required autocomplete="given-name">
-                </div>
-                <div class="form-group">
-                  <label for="f-nom">Nom <span class="req">*</span></label>
-                  <input type="text" id="f-nom" name="nom" class="form-control" placeholder="Votre nom" required autocomplete="family-name">
-                </div>
-              </div>
-
-              <!-- Email / Téléphone -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="f-email">Adresse email <span class="req">*</span></label>
-                  <input type="email" id="f-email" name="email" class="form-control" placeholder="votre@email.fr" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                  <label for="f-tel">Téléphone <span class="req">*</span></label>
-                  <input type="tel" id="f-tel" name="telephone" class="form-control" placeholder="06 XX XX XX XX" required autocomplete="tel">
-                </div>
-              </div>
-
-              <!-- Collection -->
-              <div class="form-group">
-                <label for="f-collection">Collection souhaitée</label>
-                <select id="f-collection" name="collection" class="form-control">
-                  <option value="" disabled selected>Choisissez une collection…</option>
-                  <option value="amelie">Amélie (19 robes)</option>
-                  <option value="pronuptia">Pronuptia (6 robes)</option>
-                  <option value="libelle">Libelle (6 robes)</option>
-                  <option value="randy-fenoli">Randy Fenoli (3 robes)</option>
-                  <option value="modeca-courtes">Robes Courtes Modeca (3 robes)</option>
-                  <option value="modeca-papillon">Modeca + Le Papillon (16 robes)</option>
-                  <option value="eddy-k">Eddy K (3 robes)</option>
-                  <option value="justin-alexander">Justin Alexander (10 robes)</option>
-                  <option value="indefini">Je ne sais pas encore</option>
-                </select>
-              </div>
-
-              <!-- Date / Heure -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="f-date">Date souhaitée</label>
-                  <input type="date" id="f-date" name="date" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="f-heure">Heure préférée</label>
-                  <select id="f-heure" name="heure" class="form-control">
-                    <option value="" disabled selected>Moment de la journée…</option>
-                    <option value="matin">Matin (10h – 12h)</option>
-                    <option value="apres-midi">Après-midi (12h – 16h)</option>
-                    <option value="fin-journee">Fin de journée (16h – 19h)</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Accompagnants -->
-              <div class="form-group">
-                <label for="f-accompagnants">Nombre de personnes qui m'accompagnent</label>
-                <select id="f-accompagnants" name="accompagnants" class="form-control">
-                  <option value="" disabled selected>Sélectionnez…</option>
-                  <option value="seule">Je viens seule</option>
-                  <option value="1">1 personne</option>
-                  <option value="2">2 personnes</option>
-                  <option value="3+">3 personnes ou plus</option>
-                </select>
-              </div>
-
-              <!-- Message -->
-              <div class="form-group">
-                <label for="f-message">Message / Informations complémentaires</label>
-                <textarea id="f-message" name="message" class="form-control" placeholder="Date de votre mariage, style recherché, questions particulières… tout ce qui peut nous aider à vous préparer la meilleure consultation possible."></textarea>
-              </div>
-
-              <!-- Consent -->
-              <div class="form-check">
-                <input type="checkbox" id="f-consent" name="consent" required>
-                <label for="f-consent">
-                  J'accepte que mes données personnelles soient utilisées par Pronuptia Lyon pour traiter ma demande de rendez-vous. Elles ne seront jamais partagées avec des tiers. Consultez notre <a href="#">politique de confidentialité</a>.
-                </label>
-              </div>
-
-              <!-- Submit -->
-              <button type="submit" class="btn-submit-full">Envoyer ma demande de rendez-vous</button>
-
-            </form>
-
-            <!-- Error state -->
-            <p id="form-error" style="display:none;color:#c0392b;font-family:'Montserrat',sans-serif;font-size:0.8rem;margin-top:12px;text-align:center;">
-              Une erreur est survenue. Merci de réessayer ou de nous appeler au <a href="tel:+33478371258" style="color:#c0392b;">04 78 37 12 58</a>.
-            </p>
-
-            <!-- Success state -->
-            <div class="form-success" id="form-success">
-              <div class="form-success__icon">&#10003;</div>
-              <h4>Demande envoyée !</h4>
-              <p>Merci pour votre message. Notre équipe vous contactera dans les 24 heures pour confirmer votre créneau.<br><br>À très bientôt chez Pronuptia Lyon.</p>
-            </div>
+            <iframe
+              src="http://app.bride-all.com/agendaonline/pronuptialyon/rendez-vous-pronuptia-lyon"
+              width="100%"
+              height="770"
+              frameborder="0"
+              style="border:none;border-radius:6px;"
+              title="Prise de rendez-vous Pronuptia Lyon">
+            </iframe>
 
           </div>
 
