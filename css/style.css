@@ -1162,9 +1162,14 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .hours-mini { display: flex; flex-direction: column; gap: 5px; }
 .hours-mini-row { display: flex; justify-content: space-between; gap: 16px; font-size: 0.82rem; }
 .hours-mini-row .day { color: var(--c-warm-black); font-weight: 500; }
-.rdv-form { display: flex; flex-direction: column; gap: 18px; background: var(--c-parchment); padding: 50px 44px; }
+.rdv-form { display: flex; flex-direction: column; gap: 18px; background: var(--c-parchment); padding: 50px 44px 0; overflow: hidden; }
 .rdv-form h3 { font-family: var(--f-display); font-size: 1.8rem; margin-bottom: 8px; }
-.rdv-form .form-subtitle { font-size: 0.8rem; color: var(--c-taupe); margin-bottom: 24px; }
+.rdv-form .form-subtitle { font-size: 0.8rem; color: var(--c-taupe); margin-bottom: 4px; }
+.rdv-cta-btn { display: block; text-align: center; text-decoration: none; }
+.rdv-cta-sub { font-size: 0.72rem; color: var(--c-taupe); text-align: center; letter-spacing: 0.04em; margin-top: -6px; opacity: 0.75; }
+.rdv-dress-photo { margin: 20px -44px 0; flex: 1; min-height: 340px; position: relative; overflow: hidden; }
+.rdv-dress-photo picture, .rdv-dress-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.rdv-dress-photo__caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 20px 14px; background: linear-gradient(to top, rgba(30,20,10,0.55), transparent); color: #fff; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; text-align: right; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-group { display: flex; flex-direction: column; gap: 7px; }
 .form-group label { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-warm-black); }
@@ -1354,7 +1359,8 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .rdv-types-grid { grid-template-columns: 1fr; }
   .rdv-type-card { padding: 32px 28px; }
   .rdv-layout { grid-template-columns: 1fr; gap: 50px; }
-  .rdv-form { padding: 36px 28px; }
+  .rdv-form { padding: 36px 28px 0; }
+  .rdv-dress-photo { margin: 20px -28px 0; }
   .collection-intro { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 30px; }
   .about-layout { gap: 40px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
