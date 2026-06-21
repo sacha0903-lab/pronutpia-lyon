@@ -617,9 +617,7 @@
             <div class="rdv-form__divider"></div>
             <p class="form-subtitle">Nous vous recontacterons sous 24h pour confirmer votre créneau.</p>
 
-            <form id="rdv-form" name="rendez-vous" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
-              <input type="hidden" name="form-name" value="rendez-vous">
-              <p style="display:none"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+            <form id="rdv-form" novalidate>
 
               <!-- Type de rendez-vous -->
               <div class="form-group">
@@ -890,11 +888,24 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Validation
+        // Validation des champs obligatoires
         var required = form.querySelectorAll('[required]');
         var valid = true;
+        var checkedRadioGroups = {};
         required.forEach(function (field) {
-          if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
+          if (field.type === 'radio') {
+            // Vérifier le groupe une seule fois
+            if (checkedRadioGroups[field.name] === undefined) {
+              var anyChecked = !!form.querySelector('[name="' + field.name + '"]:checked');
+              checkedRadioGroups[field.name] = anyChecked;
+              if (!anyChecked) {
+                // Encadrer le groupe en rouge
+                var group = field.closest('.rdv-type-radios');
+                if (group) group.style.outline = '1px solid #c0392b';
+                valid = false;
+              }
+            }
+          } else if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
             field.style.borderColor = '#c0392b';
             valid = false;
           } else {
@@ -902,20 +913,33 @@
           }
         });
         if (!valid) {
-          var first = form.querySelector('[style*="c0392b"]');
-          if (first) first.focus();
+          var first = form.querySelector('[style*="c0392b"], [style*="outline"]');
+          if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
           return;
         }
 
-        // Envoi
+        // Collecte des données en JSON
+        var data = {
+          type_rdv:      (form.querySelector('[name="type_rdv"]:checked') || {}).value || '',
+          prenom:        (document.getElementById('f-prenom') || {}).value || '',
+          nom:           (document.getElementById('f-nom') || {}).value || '',
+          email:         (document.getElementById('f-email') || {}).value || '',
+          telephone:     (document.getElementById('f-tel') || {}).value || '',
+          collection:    (document.getElementById('f-collection') || {}).value || '',
+          date:          (document.getElementById('f-date') || {}).value || '',
+          heure:         (document.getElementById('f-heure') || {}).value || '',
+          accompagnants: (document.getElementById('f-accompagnants') || {}).value || '',
+          message:       (document.getElementById('f-message') || {}).value || ''
+        };
+
         var btn = form.querySelector('.btn-submit-full');
         btn.disabled = true;
         btn.textContent = 'Envoi en cours…';
 
-        fetch('/', {
+        fetch('/api/contact', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString()
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
         })
         .then(function (res) {
           if (res.ok) {
@@ -934,9 +958,16 @@
         });
       });
 
-      // Reset validation styling
-      form.querySelectorAll('.form-control').forEach(function (field) {
-        field.addEventListener('input', function () { this.style.borderColor = ''; });
+      // Réinitialiser la couleur d'erreur à la saisie
+      form.querySelectorAll('.form-control, input[type="checkbox"]').forEach(function (field) {
+        field.addEventListener('change', function () { this.style.borderColor = ''; });
+        field.addEventListener('input',  function () { this.style.borderColor = ''; });
+      });
+      form.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          var group = this.closest('.rdv-type-radios');
+          if (group) group.style.outline = '';
+        });
       });
     })();
   </script>

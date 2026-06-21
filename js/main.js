@@ -244,53 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(c => countObserver.observe(c));
   }
 
-  /* ─── FORM VALIDATION + FORMSPREE ─── */
-  const rdvForm = document.getElementById('rdv-form');
-  if (rdvForm) {
-    // Message de succès après redirection Formspree (?envoi=ok)
-    if (window.location.search.includes('envoi=ok')) {
-      const wrapper = document.getElementById('rdv-form-wrapper');
-      if (wrapper) {
-        wrapper.innerHTML = `
-          <div style="text-align:center;padding:60px 20px;">
-            <div style="font-size:3rem;margin-bottom:16px;color:#2d6a4f;">✓</div>
-            <h3 style="margin-bottom:12px;">Demande envoyée !</h3>
-            <p>Nous vous recontacterons sous 24h pour confirmer votre rendez-vous.</p>
-          </div>`;
-      }
-    }
-
-    rdvForm.addEventListener('submit', e => {
-      const btn = rdvForm.querySelector('button[type="submit"]');
-      const required = rdvForm.querySelectorAll('[required]');
-      let valid = true;
-
-      required.forEach(field => {
-        if (!field.value.trim()) {
-          valid = false;
-          field.style.borderBottomColor = '#c0392b';
-          field.addEventListener('input', () => {
-            field.style.borderBottomColor = '';
-          }, { once: true });
-        }
-      });
-
-      if (!valid) { e.preventDefault(); return; }
-
-      // Bloquer si Formspree non encore configuré
-      if (rdvForm.action.includes('VOTRE_ID')) {
-        e.preventDefault();
-        alert('Formspree non configuré. Créez un compte sur formspree.io et remplacez VOTRE_ID dans rendez-vous.html.');
-        return;
-      }
-
-      // Soumettre vers Formspree (envoi réel)
-      if (btn) {
-        btn.textContent = 'Envoi en cours…';
-        btn.disabled = true;
-      }
-    });
-  }
+  /* ─── FORM RDV — géré par le script inline dans rendez-vous.html ─── */
 
   /* ─── PARALLAX HERO (désactivé — remplacé par CSS scale au scroll) ─── */
 
