@@ -15,11 +15,11 @@
   window._waitForAsync = true;
 
   const NAV_ORDER = [
-    'amelie', 'pronuptia', 'libelle', 'randy-fenoli',
+    'amelie', 'amelie-bella', 'pronuptia', 'libelle', 'randy-fenoli',
     'modeca-papillon', 'eddy-k', 'justin-alexander'
   ];
   const FOOTER_ORDER = [
-    'amelie', 'pronuptia', 'justin-alexander', 'randy-fenoli',
+    'amelie', 'amelie-bella', 'pronuptia', 'justin-alexander', 'randy-fenoli',
     'libelle', 'modeca-papillon', 'eddy-k'
   ];
 
