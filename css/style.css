@@ -1162,7 +1162,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .hours-mini { display: flex; flex-direction: column; gap: 5px; }
 .hours-mini-row { display: flex; justify-content: space-between; gap: 16px; font-size: 0.82rem; }
 .hours-mini-row .day { color: var(--c-warm-black); font-weight: 500; }
-.rdv-form { display: flex; flex-direction: column; gap: 18px; background: var(--c-parchment); padding: 50px 44px 0; overflow: hidden; }
+.rdv-form { display: flex; flex-direction: column; gap: 10px; background: var(--c-parchment); padding: 50px 44px 0; overflow: hidden; }
 .rdv-form h3 { font-family: var(--f-display); font-size: 1.8rem; margin-bottom: 8px; }
 .rdv-form .form-subtitle { font-size: 0.8rem; color: var(--c-taupe); margin-bottom: 4px; }
 .rdv-cta-btn { display: block; text-align: center; text-decoration: none; }
