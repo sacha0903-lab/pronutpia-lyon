@@ -7,7 +7,7 @@
   "description": "La ligne Amélie - Bella célèbre les silhouettes généreuses avec des robes pensées et conçues pour sublimer chaque courbe. Des créations romantiques, modernes et féminines, disponibles à partir de la taille 44.",
   "hero_image": "/assets/images/amelie/36002.jpg",
   "hero_gradient": "linear-gradient(145deg,#1a1010,#3d2020,#5c3030)",
-  "logo": "/assets/images/logos/amelie.svg",
+  "logo": "/assets/images/logos/amelie.webp",
   "dresses": [
     {
       "name": "26015U",
