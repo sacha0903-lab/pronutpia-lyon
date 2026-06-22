@@ -349,6 +349,20 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .is-scrolled .btn-rdv { background: var(--c-bordeaux); color: var(--c-ivory); }
 .is-scrolled .btn-rdv:hover { background: var(--c-warm-black); border-color: var(--c-warm-black); }
 
+/* Instagram header icon */
+.header-ig {
+  display: flex;
+  align-items: center;
+  color: var(--c-ivory);
+  opacity: 0.75;
+  transition: opacity var(--t-fast);
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+.header-ig:hover { opacity: 1; }
+.is-scrolled .header-ig { color: var(--c-warm-black); filter: none; opacity: 0.7; }
+.is-scrolled .header-ig:hover { opacity: 1; }
+
 /* Hamburger */
 .hamburger { display: none; flex-direction: column; gap: 5px; width: 26px; padding: 2px; }
 .hamburger span { display: block; height: 2px; background: var(--c-ivory); transition: all 0.35s ease; transform-origin: center; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7)); }
