@@ -1058,7 +1058,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   filter: brightness(0) invert(1);
   opacity: 0.95;
 }
-.page-hero__logo[data-slug="randy-fenoli"] { height: 110px; max-width: 420px; }
+.page-hero__logo[data-slug="randy-fenoli"] { height: 70px; max-width: 340px; }
 
 /* ─── BREADCRUMB ─── */
 .breadcrumb {
@@ -1450,7 +1450,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 /* Ajustements visuels par logo */
 .brand-logo-item[href*="amelie"]        img { height: 80px; }
 .brand-logo-item[href*="pronuptia"]     img { height: 64px; }
-.brand-logo-item--randy                 img { height: 132px; }
+.brand-logo-item--randy                 img { height: 38px; }
 .brand-logo-item[href*="libelle"]       img { height: 26px; }
 .brand-logo-item[href*="eddy-k"]        img { height: 30px; }
 .brand-logo-item--justin                img { height: 22px; }
@@ -1473,8 +1473,8 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   display: block;
 }
 .collection-intro__logo[data-slug="randy-fenoli"] {
-  max-height: 130px;
-  max-width: 360px;
+  max-height: 70px;
+  max-width: 340px;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
