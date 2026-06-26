@@ -28,6 +28,9 @@
   function toWebp(path) {
     return path ? path.replace(/\.jpg$/i, '.webp') : path;
   }
+  function isVideo(path) {
+    return /\.mp4$/i.test(path ?? '');
+  }
   const el = id => document.getElementById(id);
 
   // ── Lecture des paramètres URL ────────────────────────────────────────────
@@ -118,11 +121,18 @@
 
   // ── Miniatures ────────────────────────────────────────────────────────────
   const thumbsHtml = photos.length > 1
-    ? photos.map((src, i) =>
-        `<button class="pg-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}">
-           <img src="${escA(src)}" alt="${escA(dress.name)} — photo ${i + 1}" loading="lazy">
-         </button>`
-      ).join('')
+    ? photos.map((src, i) => {
+        if (isVideo(src)) {
+          return `<button class="pg-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Vidéo">
+            <div class="pg-thumb__video-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </button>`;
+        }
+        return `<button class="pg-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}">
+          <img src="${escA(src)}" alt="${escA(dress.name)} — photo ${i + 1}" loading="lazy">
+        </button>`;
+      }).join('')
     : '';
 
   // ── Rendu HTML du produit ─────────────────────────────────────────────────
@@ -151,8 +161,12 @@
 
             <div class="product-gallery__main" id="pg-main" title="Cliquer pour agrandir">
               <img id="pg-img"
-                   src="${escA(photos[0] ?? '')}"
-                   alt="${escA(dress.name)} — ${escA(col.title)}">
+                   src="${escA(isVideo(photos[0]) ? '' : (photos[0] ?? ''))}"
+                   alt="${escA(dress.name)} — ${escA(col.title)}"
+                   style="${isVideo(photos[0]) ? 'display:none;' : ''}">
+              <video id="pg-video" playsinline muted autoplay loop
+                     style="display:${isVideo(photos[0]) ? 'block' : 'none'};width:100%;height:100%;object-fit:contain;position:absolute;inset:0;background:#000;pointer-events:none;"
+                     ${isVideo(photos[0]) ? `src="${escA(photos[0])}"` : ''}></video>
 
               ${photos.length > 1 ? `
                 <button class="pg-nav-btn pg-nav-btn--prev" id="pg-prev" aria-label="Photo précédente">
@@ -213,14 +227,34 @@
 
   function showPhoto(idx) {
     currentPhoto = ((idx % photos.length) + photos.length) % photos.length;
-    if (pgImg) {
-      pgImg.style.opacity = '0';
-      setTimeout(() => {
-        pgImg.src = photos[currentPhoto];
-        pgImg.alt = `${dress.name} — photo ${currentPhoto + 1}`;
-        pgImg.style.opacity = '1';
-      }, 120);
+    const src      = photos[currentPhoto];
+    const pgVideo  = el('pg-video');
+    const zoomBtn  = el('pg-zoom-btn');
+
+    if (isVideo(src)) {
+      // Show video, hide image
+      if (pgImg) { pgImg.style.opacity = '0'; setTimeout(() => { pgImg.style.display = 'none'; }, 120); }
+      if (pgVideo) {
+        pgVideo.style.display = 'block';
+        pgVideo.src = src;
+        pgVideo.play().catch(() => {});
+      }
+      if (zoomBtn) zoomBtn.style.display = 'none';
+    } else {
+      // Show image, hide video
+      if (pgVideo) { pgVideo.pause(); pgVideo.style.display = 'none'; pgVideo.removeAttribute('src'); pgVideo.load(); }
+      if (zoomBtn) zoomBtn.style.display = '';
+      if (pgImg) {
+        pgImg.style.display = '';
+        pgImg.style.opacity = '0';
+        setTimeout(() => {
+          pgImg.src = src;
+          pgImg.alt = `${dress.name} — photo ${currentPhoto + 1}`;
+          pgImg.style.opacity = '1';
+        }, 120);
+      }
     }
+
     if (pgCount) pgCount.textContent = `${currentPhoto + 1} / ${photos.length}`;
     if (pgThumbs) {
       pgThumbs.querySelectorAll('.pg-thumb').forEach((t, i) => {
@@ -261,6 +295,7 @@
 
   function openZoom(idx) {
     zoomPhoto = ((idx % photos.length) + photos.length) % photos.length;
+    if (isVideo(photos[zoomPhoto])) return; // pas de zoom pour les vidéos
     if (zoomImgEl) { zoomImgEl.src = photos[zoomPhoto]; zoomImgEl.alt = dress.name; }
     if (zoomCounter && photos.length > 1) zoomCounter.textContent = `${zoomPhoto + 1} / ${photos.length}`;
     zoomModal?.classList.add('open');
@@ -274,6 +309,7 @@
 
   function showZoomPhoto(idx) {
     zoomPhoto = ((idx % photos.length) + photos.length) % photos.length;
+    if (isVideo(photos[zoomPhoto])) return;
     if (zoomImgEl) zoomImgEl.src = photos[zoomPhoto];
     if (zoomCounter && photos.length > 1) zoomCounter.textContent = `${zoomPhoto + 1} / ${photos.length}`;
   }
