@@ -190,6 +190,41 @@ function footerLinks() {
 // Tout le contenu (robes, horaires, intro…) est chargé depuis les JSON au runtime.
 
 function generatePage(c) {
+  const SITE = 'https://pronuptia-lyon.fr';
+  const breadcrumbSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Accueil',     'item': `${SITE}/` },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Collections', 'item': `${SITE}/galerie.html` },
+      { '@type': 'ListItem', 'position': 3, 'name': c.title,       'item': `${SITE}/collections/${c.slug}.html` }
+    ]
+  });
+  const collectionSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': `${c.title} — Pronuptia Lyon`,
+    'description': c.meta_description || c.description,
+    'url': `${SITE}/collections/${c.slug}.html`,
+    'isPartOf': { '@type': 'WebSite', 'name': 'Pronuptia Lyon', 'url': `${SITE}/` },
+    'mainEntity': {
+      '@type': 'ItemList',
+      'name': `Robes de mariée ${c.title}`,
+      'numberOfItems': (c.dresses || []).length,
+      'itemListElement': (c.dresses || []).map((d, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'item': {
+          '@type': 'Product',
+          'name': d.name,
+          'description': d.description || undefined,
+          'category': d.style ? `Robe de mariée ${d.style}` : 'Robe de mariée',
+          'brand': { '@type': 'Brand', 'name': c.title },
+          'image': d.main_photo ? `${SITE}${d.main_photo}` : undefined
+        }
+      }))
+    }
+  });
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -204,6 +239,8 @@ function generatePage(c) {
   <meta property="og:description" content="${escapeAttr(c.meta_description)}">
   <meta property="og:image"       content="https://pronuptia-lyon.fr/assets/images/og-cover.jpg">
   <meta property="og:locale"      content="fr_FR">
+  <script type="application/ld+json">${breadcrumbSchema}</script>
+  <script type="application/ld+json">${collectionSchema}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
