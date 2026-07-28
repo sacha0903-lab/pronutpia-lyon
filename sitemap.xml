@@ -26,6 +26,24 @@
   </url>
 
   <url>
+    <loc>https://pronuptia-lyon.fr/coups-de-coeur.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://pronuptia-lyon.fr/mentions-legales.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://pronuptia-lyon.fr/politique-confidentialite.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
     <loc>https://pronuptia-lyon.fr/collections/amelie.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

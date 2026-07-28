@@ -388,7 +388,7 @@ ${footerLinks()}
       <div class="container">
         <div class="footer-bottom-inner">
           <p class="footer-copy">© 2025 Pronuptia Lyon — Tous droits réservés</p>
-          <div class="footer-legal"><a href="#">Mentions légales</a><a href="#">Confidentialité</a></div>
+          <div class="footer-legal"><a href="/mentions-legales.html">Mentions légales</a><a href="/politique-confidentialite.html">Confidentialité</a></div>
         </div>
       </div>
     </div>
