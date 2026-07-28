@@ -237,8 +237,12 @@ function generatePage(c) {
   <meta property="og:url"         content="https://pronuptia-lyon.fr/collections/${c.slug}.html">
   <meta property="og:title"       content="${escapeAttr(c.title)} — Pronuptia Lyon">
   <meta property="og:description" content="${escapeAttr(c.meta_description)}">
-  <meta property="og:image"       content="https://pronuptia-lyon.fr/assets/images/og-cover.jpg">
+  <meta property="og:image"       content="https://pronuptia-lyon.fr${c.hero_image || '/assets/images/og-cover.jpg'}">
   <meta property="og:locale"      content="fr_FR">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="${escapeAttr(c.title)} — Pronuptia Lyon">
+  <meta name="twitter:description" content="${escapeAttr(c.meta_description)}">
+  <meta name="twitter:image"       content="https://pronuptia-lyon.fr${c.hero_image || '/assets/images/og-cover.jpg'}">
   <script type="application/ld+json">${breadcrumbSchema}</script>
   <script type="application/ld+json">${collectionSchema}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">

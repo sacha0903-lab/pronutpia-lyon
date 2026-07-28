@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# Robots IA explicitement autorisés (visibilité GEO — AI Overviews, ChatGPT, Perplexity, Claude)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://pronuptia-lyon.fr/sitemap.xml
