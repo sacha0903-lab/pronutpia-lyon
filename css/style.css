@@ -1165,7 +1165,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 
 /* ─── APPOINTMENT PAGE ─── */
 .rdv-section { padding: 90px 0 120px; }
-.rdv-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: start; }
+.rdv-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 100px; align-items: start; }
 .rdv-info h2 { margin-bottom: 22px; }
 .rdv-info p { font-size: 0.92rem; color: var(--c-taupe); line-height: 1.95; font-weight: 300; margin-bottom: 40px; }
 .contact-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; }
@@ -1216,6 +1216,9 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .rdv-types-header .eyebrow { color: var(--c-bordeaux); }
 .rdv-types-header h2 { color: var(--c-warm-black); margin-bottom: 0; font-size: clamp(1.6rem, 3vw, 2.2rem); }
 .rdv-types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--c-champagne-light); }
+.rdv-types-cta { margin-top: 40px; text-align: center; }
+.rdv-types-cta__btn { max-width: 380px; margin: 0 auto; }
+.rdv-types-cta__sub { font-size: 0.72rem; color: var(--c-taupe); letter-spacing: 0.04em; margin-top: 12px; opacity: 0.75; }
 .rdv-type-card { background: var(--c-ivory); padding: 36px 40px; display: flex; flex-direction: column; gap: 18px; border-top: 3px solid var(--c-bordeaux); }
 .rdv-type-card--privilege { background: var(--c-bordeaux); color: var(--c-ivory); border-top: 3px solid var(--c-champagne); }
 .rdv-type-card__meta-row { display: flex; align-items: center; gap: 14px; }
