@@ -1241,6 +1241,11 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .rdv-type-card--privilege .rdv-type-card__list li::before { background: var(--c-champagne); }
 .rdv-type-card__cta-note { font-size: 0.68rem; color: var(--c-taupe); text-transform: uppercase; letter-spacing: 0.1em; padding-top: 14px; border-top: 1px solid var(--c-champagne-light); margin: 0; }
 .rdv-type-card--privilege .rdv-type-card__cta-note { color: oklch(75% 0.02 20); border-top-color: oklch(38% 0.075 18); }
+.rdv-type-card__book-btn { display: inline-block; text-align: center; margin-top: 6px; padding: 13px 20px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; background: var(--c-bordeaux); color: var(--c-ivory); border: 1px solid var(--c-bordeaux); border-radius: 2px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.12); transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; }
+.rdv-type-card__book-btn:hover { background: var(--c-warm-black); border-color: var(--c-warm-black); box-shadow: 0 4px 10px rgba(0,0,0,0.18); transform: translateY(-2px); }
+.rdv-type-card__book-btn:active { transform: translateY(0); box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+.rdv-type-card--privilege .rdv-type-card__book-btn { background: var(--c-champagne); color: var(--c-bordeaux); border-color: var(--c-ivory); box-shadow: 0 1px 3px rgba(0,0,0,0.18); }
+.rdv-type-card--privilege .rdv-type-card__book-btn:hover { background: var(--c-champagne-light); border-color: var(--c-champagne-light); box-shadow: 0 4px 10px rgba(0,0,0,0.22); }
 /* RDV type radio buttons (formulaire) */
 .rdv-type-radios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .rdv-type-radio { display: block; cursor: pointer; }
