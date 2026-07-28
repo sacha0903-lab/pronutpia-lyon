@@ -84,7 +84,7 @@ module.exports = async function handler(req, res) {
         <!-- Pied -->
         <tr>
           <td style="background:#f0ebe3;padding:20px 32px;text-align:center;border-top:1px solid #ddd5c8">
-            <p style="margin:0;font-family:Arial,sans-serif;font-size:11px;color:#9a9088">Pronuptia Lyon · 9 rue des Remparts d'Ainay, 69002 Lyon · 04 78 37 12 58</p>
+            <p style="margin:0;font-family:Arial,sans-serif;font-size:11px;color:#9a9088">Pronuptia Lyon · 9 rue des Remparts d'Ainay, 69002 Lyon · 07 46 24 52 02</p>
           </td>
         </tr>
 
