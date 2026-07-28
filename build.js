@@ -272,6 +272,7 @@ ${navDropdown()}
         <a href="../galerie.html" class="nav-link">Galerie</a>
         <a href="../coups-de-coeur.html" class="nav-link">Coups de cœur</a>
         <a href="../a-propos.html" class="nav-link">À Propos</a>
+        <a href="../faq.html" class="nav-link">FAQ</a>
         <a href="../rendez-vous.html" class="nav-link">Contact</a>
       </nav>
       <button class="hamburger" aria-label="Menu">
@@ -285,6 +286,7 @@ ${navDropdown()}
         <a href="../galerie.html" class="mobile-nav-link">Galerie</a>
         <a href="../coups-de-coeur.html" class="mobile-nav-link">Coups de cœur</a>
         <a href="../a-propos.html" class="mobile-nav-link">À Propos</a>
+        <a href="../faq.html" class="mobile-nav-link">FAQ</a>
         <a href="../rendez-vous.html" class="mobile-nav-link">Contact</a>
       </nav>
     </div>
@@ -359,6 +361,7 @@ ${footerLinks()}
               <a href="../index.html">Accueil</a>
               <a href="../galerie.html">Galerie</a>
               <a href="../a-propos.html">À Propos</a>
+              <a href="../faq.html">Questions fréquentes</a>
               <a href="../rendez-vous.html">Prendre rendez-vous</a>
             </div>
           </div>
