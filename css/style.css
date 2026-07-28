@@ -1246,6 +1246,14 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .rdv-type-card__book-btn:active { transform: translateY(0); box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
 .rdv-type-card--privilege .rdv-type-card__book-btn { background: var(--c-champagne); color: var(--c-bordeaux); border-color: var(--c-ivory); box-shadow: 0 1px 3px rgba(0,0,0,0.18); }
 .rdv-type-card--privilege .rdv-type-card__book-btn:hover { background: var(--c-champagne-light); border-color: var(--c-champagne-light); box-shadow: 0 4px 10px rgba(0,0,0,0.22); }
+/* Note de paiement sous le bouton (carte Privilège) */
+.rdv-type-card__pay-note { font-size: 0.64rem; line-height: 1.5; color: var(--c-taupe); margin: 12px 0 0; }
+.rdv-type-card--privilege .rdv-type-card__pay-note { color: oklch(78% 0.02 20); }
+/* Desktop (2 colonnes) : aligner les boutons Réserver des deux cartes en sortant la note du flux */
+@media (min-width: 901px) {
+  .rdv-type-card { position: relative; padding-bottom: 78px; }
+  .rdv-type-card__pay-note { position: absolute; left: 40px; right: 40px; bottom: 26px; margin: 0; }
+}
 /* RDV type radio buttons (formulaire) */
 .rdv-type-radios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .rdv-type-radio { display: block; cursor: pointer; }
