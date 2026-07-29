@@ -230,6 +230,14 @@ function generatePage(c) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4HPJMH9B0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N4HPJMH9B0');
+  </script>
   <title>${escapeHtml(c.title)} — Pronuptia Lyon</title>
   <meta name="description" content="${escapeAttr(c.meta_description)}">
   <link rel="canonical" href="https://pronuptia-lyon.fr/collections/${c.slug}.html">
