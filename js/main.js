@@ -268,3 +268,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+
+/* =====================================================
+   SUIVI DE CONVERSION (GA4)
+   Envoie des événements Google Analytics sur les actions
+   clés : demande de rendez-vous (Bride-All), clic téléphone,
+   envoi du formulaire. À marquer comme "événements clés"
+   dans GA4, puis à importer comme conversions dans Google Ads.
+   ===================================================== */
+(function () {
+  function ga(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+
+  // Clic sur un bouton "Prendre RDV / Réserver" (vers l'agenda Bride-All)
+  // ou sur un numéro de téléphone — via délégation d'événement.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (a.href && a.href.indexOf('bride-all.com') !== -1) {
+      ga('prise_rdv', { method: 'bride_all', page: location.pathname });
+    } else if (href.indexOf('tel:') === 0) {
+      ga('clic_telephone', { page: location.pathname });
+    }
+  }, true);
+
+  // Envoi d'un formulaire de contact / rendez-vous (Formspree)
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f && f.tagName === 'FORM') {
+      var action = (f.getAttribute('action') || '') + '';
+      if (action.indexOf('formspree') !== -1 || f.classList.contains('rdv-form') || f.closest('.rdv-form')) {
+        ga('formulaire_rdv', { page: location.pathname });
+      }
+    }
+  }, true);
+})();
