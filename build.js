@@ -374,6 +374,7 @@ ${footerLinks()}
               <a href="../galerie.html">Galerie</a>
               <a href="../a-propos.html">À Propos</a>
               <a href="../faq.html">Questions fréquentes</a>
+              <a href="../blog.html">Conseils</a>
               <a href="../rendez-vous.html">Prendre rendez-vous</a>
             </div>
           </div>
