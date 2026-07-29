@@ -285,6 +285,7 @@ ${navDropdown()}
         <a href="../coups-de-coeur.html" class="nav-link">Coups de cœur</a>
         <a href="../a-propos.html" class="nav-link">À Propos</a>
         <a href="../faq.html" class="nav-link">FAQ</a>
+        <a href="../blog.html" class="nav-link">Conseils</a>
         <a href="../rendez-vous.html" class="nav-link">Contact</a>
       </nav>
       <button class="hamburger" aria-label="Menu">
@@ -299,6 +300,7 @@ ${navDropdown()}
         <a href="../coups-de-coeur.html" class="mobile-nav-link">Coups de cœur</a>
         <a href="../a-propos.html" class="mobile-nav-link">À Propos</a>
         <a href="../faq.html" class="mobile-nav-link">FAQ</a>
+        <a href="../blog.html" class="mobile-nav-link">Conseils</a>
         <a href="../rendez-vous.html" class="mobile-nav-link">Contact</a>
       </nav>
     </div>
