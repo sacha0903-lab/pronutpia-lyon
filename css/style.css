@@ -1790,3 +1790,84 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .zoom-next { right: 4px; }
   .pg-thumb { width: 56px; }
 }
+
+/* ===================================================
+   MODALE D'OUVERTURE — offre de lancement (élégante, animée)
+   =================================================== */
+.promo-overlay {
+  position: fixed; inset: 0; z-index: 3000;
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  background: rgba(18, 12, 12, 0.68);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .5s ease, visibility .5s ease;
+}
+.promo-overlay.is-open { opacity: 1; visibility: visible; }
+.promo-modal {
+  position: relative; width: min(540px, 100%);
+  max-height: calc(100dvh - 48px); overflow-y: auto;
+  background: linear-gradient(165deg, var(--c-bordeaux) 0%, var(--c-bordeaux-dark) 100%);
+  color: var(--c-ivory);
+  border: 1px solid color-mix(in oklab, var(--c-champagne) 55%, transparent);
+  box-shadow: 0 30px 80px rgba(0,0,0,.5);
+  padding: 46px 44px 34px; text-align: center;
+  transform: translateY(26px) scale(.985); opacity: 0;
+  transition: transform .6s cubic-bezier(.16,.84,.44,1), opacity .6s ease;
+}
+.promo-overlay.is-open .promo-modal { transform: none; opacity: 1; }
+.promo-modal::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--c-champagne) 20%, var(--c-champagne-light) 50%, var(--c-champagne) 80%, transparent);
+  background-size: 200% 100%; animation: promoShimmer 4.5s ease-in-out infinite;
+}
+@keyframes promoShimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.promo-close {
+  position: absolute; top: 12px; right: 15px; width: 36px; height: 36px;
+  border: 0; background: none; color: rgba(247,244,239,.65);
+  font-size: 1.6rem; line-height: 1; cursor: pointer; transition: color .2s;
+}
+.promo-close:hover { color: var(--c-champagne); }
+.promo-seal { color: var(--c-champagne); margin-bottom: 12px; display: inline-flex; }
+.promo-eyebrow {
+  font-family: 'Jost', sans-serif; font-size: .66rem; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--c-champagne); margin: 0 0 14px;
+}
+.promo-title {
+  font-family: 'Cormorant Garamond', serif; font-weight: 500;
+  font-size: clamp(1.65rem, 4.6vw, 2.25rem); line-height: 1.18; margin: 0 0 16px; color: var(--c-ivory);
+}
+.promo-title em { font-style: italic; color: var(--c-champagne-light); }
+.promo-lead {
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.28rem;
+  color: var(--c-champagne-light); margin: 0 0 12px;
+}
+.promo-desc {
+  font-family: 'Jost', sans-serif; font-weight: 300; font-size: .9rem; line-height: 1.75;
+  color: rgba(247,244,239,.85); max-width: 430px; margin: 0 auto 20px;
+}
+.promo-themes { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 22px; }
+.promo-chip {
+  font-family: 'Jost', sans-serif; font-size: .72rem; letter-spacing: .03em; color: var(--c-champagne-light);
+  border: 1px solid color-mix(in oklab, var(--c-champagne) 42%, transparent); border-radius: 100px; padding: 6px 14px;
+}
+.promo-tagline {
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.18rem; color: var(--c-ivory); margin: 0 0 24px;
+}
+.promo-cta {
+  display: inline-block; font-family: 'Jost', sans-serif; font-weight: 500; font-size: .8rem;
+  letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  background: var(--c-champagne); color: var(--c-bordeaux-dark);
+  padding: 15px 42px; border: 1px solid var(--c-champagne);
+  transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.promo-cta:hover { background: var(--c-champagne-light); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.28); }
+.promo-conditions {
+  font-family: 'Jost', sans-serif; font-weight: 300; font-size: .66rem; line-height: 1.55;
+  color: rgba(247,244,239,.55); margin: 20px auto 0; max-width: 370px;
+}
+@media (max-width: 520px) { .promo-modal { padding: 40px 24px 28px; } .promo-lead { font-size: 1.15rem; } }
+@media (prefers-reduced-motion: reduce) {
+  .promo-overlay, .promo-modal { transition: opacity .25s ease; }
+  .promo-modal { transform: none; }
+  .promo-modal::before { animation: none; }
+}

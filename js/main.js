@@ -306,3 +306,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, true);
 })();
+
+
+/* =====================================================
+   MODALE D'OUVERTURE — offre de lancement
+   Affichée une fois par session, après un court délai.
+   ===================================================== */
+(function () {
+  try { if (sessionStorage.getItem('promo_ouverture_v1')) return; } catch (e) {}
+
+  var markup =
+    '<div class="promo-overlay" role="presentation">' +
+      '<div class="promo-modal" role="dialog" aria-modal="true" aria-labelledby="promo-title">' +
+        '<button type="button" class="promo-close" aria-label="Fermer">&times;</button>' +
+        '<span class="promo-seal" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="12" rx="1"/><path d="M3.5 13h17"/><path d="M12 9v12"/><path d="M12 9C10.5 6 6.5 6 6.5 8.2 6.5 9 9 9 12 9z"/><path d="M12 9c1.5-3 5.5-3 5.5-.8C17.5 9 15 9 12 9z"/></svg></span>' +
+        '<p class="promo-eyebrow">Pour l’ouverture</p>' +
+        '<h2 class="promo-title" id="promo-title">Pronuptia Lyon ouvre ses portes<br>et <em>gâte ses premières clientes</em></h2>' +
+        '<p class="promo-lead">Un week-end d’évasion à deux vous attend…</p>' +
+        '<p class="promo-desc">Une parenthèse privilégiée à partager en amoureux : séjour romantique, escapade nature, bien-être ou aventure à deux.</p>' +
+        '<div class="promo-themes">' +
+          '<span class="promo-chip">Séjour romantique</span>' +
+          '<span class="promo-chip">Escapade nature</span>' +
+          '<span class="promo-chip">Bien-être</span>' +
+          '<span class="promo-chip">Aventure à deux</span>' +
+        '</div>' +
+        '<p class="promo-tagline">Votre robe vous attend… votre week-end aussi. 🤍</p>' +
+        '<a class="promo-cta" href="/rendez-vous.html">Prendre rendez-vous</a>' +
+        '<p class="promo-conditions">Offre réservée aux 10 premières clientes éligibles. Voir conditions en boutique avec Isabelle.</p>' +
+      '</div>' +
+    '</div>';
+
+  function show() {
+    if (!document.body) return;
+    var wrap = document.createElement('div');
+    wrap.innerHTML = markup;
+    var overlay = wrap.firstChild;
+    document.body.appendChild(overlay);
+    try { sessionStorage.setItem('promo_ouverture_v1', '1'); } catch (e) {}
+
+    // Révélation animée
+    requestAnimationFrame(function () { requestAnimationFrame(function () { overlay.classList.add('is-open'); }); });
+
+    function close() {
+      overlay.classList.remove('is-open');
+      document.removeEventListener('keydown', onKey);
+      setTimeout(function () { if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 600);
+    }
+    function onKey(e) { if (e.key === 'Escape' || e.keyCode === 27) close(); }
+
+    overlay.querySelector('.promo-close').addEventListener('click', close);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', onKey);
+
+    var cta = overlay.querySelector('.promo-cta');
+    if (cta) cta.addEventListener('click', function () {
+      if (typeof gtag === 'function') gtag('event', 'clic_offre_ouverture', { page: location.pathname });
+    });
+
+    setTimeout(function () { try { overlay.querySelector('.promo-close').focus(); } catch (e) {} }, 700);
+  }
+
+  window.setTimeout(show, 1200);
+})();
