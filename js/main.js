@@ -332,6 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =====================================================
    MODALE D'OUVERTURE — offre de lancement
    Affichée une fois par session, après un court délai.
+   Attend que le choix cookies soit fait, pour ne jamais
+   se superposer au bandeau de consentement.
    ===================================================== */
 (function () {
   try { if (sessionStorage.getItem('promo_ouverture_v1')) return; } catch (e) {}
@@ -365,8 +367,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(overlay);
     try { sessionStorage.setItem('promo_ouverture_v1', '1'); } catch (e) {}
 
-    // Révélation animée
-    requestAnimationFrame(function () { requestAnimationFrame(function () { overlay.classList.add('is-open'); }); });
+    // Révélation animée — reflow forcé plutôt que requestAnimationFrame,
+    // qui ne s'exécute pas si l'onglet est ouvert en arrière-plan.
+    void overlay.offsetHeight;
+    overlay.classList.add('is-open');
 
     function close() {
       overlay.classList.remove('is-open');
@@ -387,5 +391,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(function () { try { overlay.querySelector('.promo-close').focus(); } catch (e) {} }, 700);
   }
 
-  window.setTimeout(show, 1200);
+  // Le bandeau cookies est prioritaire : la modale ne s'affiche
+  // qu'une fois la visiteuse ayant fait son choix.
+  var consent = window.PronuptiaConsent;
+  if (consent && !consent.isResolved()) {
+    document.addEventListener('consent:resolved', function () {
+      window.setTimeout(show, 900);
+    }, { once: true });
+  } else {
+    window.setTimeout(show, 1200);
+  }
 })();
