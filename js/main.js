@@ -271,15 +271,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* =====================================================
-   SUIVI DE CONVERSION (GA4)
-   Envoie des événements Google Analytics sur les actions
-   clés : demande de rendez-vous (Bride-All), clic téléphone,
-   envoi du formulaire. À marquer comme "événements clés"
-   dans GA4, puis à importer comme conversions dans Google Ads.
+   SUIVI DE CONVERSION (GA4 + GOOGLE ADS)
+   Envoie des événements sur les actions clés : demande de
+   rendez-vous (Bride-All), clic téléphone, envoi du formulaire.
+   - GA4  : à marquer comme "événements clés" dans GA4.
+   - Ads  : renseigner les libellés de conversion ci-dessous
+            (fournis par le compte Google Ads AW-18327486832),
+            au format 'AW-18327486832/xxxxxxxxxxxxxxxxx'.
+            Tant qu'un libellé est vide, rien n'est envoyé à Ads
+            (le suivi GA4 continue de fonctionner normalement).
    ===================================================== */
 (function () {
+  var ADS_ID = 'AW-18327486832';
+
+  // Libellés de conversion Google Ads — à compléter (voir en-tête).
+  var ADS_LABELS = {
+    prise_rdv:      '',   // clic vers l'agenda Bride-All
+    formulaire_rdv: '',   // envoi du formulaire de contact
+    clic_telephone: ''    // clic sur le numéro de téléphone
+  };
+
   function ga(name, params) {
-    if (typeof gtag === 'function') gtag('event', name, params || {});
+    if (typeof gtag !== 'function') return;
+    gtag('event', name, params || {});
+
+    var label = ADS_LABELS[name];
+    if (label) {
+      gtag('event', 'conversion', {
+        send_to: label.indexOf('/') !== -1 ? label : ADS_ID + '/' + label
+      });
+    }
   }
 
   // Clic sur un bouton "Prendre RDV / Réserver" (vers l'agenda Bride-All)

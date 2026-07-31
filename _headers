@@ -18,7 +18,7 @@
   X-Frame-Options: SAMEORIGIN
 
   # Content Security Policy — autorise uniquement les ressources légitimes
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://formspree.io https://identity.netlify.com https://api.netlify.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://formspree.io https://identity.netlify.com https://api.netlify.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://www.google.com https://www.google.fr https://www.googleadservices.com https://googleads.g.doubleclick.net https://*.g.doubleclick.net https://pagead2.googlesyndication.com; frame-src 'self' https://td.doubleclick.net https://www.googletagmanager.com https://bid.g.doubleclick.net; frame-ancestors 'none';
 
 # Admin Decap CMS — règle plus spécifique, appliquée après /* pour l'écraser
 /admin/*
