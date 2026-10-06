@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── ACTIVE NAV LINK ─── */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
+    const href = link.getAttribute('href') === '/' ? 'index.html' : link.getAttribute('href');
     if (href && href.includes(currentPage)) link.classList.add('active');
   });
 
