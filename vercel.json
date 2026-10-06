@@ -29,6 +29,101 @@
       "statusCode": 301
     },
     {
+      "source": "/galerie",
+      "destination": "/galerie.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/rendez-vous",
+      "destination": "/rendez-vous.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/coups-de-coeur",
+      "destination": "/coups-de-coeur.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/a-propos",
+      "destination": "/a-propos.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/guide-robe-de-mariee-lyon",
+      "destination": "/guide-robe-de-mariee-lyon.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/mentions-legales",
+      "destination": "/mentions-legales.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/politique-confidentialite",
+      "destination": "/politique-confidentialite.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/amelie",
+      "destination": "/collections/amelie.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/amelie-bella",
+      "destination": "/collections/amelie-bella.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/pronuptia",
+      "destination": "/collections/pronuptia.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/libelle",
+      "destination": "/collections/libelle.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/randy-fenoli",
+      "destination": "/collections/randy-fenoli.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/modeca-papillon",
+      "destination": "/collections/modeca-papillon.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/modeca-courtes",
+      "destination": "/collections/modeca-courtes.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/eddy-k",
+      "destination": "/collections/eddy-k.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/justin-alexander",
+      "destination": "/collections/justin-alexander.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/collections/product",
+      "destination": "/collections/product.html",
+      "statusCode": 301
+    },
+    {
       "source": "/callback",
       "destination": "/api/callback"
     },
