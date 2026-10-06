@@ -61,20 +61,17 @@
   // Mise à jour du titre de la page
   document.title = `${dress.name} — ${col.title} — Pronuptia Lyon`;
 
-  // ── Canonical + Open Graph dynamiques ────────────────────────────────────
-  const canonicalUrl = `https://pronuptia-lyon.fr/collections/product.html?col=${encodeURIComponent(colSlug)}&i=${dIdx}`;
+  // ── Open Graph dynamique (pas de canonical : la page est en noindex) ─────
+  const pageUrl = `https://pronuptia-lyon.fr/collections/product.html?col=${encodeURIComponent(colSlug)}&i=${dIdx}`;
   const ogTitle = `${dress.name} — ${col.title} — Pronuptia Lyon`;
   const rawDesc = dress.description
     ? String(dress.description).replace(/\s+/g, ' ').trim().slice(0, 155)
     : `Découvrez ${dress.name}, robe de la collection ${col.title} disponible chez Pronuptia Lyon.`;
 
-  const canonEl = document.querySelector('link[rel="canonical"]');
-  if (canonEl) canonEl.setAttribute('href', canonicalUrl);
-
   ['og:url', 'og:title', 'og:description'].forEach(prop => {
     const m = document.querySelector(`meta[property="${prop}"]`);
     if (!m) return;
-    if (prop === 'og:url')         m.setAttribute('content', canonicalUrl);
+    if (prop === 'og:url')         m.setAttribute('content', pageUrl);
     else if (prop === 'og:title')  m.setAttribute('content', ogTitle);
     else                           m.setAttribute('content', rawDesc);
   });
