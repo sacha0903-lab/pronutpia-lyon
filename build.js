@@ -240,14 +240,14 @@ function generatePage(c) {
     gtag('js', new Date());
     gtag('config', 'G-N4HPJMH9B0');
     gtag('config', 'AW-18327486832');
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W3TM36X6');</script>
-<!-- End Google Tag Manager -->
   </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W3TM36X6');</script>
+  <!-- End Google Tag Manager -->
   <title>${escapeHtml(c.title)} — Pronuptia Lyon</title>
   <meta name="description" content="${escapeAttr(c.meta_description)}">
   <link rel="canonical" href="https://pronuptia-lyon.fr/collections/${c.slug}.html">
