@@ -142,7 +142,7 @@
 
         <!-- Fil d'Ariane -->
         <nav class="breadcrumb">
-          <a href="../index.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span class="breadcrumb-sep">›</span>
           <a href="../galerie.html">Collections</a>
           <span class="breadcrumb-sep">›</span>

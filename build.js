@@ -282,12 +282,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- HEADER -->
   <header id="site-header" class="site-header is-transparent">
     <div class="header-inner container">
-      <a href="../index.html" class="site-logo">
+      <a href="/" class="site-logo">
         <img src="../assets/images/logos/pronuptia.webp?v=3" alt="Pronuptia" class="site-logo__img">
         <span class="logo-sub">Lyon</span>
       </a>
       <nav class="main-nav">
-        <a href="../index.html" class="nav-link">Accueil</a>
+        <a href="/" class="nav-link">Accueil</a>
         <div class="nav-item--dropdown">
           <a href="../galerie.html" class="nav-link active">Collections</a>
           <div class="nav-dropdown" id="nav-dropdown">
@@ -307,7 +307,7 @@ ${navDropdown()}
     </div>
     <div class="mobile-menu">
       <nav class="mobile-nav">
-        <a href="../index.html" class="mobile-nav-link">Accueil</a>
+        <a href="/" class="mobile-nav-link">Accueil</a>
         <a href="../galerie.html" class="mobile-nav-link active">Collections</a>
         <a href="../galerie.html" class="mobile-nav-link">Galerie</a>
         <a href="../coups-de-coeur.html" class="mobile-nav-link">Coups de cœur</a>
@@ -325,7 +325,7 @@ ${navDropdown()}
   <!-- BREADCRUMB -->
   <div class="container">
     <nav class="breadcrumb">
-      <a href="../index.html">Accueil</a>
+      <a href="/">Accueil</a>
       <span class="breadcrumb-sep">›</span>
       <a href="../galerie.html">Collections</a>
       <span class="breadcrumb-sep">›</span>
@@ -385,7 +385,7 @@ ${footerLinks()}
           <div>
             <div class="footer-col-title">La boutique</div>
             <div class="footer-col-links">
-              <a href="../index.html">Accueil</a>
+              <a href="/">Accueil</a>
               <a href="../galerie.html">Galerie</a>
               <a href="../a-propos.html">À Propos</a>
               <a href="../faq.html">Questions fréquentes</a>
