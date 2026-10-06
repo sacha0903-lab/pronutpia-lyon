@@ -355,6 +355,7 @@ ${navDropdown()}
       <h2>Essayez cette collection<br><em>en boutique</em></h2>
       <p id="cta-text"></p>
       <a href="../rendez-vous.html" class="btn btn--outline"><span>Prendre rendez-vous</span></a>
+      <p style="margin:36px auto 0;">Besoin d'aide pour choisir ? Lisez notre guide <a href="../guide-robe-de-mariee-lyon.html" style="text-decoration:underline;">comment choisir sa robe de mariée</a>.</p>
     </div>
   </section>
 
