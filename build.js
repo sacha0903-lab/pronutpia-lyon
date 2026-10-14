@@ -466,4 +466,74 @@ for (const slug of NAV_ORDER) {
   console.log(`✓ collections/${c.slug}.html  (${c.dresses.length} robes)`);
 }
 
+// ── Pages « style » (bohème, princesse…) ───────────────────────────────────────
+// Page HTML rédigée à la main ; build.js remplit les blocs <!-- AUTO:... --> avec
+// toutes les robes dont le champ « style » (admin) correspond.
+const STYLE_PAGES = [
+  { file: 'robe-de-mariee-boheme.html', style: 'Bohème', label: 'robes de mariée bohème', url: 'https://pronuptia-lyon.fr/robe-de-mariee-boheme.html' },
+];
+
+function fillAuto(html, key, content) {
+  const re = new RegExp(`(<!-- AUTO:${key} -->)[\\s\\S]*?(<!-- /AUTO:${key} -->)`);
+  if (!re.test(html)) throw new Error(`Bloc AUTO:${key} introuvable`);
+  return html.replace(re, `$1${content}$2`);
+}
+
+function frList(items) {
+  return items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} et ${items[items.length - 1]}`;
+}
+
+function buildStylePage(sp) {
+  // Toutes les collections de _data (y compris celles hors NAV_ORDER, ex. amelie-bella)
+  const all = fs.readdirSync(path.join(__dirname, '_data', 'collections'))
+    .filter(f => f.endsWith('.json'))
+    .map(f => JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'collections', f), 'utf-8')))
+    .sort((a, b) => (NAV_ORDER.indexOf(a.slug) + 1 || 99) - (NAV_ORDER.indexOf(b.slug) + 1 || 99));
+  const items = [];
+  for (const c of all) {
+    c.dresses.forEach((d, i) => { if (d.style === sp.style) items.push({ c, d, i }); });
+  }
+  const n = items.length;
+  // Amélie Bella est une ligne d'Amélie : même créateur
+  const brands = [...new Set(items.map(x => x.c.title.replace(/ - Bella$/, '')))];
+  const webp = p => p.replace(/^\//, '').replace(/\.jpg$/i, '.webp');
+
+  const grid = items.map(({ c, d, i }) => {
+    const photos = (d.additional_photos || []).map(webp).join(',');
+    const img = d.main_photo ? webp(d.main_photo) : '';
+    return `          <div class="gallery-item" data-lightbox data-collection="${escapeAttr(c.slug)}" data-brand="${escapeAttr(c.title)}" data-name="${escapeAttr(d.name)}" data-i="${i}"${photos ? ` data-photos="${escapeAttr(photos)}"` : ''} data-full="${escapeAttr(img)}">
+            <img src="${escapeAttr(img)}" alt="Robe de mariée ${escapeAttr(sp.style.toLowerCase())} ${escapeAttr(d.name)} — ${escapeAttr(c.title)}" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">${escapeHtml(c.title)}</span><span class="name">${escapeHtml(d.name)}</span></div></div>
+          </div>`;
+  }).join('\n');
+
+  const schema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': `Robes de mariée ${sp.style.toLowerCase()} — Pronuptia Lyon`,
+    'url': sp.url,
+    'isPartOf': { '@type': 'WebSite', 'name': 'Pronuptia Lyon', 'url': 'https://pronuptia-lyon.fr/' },
+    'mainEntity': {
+      '@type': 'ItemList',
+      'numberOfItems': n,
+      'itemListElement': items.map(({ c, d }, k) => ({
+        '@type': 'ListItem', 'position': k + 1, 'name': `${d.name} — ${c.title}`,
+        'image': d.main_photo ? `https://pronuptia-lyon.fr/${webp(d.main_photo)}` : undefined,
+      })),
+    },
+  });
+
+  const file = path.join(__dirname, sp.file);
+  let html = fs.readFileSync(file, 'utf-8');
+  html = fillAuto(html, 'STYLE-GRID', `\n${grid}\n`);
+  html = fillAuto(html, 'STYLE-COUNT', `${n} robe${n > 1 ? 's' : ''}`);
+  html = fillAuto(html, 'STYLE-SUMMARY', `${n} ${sp.label} signées ${frList(brands)}`);
+  html = fillAuto(html, 'STYLE-BRANDS', `Nos ${sp.label} viennent de ${brands.length} créateur${brands.length > 1 ? 's' : ''} : ${frList(brands)}.`);
+  html = fillAuto(html, 'STYLE-SCHEMA', `<script type="application/ld+json">${schema}</script>`);
+  fs.writeFileSync(file, html, 'utf-8');
+  console.log(`✓ ${sp.file}  (${n} robes ${sp.style})`);
+}
+
+for (const sp of STYLE_PAGES) buildStylePage(sp);
+
 console.log(`\n✓ Build terminé — ${NAV_ORDER.length} shells générés`);
