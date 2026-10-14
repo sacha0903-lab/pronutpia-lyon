@@ -27,6 +27,17 @@ function rel(p) {
   return p ? p.replace(/^\//, '../') : '';
 }
 
+// Nom SEO d'une collection : sert au <title> et au H1.
+// Par défaut « Robes de mariée <marque> », sauf cas particuliers.
+const SEO_NAMES = {
+  'modeca-courtes': 'Robes de mariée courtes Modeca',
+  'amelie-bella':   'Robes de mariée grande taille Amélie Bella',
+};
+
+function seoName(c) {
+  return SEO_NAMES[c.slug] || `Robes de mariée ${c.title}`;
+}
+
 // ── Collection order ──────────────────────────────────────────────────────────
 
 // Order used in the navigation dropdown
@@ -73,26 +84,26 @@ function heroSection(c) {
   const count = `${n} robe${n > 1 ? 's' : ''}`;
   if (c.hero_image) {
     return `  <!-- PAGE HERO -->
-  <section class="page-hero">
+  <section class="page-hero" id="page-hero">
     <div class="page-hero__bg">
-      <img src="${escapeAttr(rel(c.hero_image))}" alt="${escapeAttr(c.title)}" style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;">
+      <picture><source srcset="${escapeAttr(rel(c.hero_image).replace(/\.jpg$/i, '.webp'))}" type="image/webp"><img src="${escapeAttr(rel(c.hero_image))}" alt="${escapeAttr(c.title)}" style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;"></picture>
     </div>
     <div class="page-hero__overlay"></div>
     <div class="page-hero__content">
       <span class="eyebrow">${count}</span>
-      <h1><em>${escapeHtml(c.title)}</em></h1>
+      <h1><em>${escapeHtml(seoName(c))}</em></h1>
     </div>
   </section>`;
   }
   return `  <!-- PAGE HERO -->
-  <section class="page-hero">
+  <section class="page-hero" id="page-hero">
     <div class="page-hero__bg">
       <div style="width:100%;height:100%;background:${escapeAttr(c.hero_gradient)};position:absolute;inset:0;"></div>
     </div>
     <div class="page-hero__overlay"></div>
     <div class="page-hero__content">
       <span class="eyebrow">${count}</span>
-      <h1><em>${escapeHtml(c.title)}</em></h1>
+      <h1><em>${escapeHtml(seoName(c))}</em></h1>
     </div>
   </section>`;
 }
@@ -248,17 +259,17 @@ function generatePage(c) {
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-W3TM36X6');</script>
   <!-- End Google Tag Manager -->
-  <title>${escapeHtml(c.title)} — Pronuptia Lyon</title>
+  <title>${escapeHtml(seoName(c))} | Pronuptia Lyon</title>
   <meta name="description" content="${escapeAttr(c.meta_description)}">
   <link rel="canonical" href="https://pronuptia-lyon.fr/collections/${c.slug}.html">
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://pronuptia-lyon.fr/collections/${c.slug}.html">
-  <meta property="og:title"       content="${escapeAttr(c.title)} — Pronuptia Lyon">
+  <meta property="og:title"       content="${escapeAttr(seoName(c))} | Pronuptia Lyon">
   <meta property="og:description" content="${escapeAttr(c.meta_description)}">
   <meta property="og:image"       content="https://pronuptia-lyon.fr${c.hero_image || '/assets/images/og-cover.jpg'}">
   <meta property="og:locale"      content="fr_FR">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="${escapeAttr(c.title)} — Pronuptia Lyon">
+  <meta name="twitter:title"       content="${escapeAttr(seoName(c))} | Pronuptia Lyon">
   <meta name="twitter:description" content="${escapeAttr(c.meta_description)}">
   <meta name="twitter:image"       content="https://pronuptia-lyon.fr${c.hero_image || '/assets/images/og-cover.jpg'}">
   <script type="application/ld+json">${breadcrumbSchema}</script>
@@ -319,8 +330,7 @@ ${navDropdown()}
     </div>
   </header>
 
-  <!-- PAGE HERO — rendu par collection-page.js -->
-  <section class="page-hero" id="page-hero"></section>
+${heroSection(c)}
 
   <!-- BREADCRUMB -->
   <div class="container">
@@ -440,7 +450,7 @@ ${footerLinks()}
   </div>
 
   <script src="../js/main.js?v=6"></script>
-  <script src="../js/collection-page.js?v=1"></script>
+  <script src="../js/collection-page.js?v=2"></script>
 </body>
 </html>`;
 }
