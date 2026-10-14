@@ -1396,6 +1396,23 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .home-faq__a a { color: var(--c-rosewood); text-decoration: underline; }
 @media (max-width: 680px) { .section-home-faq { padding: 72px 0; } .home-faq__q { font-size: 1.25rem; } }
 
+/* ─── PAGES STYLE (bohème, princesse…) ─── */
+.style-intro { padding: 56px 0 8px; }
+.style-intro p { font-family: var(--f-body); font-size: 1rem; line-height: 1.85; color: var(--c-taupe); }
+.style-breadcrumb { font-family: var(--f-body); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--c-taupe); margin-bottom: 20px; }
+.style-breadcrumb a { color: var(--c-rosewood); }
+.style-grid-section { padding-top: 32px; }
+.style-grid-cta { text-align: center; margin-top: 48px; }
+.style-grid-cta p { font-family: var(--f-display); font-size: 1.4rem; font-style: italic; margin-bottom: 20px; }
+.style-content { padding: 40px 0 100px; }
+.style-content h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); margin: 56px 0 18px; }
+.style-content p, .style-content li { font-family: var(--f-body); font-size: 0.95rem; line-height: 1.85; color: var(--c-taupe); }
+.style-content p { margin-bottom: 14px; }
+.style-content ul { list-style: disc; padding-left: 22px; margin-bottom: 14px; }
+.style-content a:not(.btn) { color: var(--c-rosewood); text-decoration: underline; }
+.style-content strong { color: var(--c-warm-black); font-weight: 500; }
+.style-content .btn { margin-top: 12px; }
+
 /* ─── REDUCED MOTION ─── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
