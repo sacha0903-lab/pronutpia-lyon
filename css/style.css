@@ -1443,6 +1443,15 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .style-practical__card { padding: 32px 24px; }
 }
 
+/* Variante : texte à gauche (sujet de la photo à droite) */
+.page-hero.page-hero--photo.page-hero--text-left .page-hero__photo img { object-position: 75% 0%; }
+.page-hero.page-hero--photo.page-hero--text-left .page-hero__shade { background: linear-gradient(270deg, transparent 30%, oklch(15% 0.02 40 / 0.5) 62%, oklch(15% 0.02 40 / 0.7) 100%); }
+.page-hero.page-hero--photo.page-hero--text-left .page-hero__text { margin-left: 0; }
+@media (max-width: 700px) {
+  .page-hero.page-hero--photo.page-hero--text-left .page-hero__photo img { object-position: 72% 0%; }
+  .page-hero.page-hero--photo.page-hero--text-left .page-hero__shade { background: linear-gradient(180deg, transparent 35%, oklch(15% 0.02 40 / 0.75) 100%); }
+}
+
 /* ─── REDUCED MOTION ─── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,

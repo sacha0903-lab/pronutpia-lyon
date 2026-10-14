@@ -471,6 +471,7 @@ for (const slug of NAV_ORDER) {
 // toutes les robes dont le champ « style » (admin) correspond.
 const STYLE_PAGES = [
   { file: 'robe-de-mariee-boheme.html', style: 'Bohème', label: 'robes de mariée bohème', url: 'https://pronuptia-lyon.fr/robe-de-mariee-boheme.html' },
+  { file: 'robe-de-mariee-princesse.html', style: 'Princesse', label: 'robes de mariée princesse', url: 'https://pronuptia-lyon.fr/robe-de-mariee-princesse.html' },
 ];
 
 function fillAuto(html, key, content) {
