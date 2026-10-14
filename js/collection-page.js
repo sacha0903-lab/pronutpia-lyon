@@ -68,7 +68,8 @@
 
   // ── Hero ─────────────────────────────────────────────────────────────────
   const hero = el('page-hero');
-  if (hero) {
+  // Le hero (et son H1 SEO) est pré-rendu par build.js : on ne le réécrit que s'il est vide.
+  if (hero && !hero.querySelector('h1')) {
     const bg = col.hero_image
       ? picture(col.hero_image, col.title, 'style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;"')
       : `<div style="width:100%;height:100%;background:${escA(col.hero_gradient)};position:absolute;inset:0;"></div>`;
