@@ -1452,6 +1452,16 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .page-hero.page-hero--photo.page-hero--text-left .page-hero__shade { background: linear-gradient(180deg, transparent 35%, oklch(15% 0.02 40 / 0.75) 100%); }
 }
 
+/* Variante : texte centré (photo en triptyque) */
+.page-hero.page-hero--photo.page-hero--centered .page-hero__photo img { object-position: center 20%; }
+.page-hero.page-hero--photo.page-hero--centered .page-hero__shade { background: radial-gradient(ellipse at center, oklch(15% 0.02 40 / 0.62) 0%, oklch(15% 0.02 40 / 0.35) 70%); }
+.page-hero.page-hero--photo.page-hero--centered .page-hero__text { margin: 0 auto; text-align: center; max-width: 640px; }
+.gallery-grid.gallery-grid--few { grid-template-columns: repeat(3, minmax(0, 320px)); justify-content: center; }
+@media (max-width: 700px) {
+  .page-hero.page-hero--photo.page-hero--centered .page-hero__shade { background: linear-gradient(180deg, transparent 35%, oklch(15% 0.02 40 / 0.75) 100%); }
+  .gallery-grid.gallery-grid--few { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ─── REDUCED MOTION ─── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,

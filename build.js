@@ -72,10 +72,14 @@ const footerCollections = FOOTER_ORDER.map(s => bySlug[s]);
 
 // ── Partials ──────────────────────────────────────────────────────────────────
 
+// Collections dont la page est remplacée par une page « style » (redirection 301 dans vercel.json)
+const COLLECTION_HREF = { 'modeca-courtes': '../robe-de-mariee-courte.html' };
+const colHref = c => COLLECTION_HREF[c.slug] || `${c.slug}.html`;
+
 function navDropdown() {
   return navCollections.map(c => {
     const n = c.dresses.length;
-    return `            <a href="${c.slug}.html">${escapeHtml(c.nav_label)} <span class="dd-count">${n} robe${n > 1 ? 's' : ''}</span></a>`;
+    return `            <a href="${colHref(c)}">${escapeHtml(c.nav_label)} <span class="dd-count">${n} robe${n > 1 ? 's' : ''}</span></a>`;
   }).join('\n');
 }
 
@@ -192,7 +196,7 @@ function footerHours() {
 
 function footerLinks() {
   return footerCollections.map(c =>
-    `              <a href="${c.slug}.html">${escapeHtml(c.nav_label)}</a>`
+    `              <a href="${colHref(c)}">${escapeHtml(c.nav_label)}</a>`
   ).join('\n');
 }
 
@@ -472,16 +476,46 @@ for (const slug of NAV_ORDER) {
 const STYLE_PAGES = [
   { file: 'robe-de-mariee-boheme.html', style: 'Bohème', label: 'robes de mariée bohème', url: 'https://pronuptia-lyon.fr/robe-de-mariee-boheme.html' },
   { file: 'robe-de-mariee-princesse.html', style: 'Princesse', label: 'robes de mariée princesse', url: 'https://pronuptia-lyon.fr/robe-de-mariee-princesse.html' },
+  { file: 'robe-de-mariee-courte.html', style: 'Courte', label: 'robes de mariée courtes', url: 'https://pronuptia-lyon.fr/robe-de-mariee-courte.html' },
 ];
 
 function fillAuto(html, key, content) {
   const re = new RegExp(`(<!-- AUTO:${key} -->)[\\s\\S]*?(<!-- /AUTO:${key} -->)`);
-  if (!re.test(html)) throw new Error(`Bloc AUTO:${key} introuvable`);
+  if (!re.test(html)) {
+    if (key === 'STYLE-GRID') throw new Error(`Bloc AUTO:${key} introuvable`);
+    return html; // bloc facultatif absent de cette page
+  }
   return html.replace(re, `$1${content}$2`);
 }
 
 function frList(items) {
   return items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} et ${items[items.length - 1]}`;
+}
+
+// Avis Google (même contenu que l'accueil), depuis _data/reviews.json
+function reviewsHtml() {
+  const r = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'reviews.json'), 'utf-8'));
+  const cards = r.avis.map((a, k) => `          <figure class="review-card reveal${k ? ` reveal-d${k}` : ''}">
+            <div class="review-card__stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <blockquote class="review-card__text">« ${escapeHtml(a.texte)} »</blockquote>
+            <figcaption class="review-card__author">${escapeHtml(a.auteur)} <span>· avis Google</span></figcaption>
+          </figure>`).join('\n');
+  return `        <div class="text-center reveal">
+          <span class="eyebrow">Elles nous ont fait confiance</span>
+          <h2>Avis de nos mariées</h2>
+          <p class="section-reviews__score"><span class="section-reviews__stars" aria-hidden="true">★★★★★</span> ${escapeHtml(r.note)} / 5 sur Google</p>
+        </div>
+        <div class="reviews-grid">
+${cards}
+        </div>
+        <div class="text-center">
+          <a href="${escapeAttr(r.source_url)}" class="section-reviews__link" target="_blank" rel="noopener">Voir tous les avis sur Google</a>
+        </div>`;
+}
+
+// Nom du créateur à partir du titre de collection (« Amélie - Bella » → Amélie, « Robes Courtes Modeca » → Modeca)
+function brandOf(c) {
+  return c.title.replace(/ - Bella$/, '').replace(/^Robes Courtes /, '');
 }
 
 function buildStylePage(sp) {
@@ -491,20 +525,23 @@ function buildStylePage(sp) {
     .map(f => JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'collections', f), 'utf-8')))
     .sort((a, b) => (NAV_ORDER.indexOf(a.slug) + 1 || 99) - (NAV_ORDER.indexOf(b.slug) + 1 || 99));
   const items = [];
+  const seen = new Set(); // une même robe peut figurer dans 2 collections (ex. Modeca courtes / Modeca + Le Papillon)
   for (const c of all) {
-    c.dresses.forEach((d, i) => { if (d.style === sp.style) items.push({ c, d, i }); });
+    c.dresses.forEach((d, i) => {
+      const key = d.main_photo || `${c.slug}/${d.name}`;
+      if (d.style === sp.style && !seen.has(key)) { seen.add(key); items.push({ c, d, i }); }
+    });
   }
   const n = items.length;
-  // Amélie Bella est une ligne d'Amélie : même créateur
-  const brands = [...new Set(items.map(x => x.c.title.replace(/ - Bella$/, '')))];
+  const brands = [...new Set(items.map(x => brandOf(x.c)))];
   const webp = p => p.replace(/^\//, '').replace(/\.jpg$/i, '.webp');
 
   const grid = items.map(({ c, d, i }) => {
     const photos = (d.additional_photos || []).map(webp).join(',');
     const img = d.main_photo ? webp(d.main_photo) : '';
-    return `          <div class="gallery-item" data-lightbox data-collection="${escapeAttr(c.slug)}" data-brand="${escapeAttr(c.title)}" data-name="${escapeAttr(d.name)}" data-i="${i}"${photos ? ` data-photos="${escapeAttr(photos)}"` : ''} data-full="${escapeAttr(img)}">
-            <img src="${escapeAttr(img)}" alt="Robe de mariée ${escapeAttr(sp.style.toLowerCase())} ${escapeAttr(d.name)} — ${escapeAttr(c.title)}" loading="lazy">
-            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">${escapeHtml(c.title)}</span><span class="name">${escapeHtml(d.name)}</span></div></div>
+    return `          <div class="gallery-item" data-lightbox data-collection="${escapeAttr(c.slug)}" data-brand="${escapeAttr(brandOf(c))}" data-name="${escapeAttr(d.name)}" data-i="${i}"${photos ? ` data-photos="${escapeAttr(photos)}"` : ''} data-full="${escapeAttr(img)}">
+            <img src="${escapeAttr(img)}" alt="Robe de mariée ${escapeAttr(sp.style.toLowerCase())} ${escapeAttr(d.name)} — ${escapeAttr(brandOf(c))}" loading="lazy">
+            <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">${escapeHtml(brandOf(c))}</span><span class="name">${escapeHtml(d.name)}</span></div></div>
           </div>`;
   }).join('\n');
 
@@ -518,7 +555,7 @@ function buildStylePage(sp) {
       '@type': 'ItemList',
       'numberOfItems': n,
       'itemListElement': items.map(({ c, d }, k) => ({
-        '@type': 'ListItem', 'position': k + 1, 'name': `${d.name} — ${c.title}`,
+        '@type': 'ListItem', 'position': k + 1, 'name': `${d.name} — ${brandOf(c)}`,
         'image': d.main_photo ? `https://pronuptia-lyon.fr/${webp(d.main_photo)}` : undefined,
       })),
     },
@@ -530,6 +567,7 @@ function buildStylePage(sp) {
   html = fillAuto(html, 'STYLE-COUNT', `${n} robe${n > 1 ? 's' : ''}`);
   html = fillAuto(html, 'STYLE-SUMMARY', `${n} ${sp.label} signées ${frList(brands)}`);
   html = fillAuto(html, 'STYLE-BRANDS', `Nos ${sp.label} viennent de ${brands.length} créateur${brands.length > 1 ? 's' : ''} : ${frList(brands)}.`);
+  html = fillAuto(html, 'REVIEWS', `\n${reviewsHtml()}\n`);
   html = fillAuto(html, 'STYLE-SCHEMA', `<script type="application/ld+json">${schema}</script>`);
   fs.writeFileSync(file, html, 'utf-8');
   console.log(`✓ ${sp.file}  (${n} robes ${sp.style})`);
