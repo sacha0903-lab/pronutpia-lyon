@@ -1527,7 +1527,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 
   /* Hero : poster image en fallback quand la vidéo ne joue pas */
   .hero__bg-fallback {
-    background: url('../assets/hero-poster.jpg') center/cover no-repeat;
+    background: url('../assets/hero-poster.jpg?v=6') center/cover no-repeat;
   }
   .hero__content { padding-bottom: 60px; }
 
