@@ -464,7 +464,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   object-fit: cover;
   object-position: center center;
   z-index: 1;
-  filter: brightness(1.18) contrast(1.06) saturate(1.05);
+  filter: contrast(1.04) saturate(1.03);
 }
 .hero__bg img {
   width: 100%;
@@ -480,12 +480,19 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    oklch(10% 0.018 40 / 0.52) 0%,
-    oklch(10% 0.018 40 / 0.22) 40%,
-    oklch(10% 0.018 40 / 0.05) 100%
-  );
+  background:
+    linear-gradient(
+      to top,
+      oklch(10% 0.018 40 / 0.78) 0%,
+      oklch(10% 0.018 40 / 0.50) 30%,
+      oklch(10% 0.018 40 / 0.18) 60%,
+      oklch(10% 0.018 40 / 0.30) 100%
+    ),
+    linear-gradient(
+      to right,
+      oklch(10% 0.018 40 / 0.35) 0%,
+      oklch(10% 0.018 40 / 0) 60%
+    );
   z-index: 2;
 }
 .hero__deco {
@@ -538,7 +545,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   max-width: 850px;
   opacity: 0;
   animation: fadeUp 1s 0.85s cubic-bezier(0.16,1,0.3,1) forwards;
-  text-shadow: 0 2px 16px oklch(0% 0 0 / 0.4);
+  text-shadow: 0 2px 20px oklch(0% 0 0 / 0.55), 0 1px 3px oklch(0% 0 0 / 0.35);
 }
 .hero__title em {
   font-style: italic;
