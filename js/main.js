@@ -43,6 +43,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ─── SON DE LA VIDÉO HERO ─── */
+  // La vidéo démarre toujours sans le son (les navigateurs bloquent le son
+  // automatique). Le bouton permet de l'activer, et le son se coupe tout seul
+  // quand on quitte le hero en scrollant.
+  const heroSound = document.querySelector('.hero__sound');
+  if (heroVideo && heroSound) {
+    const label = heroSound.querySelector('.hero__sound-label');
+    const setState = (on) => {
+      heroSound.setAttribute('aria-pressed', on ? 'true' : 'false');
+      heroSound.setAttribute('aria-label', on ? 'Couper le son de la vidéo' : 'Activer le son de la vidéo');
+      if (label) label.textContent = on ? 'Couper le son' : 'Activer le son';
+    };
+    heroSound.addEventListener('click', () => {
+      const on = heroVideo.muted;
+      heroVideo.muted = !on;
+      if (on) {
+        heroVideo.volume = 1;
+        heroVideo.play().catch(() => {});
+      }
+      setState(on);
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting && !heroVideo.muted) {
+            heroVideo.muted = true;
+            setState(false);
+          }
+        });
+      }, { threshold: 0.25 }).observe(document.querySelector('.hero'));
+    }
+  }
+
   /* ─── STICKY HEADER ─── */
   const header = document.getElementById('site-header');
   if (header) {

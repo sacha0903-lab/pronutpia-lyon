@@ -616,6 +616,38 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
+/* Bouton son de la vidéo hero */
+.hero__sound {
+  position: absolute;
+  right: calc(var(--gutter) + 44px);
+  bottom: 42px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 14px;
+  border: 1px solid oklch(97.5% 0.007 68 / 0.55);
+  border-radius: 999px;
+  background: oklch(10% 0.018 40 / 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--c-ivory);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 1s 1.6s ease forwards;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.hero__sound:hover { background: var(--c-ivory); color: oklch(20% 0.02 40); border-color: var(--c-ivory); }
+.hero__sound:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 3px; }
+.hero__sound-icon { width: 18px; height: 18px; flex-shrink: 0; }
+.hero__sound-on { display: none; }
+.hero__sound[aria-pressed="true"] .hero__sound-on { display: inline; }
+.hero__sound[aria-pressed="true"] .hero__sound-off { display: none; }
+.hero__sound[hidden] { display: none; }
+
 /* ─── INTRO BAND ─── */
 .section-intro {
   padding: 120px 0 110px;
@@ -1485,7 +1517,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .hero__eyebrow, .hero__title, .hero__sub, .hero__actions,
-  .hero__scroll-hint, .loader-logo, .loader-line {
+  .hero__scroll-hint, .hero__sound, .loader-logo, .loader-line {
     animation: none;
     opacity: 1;
     transform: none;
@@ -1567,6 +1599,7 @@ h5 { font-family: var(--f-body); font-size: 0.68rem; font-weight: 600; letter-sp
   .footer-bottom-inner { flex-direction: column; gap: 12px; text-align: center; }
   .hero__actions { flex-direction: column; align-items: flex-start; }
   .hero__scroll-hint { display: none; }
+  .hero__sound { right: var(--gutter); bottom: auto; top: calc(var(--header-h) + 14px); padding: 8px 13px 8px 11px; font-size: 0.56rem; }
   .section-cta { padding: 90px 0; }
   h1 { font-size: clamp(2rem, 9vw, 3rem); }
   h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
