@@ -1,5 +1,8 @@
 /* product-page.js — rendu dynamique de la fiche produit (robe individuelle)
-   URL attendue : product.html?col=amelie&i=0
+   URL attendue : product.html?col=amelie&robe=46036
+   La robe est retrouvée par son nom (« robe »), pour que les liens restent
+   justes même si l'ordre des robes change dans l'admin. L'ancien paramètre
+   « i » (position dans la liste) reste lu en secours pour les vieux liens.
    Chargé sur collections/product.html uniquement. */
 
 (async function () {
@@ -36,7 +39,8 @@
   // ── Lecture des paramètres URL ────────────────────────────────────────────
   const params  = new URLSearchParams(location.search);
   const colSlug = params.get('col');
-  const dressIdx = Math.max(0, parseInt(params.get('i') ?? '0', 10));
+  const dressName = (params.get('robe') ?? '').trim().toLowerCase();
+  const dressIdx = Math.max(0, parseInt(params.get('i') ?? '0', 10) || 0);
 
   if (!colSlug) { window._pageReady?.(); return; }
 
@@ -55,14 +59,17 @@
 
   if (!col?.dresses?.length) { window._pageReady?.(); return; }
 
-  const dress = col.dresses[dressIdx] ?? col.dresses[0];
+  const byName = dressName
+    ? col.dresses.find(d => String(d.name ?? '').trim().toLowerCase() === dressName)
+    : null;
+  const dress = byName ?? col.dresses[dressIdx] ?? col.dresses[0];
   const dIdx  = col.dresses.indexOf(dress);
 
   // Mise à jour du titre de la page
   document.title = `${dress.name} — ${col.title} — Pronuptia Lyon`;
 
   // ── Open Graph dynamique (pas de canonical : la page est en noindex) ─────
-  const pageUrl = `https://pronuptia-lyon.fr/collections/product.html?col=${encodeURIComponent(colSlug)}&i=${dIdx}`;
+  const pageUrl = `https://pronuptia-lyon.fr/collections/product.html?col=${encodeURIComponent(colSlug)}&robe=${encodeURIComponent(dress.name)}`;
   const ogTitle = `${dress.name} — ${col.title} — Pronuptia Lyon`;
   const rawDesc = dress.description
     ? String(dress.description).replace(/\s+/g, ' ').trim().slice(0, 155)
@@ -98,7 +105,7 @@
   const nextDress = dIdx < col.dresses.length - 1 ? col.dresses[dIdx + 1] : null;
 
   function dressNavCard(d, idx, dir) {
-    const href  = `product?col=${encodeURIComponent(colSlug)}&i=${idx}`;
+    const href  = `product?col=${encodeURIComponent(colSlug)}&robe=${encodeURIComponent(d.name)}`;
     const thumb = d.main_photo
       ? `<img class="dress-nav__thumb" src="${escA(toWebp(d.main_photo))}" alt="${escA(d.name)}" loading="lazy">`
       : `<div class="dress-nav__thumb dress-nav__thumb--placeholder"></div>`;

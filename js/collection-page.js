@@ -126,7 +126,7 @@
   if (grid) {
     grid.innerHTML = col.dresses.map((d, i) => {
       const delay = `reveal-d${(i % 4) + 1}`;
-      const href  = `product?col=${encodeURIComponent(slug)}&i=${i}`;
+      const href  = `product?col=${encodeURIComponent(slug)}&robe=${encodeURIComponent(d.name)}`;
       const styleAttr = d.style ? ` data-style="${escA(d.style)}"` : '';
 
       const img = d.main_photo

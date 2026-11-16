@@ -453,8 +453,8 @@ ${footerLinks()}
     </div>
   </div>
 
-  <script src="../js/main.js?v=6"></script>
-  <script src="../js/collection-page.js?v=2"></script>
+  <script src="../js/main.js?v=8"></script>
+  <script src="../js/collection-page.js?v=3"></script>
 </body>
 </html>`;
 }
