@@ -477,6 +477,11 @@ const STYLE_PAGES = [
   { file: 'robe-de-mariee-boheme.html', style: 'Bohème', label: 'robes de mariée bohème', url: 'https://pronuptia-lyon.fr/robe-de-mariee-boheme.html' },
   { file: 'robe-de-mariee-princesse.html', style: 'Princesse', label: 'robes de mariée princesse', url: 'https://pronuptia-lyon.fr/robe-de-mariee-princesse.html' },
   { file: 'robe-de-mariee-courte.html', style: 'Courte', label: 'robes de mariée courtes', url: 'https://pronuptia-lyon.fr/robe-de-mariee-courte.html' },
+  { file: 'robe-de-mariee-sirene.html', style: 'Sirène', label: 'robes de mariée sirène', url: 'https://pronuptia-lyon.fr/robe-de-mariee-sirene.html' },
+  // Page « matière » : pas de champ dédié dans l'admin, on retient toute robe
+  // dont la description mentionne la dentelle.
+  { file: 'robe-de-mariee-dentelle.html', style: 'Dentelle', altLabel: 'en dentelle', label: 'robes de mariée en dentelle', url: 'https://pronuptia-lyon.fr/robe-de-mariee-dentelle.html',
+    match: d => /dentelle/i.test(d.description || '') },
 ];
 
 function fillAuto(html, key, content) {
@@ -529,7 +534,8 @@ function buildStylePage(sp) {
   for (const c of all) {
     c.dresses.forEach((d, i) => {
       const key = d.main_photo || `${c.slug}/${d.name}`;
-      if (d.style === sp.style && !seen.has(key)) { seen.add(key); items.push({ c, d, i }); }
+      const ok = sp.match ? sp.match(d) : d.style === sp.style;
+      if (ok && !seen.has(key)) { seen.add(key); items.push({ c, d, i }); }
     });
   }
   const n = items.length;
@@ -540,7 +546,7 @@ function buildStylePage(sp) {
     const photos = (d.additional_photos || []).map(webp).join(',');
     const img = d.main_photo ? webp(d.main_photo) : '';
     return `          <div class="gallery-item" data-lightbox data-collection="${escapeAttr(c.slug)}" data-brand="${escapeAttr(brandOf(c))}" data-name="${escapeAttr(d.name)}" data-i="${i}"${photos ? ` data-photos="${escapeAttr(photos)}"` : ''} data-full="${escapeAttr(img)}">
-            <img src="${escapeAttr(img)}" alt="Robe de mariée ${escapeAttr(sp.style.toLowerCase())} ${escapeAttr(d.name)} — ${escapeAttr(brandOf(c))}" loading="lazy">
+            <img src="${escapeAttr(img)}" alt="Robe de mariée ${escapeAttr(sp.altLabel || sp.style.toLowerCase())} ${escapeAttr(d.name)} — ${escapeAttr(brandOf(c))}" loading="lazy">
             <div class="gallery-item__hover"><div class="gallery-item__caption"><span class="brand">${escapeHtml(brandOf(c))}</span><span class="name">${escapeHtml(d.name)}</span></div></div>
           </div>`;
   }).join('\n');
@@ -548,7 +554,7 @@ function buildStylePage(sp) {
   const schema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    'name': `Robes de mariée ${sp.style.toLowerCase()} — Pronuptia Lyon`,
+    'name': `Robes de mariée ${sp.altLabel || sp.style.toLowerCase()} — Pronuptia Lyon`,
     'url': sp.url,
     'isPartOf': { '@type': 'WebSite', 'name': 'Pronuptia Lyon', 'url': 'https://pronuptia-lyon.fr/' },
     'mainEntity': {
